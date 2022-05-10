@@ -1,0 +1,69 @@
+.background img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.logo {
+    width: 425px;
+    height: 100px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.logo img {
+    position: fixed;
+    width: 425px;
+    height: 240px;
+    left: 1%;
+    top: -5%;
+}
+.navbar {
+    margin-right: 1em;
+    text-align: right;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    align-self: flex-end;
+}
+
+.content {
+    color: white;
+    grid-column-start: 2;
+}
+.content {
+    margin-right: 1em;
+}
+.content button {
+    font-family: "fixedsys";
+    font-size: 1.5em;
+    background-color: #602CAD;
+    color: white;
+    display: inline-block;
+    float: right;
+    padding: 15px 64px;
+    margin-top: 1em;
+    margin-right: 1.5em;
+    cursor: pointer;
+
+}
+.content button:active {
+    transform: translateY(4px);
+}
+.content img {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 55% 45%;
+}
+#big-title {
+    font-size: 4em;
+    margin-top: 0.5em;
+    display: block;
+}
+#small-title {
+    font-size: 2em;
+    margin-top: 1em;
+    display: block;
+}
