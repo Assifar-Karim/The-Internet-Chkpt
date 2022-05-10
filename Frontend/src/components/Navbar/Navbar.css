@@ -1,0 +1,17 @@
+.navbar ul{
+    color: white;
+    margin: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+.navbar li{
+    display: inline-block;
+    margin-left: 1.5em;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.navbar hr{
+    color: white;
+    background-color: white;
+}
