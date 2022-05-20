@@ -1,0 +1,39 @@
+@startuml UsecaseDiag
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+left to right direction
+actor utilisateur as u
+actor "Système d'authentification" as auth
+rectangle "The Internet Checkpoint" {
+    usecase "Sauvegarder sa progression" as uc0
+    usecase "Ecrire un checkpoint" as uc1
+    usecase "Editer un checkpoint" as uc2
+    usecase "Supprimer un checkpoint" as uc3 
+    usecase "Se connecter" as uc4
+    usecase "Gérer son profil" as uc5
+    usecase "Créer son profil" as uc6
+    usecase "Afficher ses checkpoints" as uc7
+    usecase "Supprimer son profil" as uc8
+    usecase "Lire des checkpoints" as uc9
+    usecase "partager un checkpoint" as uc10
+    usecase "Afficher les checkpoints d'un autre utilisateur" as uc11
+    usecase "Changer l'OST du site" as uc12
+}
+uc1 -> uc0
+uc2 --up-> uc0
+uc3 -left-> uc0
+uc5 ..> uc4 : <<Include>>
+uc0 .> uc4 : <<Include>>
+uc6 --> uc5
+uc7 -up-> uc5
+uc8 -> uc5
+
+u ---- uc0
+u -- uc5
+u -- uc9
+u -- uc10
+u -- uc11
+u -- uc12
+
+uc4 ---- auth
+@enduml
