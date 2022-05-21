@@ -1,0 +1,173 @@
+@startuml classDiag
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class UserController
+{
+    ...
+    +String registerUser(UserDTO userDTO, HttpServletRequest request)
+    +String verifyUser(String token)
+    +String resendVerificationToken(String oldToken, HttpServletRequest request)
+    +String resetPassword(PasswordDTO passwordDTO, HttpServletRequest request)
+    +...()
+}
+class CheckpointController
+{
+    ...
+    +List<CheckpointDTO> fetchAllCheckpoints()
+    +List<CheckpointDTO> fetchCheckpointsByUser(String username)
+    +CheckpointDTO fetchCheckpointById(String id)
+    +...()
+}
+class CheckpointLiveController
+{
+    ...
+    +CheckpointDTO sendCheckpoint(CheckpointDTO checkpointDTO)
+    +...()
+}
+class Checkpoint
+{
+    -String id
+    -String content
+    -String userId
+    -Date checkpointDate
+}
+class CheckpointDTO
+{
+    -String username
+    -String content
+    -Date checkpointDate
+}
+class User
+{
+    -String id
+    -String username
+    -String email
+    -String password
+    -String role
+    -Boolean active
+}
+class UserDTO
+{
+    -String email
+    -String username
+    -String password
+}
+class PasswordDTO
+{
+    -String email
+    -String oldPassword
+    -String newPassword
+}
+class VerificationToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class PasswordToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class UserMapper << (S,#FF7700) Singleton >>
+{
+    +UserDTO toDTO(User user)
+    +User toModel(UserDTO userDTO)
+}
+class PasswordMapper << (S,#FF7700) Singleton >>
+{
+    +PasswordDTO toDTO(User user)
+    +User toModel(PasswordDTO passwordDTO)
+}
+class CheckpointMapper << (S,#FF7700) Singleton >>
+{
+    +CheckpointDTO toDTO(Checkpoint checkpoint)
+    +Checkpoint toModel(CheckpointDTO checkpointDTO)
+}
+class ConcreteMapperFactory
+{
+    +Mapper getMapper()
+}
+interface "MongoRepository <K,V> " as MongoRepository
+interface UserRepository
+interface CheckpointRepository
+interface VerificationTokenRepository
+interface PasswordTokenRepository
+interface "Mapper <T, DTO> " as Mapper
+{
+    +DTO toDTO(T model)
+    +T toModel(DTO dto)
+}
+interface MapperFactory
+{
+    +Mapper getMapper()
+}
+interface LoggerManager
+{
+    +Logger getLogger()
+}
+interface Logger
+{
+    +void debug(String msg)
+    +void error(String msg)
+    +void trace(String msg)
+    +void info(String msg)
+    +void warn(String msg)
+}
+package "Service Inventory" {
+    class UserServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    class CheckpointServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    interface UserService
+    interface CheckpointService
+    
+    UserServiceImpl <|-- UserService
+    CheckpointServiceImpl <|-- CheckpointService
+    UserServiceImpl o-down-- UserRepository
+    UserServiceImpl o-down-- PasswordTokenRepository
+    UserServiceImpl o-down-- VerificationTokenRepository
+    UserServiceImpl o-- UserMapper
+    UserServiceImpl o-- PasswordMapper
+    UserServiceImpl o-up- Logger
+    CheckpointServiceImpl o-down-- CheckpointRepository
+    CheckpointServiceImpl o-- CheckpointMapper
+    CheckpointServiceImpl o-up- Logger
+
+
+    UserServiceImpl .up.> LoggerManager
+    CheckpointServiceImpl .up.> LoggerManager
+}
+MongoRepository <|-- UserRepository
+MongoRepository <|-- CheckpointRepository
+MongoRepository <|-- VerificationTokenRepository
+MongoRepository <|-- PasswordTokenRepository
+
+UserController o-- UserService
+CheckpointController o-- CheckpointService
+CheckpointLiveController o-- CheckpointService
+
+LoggerManager .right.> Logger
+
+MapperFactory <|-- ConcreteMapperFactory
+MapperFactory .right.> Mapper
+
+Mapper <|-- UserMapper
+Mapper <|-- PasswordMapper
+Mapper <|-- CheckpointMapper
+
+UserMapper --> User
+UserMapper --> UserDTO
+PasswordMapper --> User
+PasswordMapper --> PasswordDTO
+CheckpointMapper --> Checkpoint
+CheckpointMapper --> CheckpointDTO
+@enduml

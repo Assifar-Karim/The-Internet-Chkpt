@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="643px" preserveAspectRatio="none" style="width:2968px;height:643px;background:#777777;" version="1.1" viewBox="0 0 2968 643" width="2968px" zoomAndPan="magnify"><defs><filter height="300%" id="f1pswrdavnkqzn" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[88aabefb0ac46b3ffec143d7c1c4e238]
+cluster Service Inventory--><polygon fill="#777777" filter="url(#f1pswrdavnkqzn)" points="1188,171,1319,171,1326,194.6094,1536,194.6094,1536,440.5,1188,440.5,1188,171" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1188" x2="1326" y1="194.6094" y2="194.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="125" x="1192" y="187.5332">Service Inventory</text><!--MD5=[824c1a2fecd5f590d2e9b6246f258c59]
+class UserServiceImpl--><rect codeLine="121" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="67.0405" id="UserServiceImpl" style="stroke:#1B1B1B;stroke-width:1.5;" width="121" x="1398.5" y="207"/><ellipse cx="1410.5" cy="225.6023" fill="#FF7700" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1413.9219,227.0867 Q1413.9219,228.2742 1412.9219,229.0085 Q1411.9219,229.7429 1410.2031,229.7429 Q1409.2031,229.7429 1408.4688,229.571 Q1407.7344,229.3992 1407.0781,229.1335 L1407.0781,227.2117 L1407.3125,227.2117 Q1407.9531,227.7273 1408.7344,228.0085 Q1409.5313,228.2742 1410.2656,228.2742 Q1410.4531,228.2742 1410.75,228.2429 Q1411.0625,228.2117 1411.2656,228.1335 Q1411.5,228.0398 1411.6406,227.8992 Q1411.7969,227.7429 1411.7969,227.4617 Q1411.7969,227.196 1411.5781,227.0085 Q1411.3594,226.821 1410.9219,226.7117 Q1410.4688,226.6023 1409.9688,226.5085 Q1409.4688,226.4148 1409.0313,226.2742 Q1408.0156,225.946 1407.5781,225.3835 Q1407.1406,224.821 1407.1406,223.9929 Q1407.1406,222.8679 1408.1406,222.1648 Q1409.1406,221.4617 1410.7188,221.4617 Q1411.5,221.4617 1412.2656,221.6179 Q1413.0469,221.7585 1413.6094,221.9929 L1413.6094,223.8367 L1413.3906,223.8367 Q1412.9063,223.446 1412.2031,223.196 Q1411.5,222.9304 1410.7656,222.9304 Q1410.5156,222.9304 1410.25,222.9773 Q1410,223.0085 1409.7656,223.1023 Q1409.5625,223.1804 1409.4063,223.3523 Q1409.25,223.5085 1409.25,223.7117 Q1409.25,224.0398 1409.4844,224.2117 Q1409.7344,224.3679 1410.4063,224.5085 Q1410.8438,224.6023 1411.25,224.696 Q1411.6563,224.7742 1412.125,224.9304 Q1413.0469,225.2273 1413.4844,225.7429 Q1413.9219,226.2585 1413.9219,227.0867 Z " fill="#000000"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="58" x="1440" y="223.4189">«Singleton»</text><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="95" x="1421.5" y="236.895">UserServiceImpl</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1399.5" x2="1518.5" y1="244.2046" y2="244.2046"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="1404.5" y="259.6235">...</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1399.5" x2="1518.5" y1="266.0405" y2="266.0405"/><!--MD5=[580d45a0127f28fd9d0ad9e63ac311f5]
+class CheckpointServiceImpl--><rect codeLine="125" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="67.0405" id="CheckpointServiceImpl" style="stroke:#1B1B1B;stroke-width:1.5;" width="159" x="1204.5" y="207"/><ellipse cx="1216.5" cy="225.6023" fill="#FF7700" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1219.9219,227.0867 Q1219.9219,228.2742 1218.9219,229.0085 Q1217.9219,229.7429 1216.2031,229.7429 Q1215.2031,229.7429 1214.4688,229.571 Q1213.7344,229.3992 1213.0781,229.1335 L1213.0781,227.2117 L1213.3125,227.2117 Q1213.9531,227.7273 1214.7344,228.0085 Q1215.5313,228.2742 1216.2656,228.2742 Q1216.4531,228.2742 1216.75,228.2429 Q1217.0625,228.2117 1217.2656,228.1335 Q1217.5,228.0398 1217.6406,227.8992 Q1217.7969,227.7429 1217.7969,227.4617 Q1217.7969,227.196 1217.5781,227.0085 Q1217.3594,226.821 1216.9219,226.7117 Q1216.4688,226.6023 1215.9688,226.5085 Q1215.4688,226.4148 1215.0313,226.2742 Q1214.0156,225.946 1213.5781,225.3835 Q1213.1406,224.821 1213.1406,223.9929 Q1213.1406,222.8679 1214.1406,222.1648 Q1215.1406,221.4617 1216.7188,221.4617 Q1217.5,221.4617 1218.2656,221.6179 Q1219.0469,221.7585 1219.6094,221.9929 L1219.6094,223.8367 L1219.3906,223.8367 Q1218.9063,223.446 1218.2031,223.196 Q1217.5,222.9304 1216.7656,222.9304 Q1216.5156,222.9304 1216.25,222.9773 Q1216,223.0085 1215.7656,223.1023 Q1215.5625,223.1804 1215.4063,223.3523 Q1215.25,223.5085 1215.25,223.7117 Q1215.25,224.0398 1215.4844,224.2117 Q1215.7344,224.3679 1216.4063,224.5085 Q1216.8438,224.6023 1217.25,224.696 Q1217.6563,224.7742 1218.125,224.9304 Q1219.0469,225.2273 1219.4844,225.7429 Q1219.9219,226.2585 1219.9219,227.0867 Z " fill="#000000"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="58" x="1265" y="223.4189">«Singleton»</text><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="133" x="1227.5" y="236.895">CheckpointServiceImpl</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1205.5" x2="1362.5" y1="244.2046" y2="244.2046"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="1210.5" y="259.6235">...</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1205.5" x2="1362.5" y1="266.0405" y2="266.0405"/><!--MD5=[e4ac4745f81aec2db60ad4ddae80b659]
+class UserService--><rect codeLine="129" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="UserService" style="stroke:#1B1B1B;stroke-width:1.5;" width="94" x="1371" y="382.5"/><ellipse cx="1383" cy="395.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1385.3438,399.5 L1380.6563,399.5 L1380.6563,398.0781 L1381.9688,398.0781 L1381.9688,392.9219 L1380.6563,392.9219 L1380.6563,391.5 L1385.3438,391.5 L1385.3438,392.9219 L1384.0313,392.9219 L1384.0313,398.0781 L1385.3438,398.0781 L1385.3438,399.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="68" x="1394" y="399.8748">UserService</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1372" x2="1464" y1="408.5" y2="408.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1372" x2="1464" y1="416.5" y2="416.5"/><!--MD5=[38a02b656f468c87778a2c6b9e57e0b9]
+class CheckpointService--><rect codeLine="130" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="CheckpointService" style="stroke:#1B1B1B;stroke-width:1.5;" width="131" x="1204.5" y="382.5"/><ellipse cx="1216.5" cy="395.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1218.8438,399.5 L1214.1563,399.5 L1214.1563,398.0781 L1215.4688,398.0781 L1215.4688,392.9219 L1214.1563,392.9219 L1214.1563,391.5 L1218.8438,391.5 L1218.8438,392.9219 L1217.5313,392.9219 L1217.5313,398.0781 L1218.8438,398.0781 L1218.8438,399.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="105" x="1227.5" y="399.8748">CheckpointService</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1205.5" x2="1334.5" y1="408.5" y2="408.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1205.5" x2="1334.5" y1="416.5" y2="416.5"/><!--MD5=[29f97d496cbdc4ec81664c6d94dc9bf6]
+class UserController--><rect codeLine="4" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="125.0156" id="UserController" style="stroke:#1B1B1B;stroke-width:1.5;" width="421" x="748.5" y="178"/><ellipse cx="914" cy="191" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M914.6406,195.1563 Q913.75,195.1563 912.9844,194.8906 Q912.2344,194.625 911.6875,194.1094 Q911.1563,193.5938 910.8438,192.8125 Q910.5469,192.0313 910.5469,191.0156 Q910.5469,190.0625 910.8281,189.2969 Q911.125,188.5156 911.6719,187.9531 Q912.1875,187.4219 912.9531,187.1406 Q913.7344,186.8438 914.6406,186.8438 Q915.1406,186.8438 915.5469,186.9063 Q915.9531,186.9531 916.2969,187.0469 Q916.6563,187.1563 916.9531,187.2813 Q917.25,187.4063 917.4688,187.5156 L917.4688,189.4531 L917.2344,189.4531 Q917.0781,189.3281 916.8438,189.1563 Q916.625,188.9688 916.3281,188.7969 Q916.0313,188.625 915.6875,188.5156 Q915.3438,188.3906 914.9531,188.3906 Q914.5156,188.3906 914.125,188.5313 Q913.7344,188.6563 913.4063,188.9844 Q913.0938,189.2813 912.8906,189.7969 Q912.7031,190.2969 912.7031,191.0156 Q912.7031,191.7656 912.9063,192.2813 Q913.125,192.7813 913.4375,193.0625 Q913.7656,193.3594 914.1719,193.4844 Q914.5781,193.6094 914.9688,193.6094 Q915.3438,193.6094 915.7031,193.5 Q916.0781,193.3906 916.3906,193.1875 Q916.6563,193.0469 916.875,192.875 Q917.1094,192.6875 917.25,192.5625 L917.4688,192.5625 L917.4688,194.4688 Q917.1719,194.6094 916.8906,194.7344 Q916.625,194.8438 916.3125,194.9219 Q915.9219,195.0313 915.5781,195.0938 Q915.2344,195.1563 914.6406,195.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="83" x="930" y="195.3748">UserController</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="749.5" x2="1168.5" y1="204" y2="204"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="754.5" y="219.4189">...</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="749.5" x2="1168.5" y1="225.8359" y2="225.8359"/><ellipse cx="759.5" cy="236.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="328" x="765.5" y="241.2549">String registerUser(UserDTO userDTO, HttpServletRequest request)</text><ellipse cx="759.5" cy="250.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="147" x="765.5" y="255.0908">String verifyUser(String token)</text><ellipse cx="759.5" cy="264.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="370" x="765.5" y="268.9268">String resendVerificationToken(String oldToken, HttpServletRequest request)</text><ellipse cx="759.5" cy="278.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="398" x="765.5" y="282.7627">String resetPassword(PasswordDTO passwordDTO, HttpServletRequest request)</text><ellipse cx="759.5" cy="292.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="17" x="765.5" y="296.5986">...()</text><!--MD5=[f5cb28d805e72d8dd197a8f23b50c816]
+class CheckpointController--><rect codeLine="13" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="111.1797" id="CheckpointController" style="stroke:#1B1B1B;stroke-width:1.5;" width="336" x="7" y="185"/><ellipse cx="111" cy="198" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M111.6406,202.1563 Q110.75,202.1563 109.9844,201.8906 Q109.2344,201.625 108.6875,201.1094 Q108.1563,200.5938 107.8438,199.8125 Q107.5469,199.0313 107.5469,198.0156 Q107.5469,197.0625 107.8281,196.2969 Q108.125,195.5156 108.6719,194.9531 Q109.1875,194.4219 109.9531,194.1406 Q110.7344,193.8438 111.6406,193.8438 Q112.1406,193.8438 112.5469,193.9063 Q112.9531,193.9531 113.2969,194.0469 Q113.6563,194.1563 113.9531,194.2813 Q114.25,194.4063 114.4688,194.5156 L114.4688,196.4531 L114.2344,196.4531 Q114.0781,196.3281 113.8438,196.1563 Q113.625,195.9688 113.3281,195.7969 Q113.0313,195.625 112.6875,195.5156 Q112.3438,195.3906 111.9531,195.3906 Q111.5156,195.3906 111.125,195.5313 Q110.7344,195.6563 110.4063,195.9844 Q110.0938,196.2813 109.8906,196.7969 Q109.7031,197.2969 109.7031,198.0156 Q109.7031,198.7656 109.9063,199.2813 Q110.125,199.7813 110.4375,200.0625 Q110.7656,200.3594 111.1719,200.4844 Q111.5781,200.6094 111.9688,200.6094 Q112.3438,200.6094 112.7031,200.5 Q113.0781,200.3906 113.3906,200.1875 Q113.6563,200.0469 113.875,199.875 Q114.1094,199.6875 114.25,199.5625 L114.4688,199.5625 L114.4688,201.4688 Q114.1719,201.6094 113.8906,201.7344 Q113.625,201.8438 113.3125,201.9219 Q112.9219,202.0313 112.5781,202.0938 Q112.2344,202.1563 111.6406,202.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="121" x="127" y="202.3748">CheckpointController</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="8" x2="342" y1="211" y2="211"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="13" y="226.4189">...</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="8" x2="342" y1="232.8359" y2="232.8359"/><ellipse cx="18" cy="243.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="210" x="24" y="248.2549">List&lt;CheckpointDTO&gt; fetchAllCheckpoints()</text><ellipse cx="18" cy="257.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="313" x="24" y="262.0908">List&lt;CheckpointDTO&gt; fetchCheckpointsByUser(String username)</text><ellipse cx="18" cy="271.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="223" x="24" y="275.9268">CheckpointDTO fetchCheckpointById(String id)</text><ellipse cx="18" cy="285.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="17" x="24" y="289.7627">...()</text><!--MD5=[313f71cae5a1f0a47835a8a806dbead7]
+class CheckpointLiveController--><rect codeLine="21" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="83.5078" id="CheckpointLiveController" style="stroke:#1B1B1B;stroke-width:1.5;" width="335" x="378.5" y="198.5"/><ellipse cx="470.5" cy="211.5" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M471.1406,215.6563 Q470.25,215.6563 469.4844,215.3906 Q468.7344,215.125 468.1875,214.6094 Q467.6563,214.0938 467.3438,213.3125 Q467.0469,212.5313 467.0469,211.5156 Q467.0469,210.5625 467.3281,209.7969 Q467.625,209.0156 468.1719,208.4531 Q468.6875,207.9219 469.4531,207.6406 Q470.2344,207.3438 471.1406,207.3438 Q471.6406,207.3438 472.0469,207.4063 Q472.4531,207.4531 472.7969,207.5469 Q473.1563,207.6563 473.4531,207.7813 Q473.75,207.9063 473.9688,208.0156 L473.9688,209.9531 L473.7344,209.9531 Q473.5781,209.8281 473.3438,209.6563 Q473.125,209.4688 472.8281,209.2969 Q472.5313,209.125 472.1875,209.0156 Q471.8438,208.8906 471.4531,208.8906 Q471.0156,208.8906 470.625,209.0313 Q470.2344,209.1563 469.9063,209.4844 Q469.5938,209.7813 469.3906,210.2969 Q469.2031,210.7969 469.2031,211.5156 Q469.2031,212.2656 469.4063,212.7813 Q469.625,213.2813 469.9375,213.5625 Q470.2656,213.8594 470.6719,213.9844 Q471.0781,214.1094 471.4688,214.1094 Q471.8438,214.1094 472.2031,214 Q472.5781,213.8906 472.8906,213.6875 Q473.1563,213.5469 473.375,213.375 Q473.6094,213.1875 473.75,213.0625 L473.9688,213.0625 L473.9688,214.9688 Q473.6719,215.1094 473.3906,215.2344 Q473.125,215.3438 472.8125,215.4219 Q472.4219,215.5313 472.0781,215.5938 Q471.7344,215.6563 471.1406,215.6563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="144" x="486.5" y="215.8748">CheckpointLiveController</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="379.5" x2="712.5" y1="224.5" y2="224.5"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="384.5" y="239.9189">...</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="379.5" x2="712.5" y1="246.3359" y2="246.3359"/><ellipse cx="389.5" cy="257.3359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="312" x="395.5" y="261.7549">CheckpointDTO sendCheckpoint(CheckpointDTO checkpointDTO)</text><ellipse cx="389.5" cy="271.1719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="17" x="395.5" y="275.5908">...()</text><!--MD5=[eb9aaeb51abd15b5c8ef6ff8e69263b0]
+class Checkpoint--><rect codeLine="27" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="97.3438" id="Checkpoint" style="stroke:#1B1B1B;stroke-width:1.5;" width="122" x="2679" y="518"/><ellipse cx="2705.4" cy="531" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2706.0406,535.1563 Q2705.15,535.1563 2704.3844,534.8906 Q2703.6344,534.625 2703.0875,534.1094 Q2702.5563,533.5938 2702.2438,532.8125 Q2701.9469,532.0313 2701.9469,531.0156 Q2701.9469,530.0625 2702.2281,529.2969 Q2702.525,528.5156 2703.0719,527.9531 Q2703.5875,527.4219 2704.3531,527.1406 Q2705.1344,526.8438 2706.0406,526.8438 Q2706.5406,526.8438 2706.9469,526.9063 Q2707.3531,526.9531 2707.6969,527.0469 Q2708.0563,527.1563 2708.3531,527.2813 Q2708.65,527.4063 2708.8688,527.5156 L2708.8688,529.4531 L2708.6344,529.4531 Q2708.4781,529.3281 2708.2438,529.1563 Q2708.025,528.9688 2707.7281,528.7969 Q2707.4313,528.625 2707.0875,528.5156 Q2706.7438,528.3906 2706.3531,528.3906 Q2705.9156,528.3906 2705.525,528.5313 Q2705.1344,528.6563 2704.8063,528.9844 Q2704.4938,529.2813 2704.2906,529.7969 Q2704.1031,530.2969 2704.1031,531.0156 Q2704.1031,531.7656 2704.3063,532.2813 Q2704.525,532.7813 2704.8375,533.0625 Q2705.1656,533.3594 2705.5719,533.4844 Q2705.9781,533.6094 2706.3688,533.6094 Q2706.7438,533.6094 2707.1031,533.5 Q2707.4781,533.3906 2707.7906,533.1875 Q2708.0563,533.0469 2708.275,532.875 Q2708.5094,532.6875 2708.65,532.5625 L2708.8688,532.5625 L2708.8688,534.4688 Q2708.5719,534.6094 2708.2906,534.7344 Q2708.025,534.8438 2707.7125,534.9219 Q2707.3219,535.0313 2706.9781,535.0938 Q2706.6344,535.1563 2706.0406,535.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="64" x="2719.6" y="535.3748">Checkpoint</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2680" x2="2800" y1="544" y2="544"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2687" y="552"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="2696" y="559.4189">String id</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2687" y="565.8359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="2696" y="573.2549">String content</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2687" y="579.6719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="61" x="2696" y="587.0908">String userId</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2687" y="593.5078"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="99" x="2696" y="600.9268">Date checkpointDate</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2680" x2="2800" y1="607.3438" y2="607.3438"/><!--MD5=[e95a9aa9c2c0bf969ca9d85dc7ce96d2]
+class CheckpointDTO--><rect codeLine="34" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="83.5078" id="CheckpointDTO" style="stroke:#1B1B1B;stroke-width:1.5;" width="122" x="2522" y="524.5"/><ellipse cx="2537.15" cy="537.5" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2537.7906,541.6563 Q2536.9,541.6563 2536.1344,541.3906 Q2535.3844,541.125 2534.8375,540.6094 Q2534.3063,540.0938 2533.9938,539.3125 Q2533.6969,538.5313 2533.6969,537.5156 Q2533.6969,536.5625 2533.9781,535.7969 Q2534.275,535.0156 2534.8219,534.4531 Q2535.3375,533.9219 2536.1031,533.6406 Q2536.8844,533.3438 2537.7906,533.3438 Q2538.2906,533.3438 2538.6969,533.4063 Q2539.1031,533.4531 2539.4469,533.5469 Q2539.8063,533.6563 2540.1031,533.7813 Q2540.4,533.9063 2540.6188,534.0156 L2540.6188,535.9531 L2540.3844,535.9531 Q2540.2281,535.8281 2539.9938,535.6563 Q2539.775,535.4688 2539.4781,535.2969 Q2539.1813,535.125 2538.8375,535.0156 Q2538.4938,534.8906 2538.1031,534.8906 Q2537.6656,534.8906 2537.275,535.0313 Q2536.8844,535.1563 2536.5563,535.4844 Q2536.2438,535.7813 2536.0406,536.2969 Q2535.8531,536.7969 2535.8531,537.5156 Q2535.8531,538.2656 2536.0563,538.7813 Q2536.275,539.2813 2536.5875,539.5625 Q2536.9156,539.8594 2537.3219,539.9844 Q2537.7281,540.1094 2538.1188,540.1094 Q2538.4938,540.1094 2538.8531,540 Q2539.2281,539.8906 2539.5406,539.6875 Q2539.8063,539.5469 2540.025,539.375 Q2540.2594,539.1875 2540.4,539.0625 L2540.6188,539.0625 L2540.6188,540.9688 Q2540.3219,541.1094 2540.0406,541.2344 Q2539.775,541.3438 2539.4625,541.4219 Q2539.0719,541.5313 2538.7281,541.5938 Q2538.3844,541.6563 2537.7906,541.6563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="89" x="2548.85" y="541.8748">CheckpointDTO</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2523" x2="2643" y1="550.5" y2="550.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2530" y="558.5"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="79" x="2539" y="565.9189">String username</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2530" y="572.3359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="2539" y="579.7549">String content</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2530" y="586.1719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="99" x="2539" y="593.5908">Date checkpointDate</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2523" x2="2643" y1="600.0078" y2="600.0078"/><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect codeLine="40" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="125.0156" id="User" style="stroke:#1B1B1B;stroke-width:1.5;" width="104" x="2207" y="504"/><ellipse cx="2242.5" cy="517" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2243.1406,521.1563 Q2242.25,521.1563 2241.4844,520.8906 Q2240.7344,520.625 2240.1875,520.1094 Q2239.6563,519.5938 2239.3438,518.8125 Q2239.0469,518.0313 2239.0469,517.0156 Q2239.0469,516.0625 2239.3281,515.2969 Q2239.625,514.5156 2240.1719,513.9531 Q2240.6875,513.4219 2241.4531,513.1406 Q2242.2344,512.8438 2243.1406,512.8438 Q2243.6406,512.8438 2244.0469,512.9063 Q2244.4531,512.9531 2244.7969,513.0469 Q2245.1563,513.1563 2245.4531,513.2813 Q2245.75,513.4063 2245.9688,513.5156 L2245.9688,515.4531 L2245.7344,515.4531 Q2245.5781,515.3281 2245.3438,515.1563 Q2245.125,514.9688 2244.8281,514.7969 Q2244.5313,514.625 2244.1875,514.5156 Q2243.8438,514.3906 2243.4531,514.3906 Q2243.0156,514.3906 2242.625,514.5313 Q2242.2344,514.6563 2241.9063,514.9844 Q2241.5938,515.2813 2241.3906,515.7969 Q2241.2031,516.2969 2241.2031,517.0156 Q2241.2031,517.7656 2241.4063,518.2813 Q2241.625,518.7813 2241.9375,519.0625 Q2242.2656,519.3594 2242.6719,519.4844 Q2243.0781,519.6094 2243.4688,519.6094 Q2243.8438,519.6094 2244.2031,519.5 Q2244.5781,519.3906 2244.8906,519.1875 Q2245.1563,519.0469 2245.375,518.875 Q2245.6094,518.6875 2245.75,518.5625 L2245.9688,518.5625 L2245.9688,520.4688 Q2245.6719,520.6094 2245.3906,520.7344 Q2245.125,520.8438 2244.8125,520.9219 Q2244.4219,521.0313 2244.0781,521.0938 Q2243.7344,521.1563 2243.1406,521.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="26" x="2258.5" y="521.3748">User</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2208" x2="2310" y1="530" y2="530"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="538"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="2224" y="545.4189">String id</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="551.8359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="79" x="2224" y="559.2549">String username</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="565.6719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="2224" y="573.0908">String email</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="579.5078"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="81" x="2224" y="586.9268">String password</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="593.3438"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="49" x="2224" y="600.7627">String role</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2215" y="607.1797"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="71" x="2224" y="614.5986">Boolean active</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2208" x2="2310" y1="621.0156" y2="621.0156"/><!--MD5=[a5b40ab6867253cbae57d257f30bbbb8]
+class UserDTO--><rect codeLine="49" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="83.5078" id="UserDTO" style="stroke:#1B1B1B;stroke-width:1.5;" width="104" x="2346" y="524.5"/><ellipse cx="2370.15" cy="537.5" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2370.7906,541.6563 Q2369.9,541.6563 2369.1344,541.3906 Q2368.3844,541.125 2367.8375,540.6094 Q2367.3063,540.0938 2366.9938,539.3125 Q2366.6969,538.5313 2366.6969,537.5156 Q2366.6969,536.5625 2366.9781,535.7969 Q2367.275,535.0156 2367.8219,534.4531 Q2368.3375,533.9219 2369.1031,533.6406 Q2369.8844,533.3438 2370.7906,533.3438 Q2371.2906,533.3438 2371.6969,533.4063 Q2372.1031,533.4531 2372.4469,533.5469 Q2372.8063,533.6563 2373.1031,533.7813 Q2373.4,533.9063 2373.6188,534.0156 L2373.6188,535.9531 L2373.3844,535.9531 Q2373.2281,535.8281 2372.9938,535.6563 Q2372.775,535.4688 2372.4781,535.2969 Q2372.1813,535.125 2371.8375,535.0156 Q2371.4938,534.8906 2371.1031,534.8906 Q2370.6656,534.8906 2370.275,535.0313 Q2369.8844,535.1563 2369.5563,535.4844 Q2369.2438,535.7813 2369.0406,536.2969 Q2368.8531,536.7969 2368.8531,537.5156 Q2368.8531,538.2656 2369.0563,538.7813 Q2369.275,539.2813 2369.5875,539.5625 Q2369.9156,539.8594 2370.3219,539.9844 Q2370.7281,540.1094 2371.1188,540.1094 Q2371.4938,540.1094 2371.8531,540 Q2372.2281,539.8906 2372.5406,539.6875 Q2372.8063,539.5469 2373.025,539.375 Q2373.2594,539.1875 2373.4,539.0625 L2373.6188,539.0625 L2373.6188,540.9688 Q2373.3219,541.1094 2373.0406,541.2344 Q2372.775,541.3438 2372.4625,541.4219 Q2372.0719,541.5313 2371.7281,541.5938 Q2371.3844,541.6563 2370.7906,541.6563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="51" x="2383.85" y="541.8748">UserDTO</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2347" x2="2449" y1="550.5" y2="550.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2354" y="558.5"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="2363" y="565.9189">String email</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2354" y="572.3359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="79" x="2363" y="579.7549">String username</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2354" y="586.1719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="81" x="2363" y="593.5908">String password</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2347" x2="2449" y1="600.0078" y2="600.0078"/><!--MD5=[abc0c982e87d3c201377dd771edbf94f]
+class PasswordDTO--><rect codeLine="55" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="83.5078" id="PasswordDTO" style="stroke:#1B1B1B;stroke-width:1.5;" width="126" x="2046" y="524.5"/><ellipse cx="2067.45" cy="537.5" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2068.0906,541.6563 Q2067.2,541.6563 2066.4344,541.3906 Q2065.6844,541.125 2065.1375,540.6094 Q2064.6063,540.0938 2064.2938,539.3125 Q2063.9969,538.5313 2063.9969,537.5156 Q2063.9969,536.5625 2064.2781,535.7969 Q2064.575,535.0156 2065.1219,534.4531 Q2065.6375,533.9219 2066.4031,533.6406 Q2067.1844,533.3438 2068.0906,533.3438 Q2068.5906,533.3438 2068.9969,533.4063 Q2069.4031,533.4531 2069.7469,533.5469 Q2070.1063,533.6563 2070.4031,533.7813 Q2070.7,533.9063 2070.9188,534.0156 L2070.9188,535.9531 L2070.6844,535.9531 Q2070.5281,535.8281 2070.2938,535.6563 Q2070.075,535.4688 2069.7781,535.2969 Q2069.4813,535.125 2069.1375,535.0156 Q2068.7938,534.8906 2068.4031,534.8906 Q2067.9656,534.8906 2067.575,535.0313 Q2067.1844,535.1563 2066.8563,535.4844 Q2066.5438,535.7813 2066.3406,536.2969 Q2066.1531,536.7969 2066.1531,537.5156 Q2066.1531,538.2656 2066.3563,538.7813 Q2066.575,539.2813 2066.8875,539.5625 Q2067.2156,539.8594 2067.6219,539.9844 Q2068.0281,540.1094 2068.4188,540.1094 Q2068.7938,540.1094 2069.1531,540 Q2069.5281,539.8906 2069.8406,539.6875 Q2070.1063,539.5469 2070.325,539.375 Q2070.5594,539.1875 2070.7,539.0625 L2070.9188,539.0625 L2070.9188,540.9688 Q2070.6219,541.1094 2070.3406,541.2344 Q2070.075,541.3438 2069.7625,541.4219 Q2069.3719,541.5313 2069.0281,541.5938 Q2068.6844,541.6563 2068.0906,541.6563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="79" x="2080.55" y="541.8748">PasswordDTO</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2047" x2="2171" y1="550.5" y2="550.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2054" y="558.5"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="2063" y="565.9189">String email</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2054" y="572.3359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="95" x="2063" y="579.7549">String oldPassword</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2054" y="586.1719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="103" x="2063" y="593.5908">String newPassword</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2047" x2="2171" y1="600.0078" y2="600.0078"/><!--MD5=[de58d84f3fafaff15d6599bebedb8b88]
+class VerificationToken--><rect codeLine="61" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="97.3438" id="VerificationToken" style="stroke:#1B1B1B;stroke-width:1.5;" width="125" x="1554.5" y="14"/><ellipse cx="1566.5" cy="27" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1567.1406,31.1563 Q1566.25,31.1563 1565.4844,30.8906 Q1564.7344,30.625 1564.1875,30.1094 Q1563.6563,29.5938 1563.3438,28.8125 Q1563.0469,28.0313 1563.0469,27.0156 Q1563.0469,26.0625 1563.3281,25.2969 Q1563.625,24.5156 1564.1719,23.9531 Q1564.6875,23.4219 1565.4531,23.1406 Q1566.2344,22.8438 1567.1406,22.8438 Q1567.6406,22.8438 1568.0469,22.9063 Q1568.4531,22.9531 1568.7969,23.0469 Q1569.1563,23.1563 1569.4531,23.2813 Q1569.75,23.4063 1569.9688,23.5156 L1569.9688,25.4531 L1569.7344,25.4531 Q1569.5781,25.3281 1569.3438,25.1563 Q1569.125,24.9688 1568.8281,24.7969 Q1568.5313,24.625 1568.1875,24.5156 Q1567.8438,24.3906 1567.4531,24.3906 Q1567.0156,24.3906 1566.625,24.5313 Q1566.2344,24.6563 1565.9063,24.9844 Q1565.5938,25.2813 1565.3906,25.7969 Q1565.2031,26.2969 1565.2031,27.0156 Q1565.2031,27.7656 1565.4063,28.2813 Q1565.625,28.7813 1565.9375,29.0625 Q1566.2656,29.3594 1566.6719,29.4844 Q1567.0781,29.6094 1567.4688,29.6094 Q1567.8438,29.6094 1568.2031,29.5 Q1568.5781,29.3906 1568.8906,29.1875 Q1569.1563,29.0469 1569.375,28.875 Q1569.6094,28.6875 1569.75,28.5625 L1569.9688,28.5625 L1569.9688,30.4688 Q1569.6719,30.6094 1569.3906,30.7344 Q1569.125,30.8438 1568.8125,30.9219 Q1568.4219,31.0313 1568.0781,31.0938 Q1567.7344,31.1563 1567.1406,31.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="99" x="1577.5" y="31.3748">VerificationToken</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1555.5" x2="1678.5" y1="40" y2="40"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1562.5" y="48"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="1571.5" y="55.4189">String id</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1562.5" y="61.8359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="1571.5" y="69.2549">String token</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1562.5" y="75.6719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="1571.5" y="83.0908">Date expirationTime</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1562.5" y="89.5078"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="48" x="1571.5" y="96.9268">User user</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1555.5" x2="1678.5" y1="103.3438" y2="103.3438"/><!--MD5=[88b100afc012b8538d9732825f0d0763]
+class PasswordToken--><rect codeLine="68" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="97.3438" id="PasswordToken" style="stroke:#1B1B1B;stroke-width:1.5;" width="117" x="1714.5" y="14"/><ellipse cx="1727.4" cy="27" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1728.0406,31.1563 Q1727.15,31.1563 1726.3844,30.8906 Q1725.6344,30.625 1725.0875,30.1094 Q1724.5563,29.5938 1724.2438,28.8125 Q1723.9469,28.0313 1723.9469,27.0156 Q1723.9469,26.0625 1724.2281,25.2969 Q1724.525,24.5156 1725.0719,23.9531 Q1725.5875,23.4219 1726.3531,23.1406 Q1727.1344,22.8438 1728.0406,22.8438 Q1728.5406,22.8438 1728.9469,22.9063 Q1729.3531,22.9531 1729.6969,23.0469 Q1730.0563,23.1563 1730.3531,23.2813 Q1730.65,23.4063 1730.8688,23.5156 L1730.8688,25.4531 L1730.6344,25.4531 Q1730.4781,25.3281 1730.2438,25.1563 Q1730.025,24.9688 1729.7281,24.7969 Q1729.4313,24.625 1729.0875,24.5156 Q1728.7438,24.3906 1728.3531,24.3906 Q1727.9156,24.3906 1727.525,24.5313 Q1727.1344,24.6563 1726.8063,24.9844 Q1726.4938,25.2813 1726.2906,25.7969 Q1726.1031,26.2969 1726.1031,27.0156 Q1726.1031,27.7656 1726.3063,28.2813 Q1726.525,28.7813 1726.8375,29.0625 Q1727.1656,29.3594 1727.5719,29.4844 Q1727.9781,29.6094 1728.3688,29.6094 Q1728.7438,29.6094 1729.1031,29.5 Q1729.4781,29.3906 1729.7906,29.1875 Q1730.0563,29.0469 1730.275,28.875 Q1730.5094,28.6875 1730.65,28.5625 L1730.8688,28.5625 L1730.8688,30.4688 Q1730.5719,30.6094 1730.2906,30.7344 Q1730.025,30.8438 1729.7125,30.9219 Q1729.3219,31.0313 1728.9781,31.0938 Q1728.6344,31.1563 1728.0406,31.1563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="89" x="1738.6" y="31.3748">PasswordToken</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1715.5" x2="1830.5" y1="40" y2="40"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1722.5" y="48"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="39" x="1731.5" y="55.4189">String id</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1722.5" y="61.8359"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="1731.5" y="69.2549">String token</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1722.5" y="75.6719"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="1731.5" y="83.0908">Date expirationTime</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1722.5" y="89.5078"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="48" x="1731.5" y="96.9268">User user</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1715.5" x2="1830.5" y1="103.3438" y2="103.3438"/><!--MD5=[e4bb558c92260c47cedb3f39feb63908]
+class UserMapper--><rect codeLine="75" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="80.8765" id="UserMapper" style="stroke:#1B1B1B;stroke-width:1.5;" width="184" x="2264" y="363"/><ellipse cx="2318.5" cy="381.6023" fill="#FF7700" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2321.9219,383.0867 Q2321.9219,384.2742 2320.9219,385.0085 Q2319.9219,385.7429 2318.2031,385.7429 Q2317.2031,385.7429 2316.4688,385.571 Q2315.7344,385.3992 2315.0781,385.1335 L2315.0781,383.2117 L2315.3125,383.2117 Q2315.9531,383.7273 2316.7344,384.0085 Q2317.5313,384.2742 2318.2656,384.2742 Q2318.4531,384.2742 2318.75,384.2429 Q2319.0625,384.2117 2319.2656,384.1335 Q2319.5,384.0398 2319.6406,383.8992 Q2319.7969,383.7429 2319.7969,383.4617 Q2319.7969,383.196 2319.5781,383.0085 Q2319.3594,382.821 2318.9219,382.7117 Q2318.4688,382.6023 2317.9688,382.5085 Q2317.4688,382.4148 2317.0313,382.2742 Q2316.0156,381.946 2315.5781,381.3835 Q2315.1406,380.821 2315.1406,379.9929 Q2315.1406,378.8679 2316.1406,378.1648 Q2317.1406,377.4617 2318.7188,377.4617 Q2319.5,377.4617 2320.2656,377.6179 Q2321.0469,377.7585 2321.6094,377.9929 L2321.6094,379.8367 L2321.3906,379.8367 Q2320.9063,379.446 2320.2031,379.196 Q2319.5,378.9304 2318.7656,378.9304 Q2318.5156,378.9304 2318.25,378.9773 Q2318,379.0085 2317.7656,379.1023 Q2317.5625,379.1804 2317.4063,379.3523 Q2317.25,379.5085 2317.25,379.7117 Q2317.25,380.0398 2317.4844,380.2117 Q2317.7344,380.3679 2318.4063,380.5085 Q2318.8438,380.6023 2319.25,380.696 Q2319.6563,380.7742 2320.125,380.9304 Q2321.0469,381.2273 2321.4844,381.7429 Q2321.9219,382.2585 2321.9219,383.0867 Z " fill="#000000"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="58" x="2339.5" y="379.4189">«Singleton»</text><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="68" x="2334.5" y="392.895">UserMapper</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2265" x2="2447" y1="400.2046" y2="400.2046"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2265" x2="2447" y1="408.2046" y2="408.2046"/><ellipse cx="2275" cy="419.2046" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="133" x="2281" y="423.6235">UserDTO toDTO(User user)</text><ellipse cx="2275" cy="433.0405" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="161" x="2281" y="437.4595">User toModel(UserDTO userDTO)</text><!--MD5=[5041ed151fee0cfa3b623623085dc69a]
+class PasswordMapper--><rect codeLine="80" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="80.8765" id="PasswordMapper" style="stroke:#1B1B1B;stroke-width:1.5;" width="239" x="1989.5" y="363"/><ellipse cx="2057.5" cy="381.6023" fill="#FF7700" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2060.9219,383.0867 Q2060.9219,384.2742 2059.9219,385.0085 Q2058.9219,385.7429 2057.2031,385.7429 Q2056.2031,385.7429 2055.4688,385.571 Q2054.7344,385.3992 2054.0781,385.1335 L2054.0781,383.2117 L2054.3125,383.2117 Q2054.9531,383.7273 2055.7344,384.0085 Q2056.5313,384.2742 2057.2656,384.2742 Q2057.4531,384.2742 2057.75,384.2429 Q2058.0625,384.2117 2058.2656,384.1335 Q2058.5,384.0398 2058.6406,383.8992 Q2058.7969,383.7429 2058.7969,383.4617 Q2058.7969,383.196 2058.5781,383.0085 Q2058.3594,382.821 2057.9219,382.7117 Q2057.4688,382.6023 2056.9688,382.5085 Q2056.4688,382.4148 2056.0313,382.2742 Q2055.0156,381.946 2054.5781,381.3835 Q2054.1406,380.821 2054.1406,379.9929 Q2054.1406,378.8679 2055.1406,378.1648 Q2056.1406,377.4617 2057.7188,377.4617 Q2058.5,377.4617 2059.2656,377.6179 Q2060.0469,377.7585 2060.6094,377.9929 L2060.6094,379.8367 L2060.3906,379.8367 Q2059.9063,379.446 2059.2031,379.196 Q2058.5,378.9304 2057.7656,378.9304 Q2057.5156,378.9304 2057.25,378.9773 Q2057,379.0085 2056.7656,379.1023 Q2056.5625,379.1804 2056.4063,379.3523 Q2056.25,379.5085 2056.25,379.7117 Q2056.25,380.0398 2056.4844,380.2117 Q2056.7344,380.3679 2057.4063,380.5085 Q2057.8438,380.6023 2058.25,380.696 Q2058.6563,380.7742 2059.125,380.9304 Q2060.0469,381.2273 2060.4844,381.7429 Q2060.9219,382.2585 2060.9219,383.0867 Z " fill="#000000"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="58" x="2092.5" y="379.4189">«Singleton»</text><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="96" x="2073.5" y="392.895">PasswordMapper</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1990.5" x2="2227.5" y1="400.2046" y2="400.2046"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1990.5" x2="2227.5" y1="408.2046" y2="408.2046"/><ellipse cx="2000.5" cy="419.2046" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="160" x="2006.5" y="423.6235">PasswordDTO toDTO(User user)</text><ellipse cx="2000.5" cy="433.0405" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="216" x="2006.5" y="437.4595">User toModel(PasswordDTO passwordDTO)</text><!--MD5=[b282fcc2aa9cdcecd60d2c7561aaa763]
+class CheckpointMapper--><rect codeLine="85" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="80.8765" id="CheckpointMapper" style="stroke:#1B1B1B;stroke-width:1.5;" width="274" x="2483" y="363"/><ellipse cx="2563.5" cy="381.6023" fill="#FF7700" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2566.9219,383.0867 Q2566.9219,384.2742 2565.9219,385.0085 Q2564.9219,385.7429 2563.2031,385.7429 Q2562.2031,385.7429 2561.4688,385.571 Q2560.7344,385.3992 2560.0781,385.1335 L2560.0781,383.2117 L2560.3125,383.2117 Q2560.9531,383.7273 2561.7344,384.0085 Q2562.5313,384.2742 2563.2656,384.2742 Q2563.4531,384.2742 2563.75,384.2429 Q2564.0625,384.2117 2564.2656,384.1335 Q2564.5,384.0398 2564.6406,383.8992 Q2564.7969,383.7429 2564.7969,383.4617 Q2564.7969,383.196 2564.5781,383.0085 Q2564.3594,382.821 2563.9219,382.7117 Q2563.4688,382.6023 2562.9688,382.5085 Q2562.4688,382.4148 2562.0313,382.2742 Q2561.0156,381.946 2560.5781,381.3835 Q2560.1406,380.821 2560.1406,379.9929 Q2560.1406,378.8679 2561.1406,378.1648 Q2562.1406,377.4617 2563.7188,377.4617 Q2564.5,377.4617 2565.2656,377.6179 Q2566.0469,377.7585 2566.6094,377.9929 L2566.6094,379.8367 L2566.3906,379.8367 Q2565.9063,379.446 2565.2031,379.196 Q2564.5,378.9304 2563.7656,378.9304 Q2563.5156,378.9304 2563.25,378.9773 Q2563,379.0085 2562.7656,379.1023 Q2562.5625,379.1804 2562.4063,379.3523 Q2562.25,379.5085 2562.25,379.7117 Q2562.25,380.0398 2562.4844,380.2117 Q2562.7344,380.3679 2563.4063,380.5085 Q2563.8438,380.6023 2564.25,380.696 Q2564.6563,380.7742 2565.125,380.9304 Q2566.0469,381.2273 2566.4844,381.7429 Q2566.9219,382.2585 2566.9219,383.0867 Z " fill="#000000"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="58" x="2603.5" y="379.4189">«Singleton»</text><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="106" x="2579.5" y="392.895">CheckpointMapper</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2484" x2="2756" y1="400.2046" y2="400.2046"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2484" x2="2756" y1="408.2046" y2="408.2046"/><ellipse cx="2494" cy="419.2046" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="223" x="2500" y="423.6235">CheckpointDTO toDTO(Checkpoint checkpoint)</text><ellipse cx="2494" cy="433.0405" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="251" x="2500" y="437.4595">Checkpoint toModel(CheckpointDTO checkpointDTO)</text><!--MD5=[5f3b91ee92ba82f756f5672a43cdc9fe]
+class ConcreteMapperFactory--><rect codeLine="90" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="55.8359" id="ConcreteMapperFactory" style="stroke:#1B1B1B;stroke-width:1.5;" width="162" x="2792" y="375.5"/><ellipse cx="2804" cy="388.5" fill="#1A66C2" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2804.6406,392.6563 Q2803.75,392.6563 2802.9844,392.3906 Q2802.2344,392.125 2801.6875,391.6094 Q2801.1563,391.0938 2800.8438,390.3125 Q2800.5469,389.5313 2800.5469,388.5156 Q2800.5469,387.5625 2800.8281,386.7969 Q2801.125,386.0156 2801.6719,385.4531 Q2802.1875,384.9219 2802.9531,384.6406 Q2803.7344,384.3438 2804.6406,384.3438 Q2805.1406,384.3438 2805.5469,384.4063 Q2805.9531,384.4531 2806.2969,384.5469 Q2806.6563,384.6563 2806.9531,384.7813 Q2807.25,384.9063 2807.4688,385.0156 L2807.4688,386.9531 L2807.2344,386.9531 Q2807.0781,386.8281 2806.8438,386.6563 Q2806.625,386.4688 2806.3281,386.2969 Q2806.0313,386.125 2805.6875,386.0156 Q2805.3438,385.8906 2804.9531,385.8906 Q2804.5156,385.8906 2804.125,386.0313 Q2803.7344,386.1563 2803.4063,386.4844 Q2803.0938,386.7813 2802.8906,387.2969 Q2802.7031,387.7969 2802.7031,388.5156 Q2802.7031,389.2656 2802.9063,389.7813 Q2803.125,390.2813 2803.4375,390.5625 Q2803.7656,390.8594 2804.1719,390.9844 Q2804.5781,391.1094 2804.9688,391.1094 Q2805.3438,391.1094 2805.7031,391 Q2806.0781,390.8906 2806.3906,390.6875 Q2806.6563,390.5469 2806.875,390.375 Q2807.1094,390.1875 2807.25,390.0625 L2807.4688,390.0625 L2807.4688,391.9688 Q2807.1719,392.1094 2806.8906,392.2344 Q2806.625,392.3438 2806.3125,392.4219 Q2805.9219,392.5313 2805.5781,392.5938 Q2805.2344,392.6563 2804.6406,392.6563 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" lengthAdjust="spacing" textLength="136" x="2815" y="392.8748">ConcreteMapperFactory</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2793" x2="2953" y1="401.5" y2="401.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2793" x2="2953" y1="409.5" y2="409.5"/><ellipse cx="2803" cy="420.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="2809" y="424.9189">Mapper getMapper()</text><!--MD5=[3d9f6f3197c92503d178855e4cb6ef85]
+class MongoRepository--><rect codeLine="94" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="MongoRepository" style="stroke:#1B1B1B;stroke-width:1.5;" width="170" x="1642" y="382.5"/><ellipse cx="1654" cy="395.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1656.3438,399.5 L1651.6563,399.5 L1651.6563,398.0781 L1652.9688,398.0781 L1652.9688,392.9219 L1651.6563,392.9219 L1651.6563,391.5 L1656.3438,391.5 L1656.3438,392.9219 L1655.0313,392.9219 L1655.0313,398.0781 L1656.3438,398.0781 L1656.3438,399.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="140" x="1665" y="399.8748">MongoRepository &lt;K,V&gt;</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1643" x2="1811" y1="408.5" y2="408.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1643" x2="1811" y1="416.5" y2="416.5"/><!--MD5=[093c210125347143eef5bb9199eae634]
+class UserRepository--><rect codeLine="95" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="UserRepository" style="stroke:#1B1B1B;stroke-width:1.5;" width="113" x="1897.5" y="545.5"/><ellipse cx="1909.5" cy="558.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1911.8438,562.5 L1907.1563,562.5 L1907.1563,561.0781 L1908.4688,561.0781 L1908.4688,555.9219 L1907.1563,555.9219 L1907.1563,554.5 L1911.8438,554.5 L1911.8438,555.9219 L1910.5313,555.9219 L1910.5313,561.0781 L1911.8438,561.0781 L1911.8438,562.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="87" x="1920.5" y="562.8748">UserRepository</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1898.5" x2="2009.5" y1="571.5" y2="571.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1898.5" x2="2009.5" y1="579.5" y2="579.5"/><!--MD5=[d3dfe91d7224e809d2c9de9ac3612cd0]
+class CheckpointRepository--><rect codeLine="96" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="CheckpointRepository" style="stroke:#1B1B1B;stroke-width:1.5;" width="150" x="1712" y="545.5"/><ellipse cx="1724" cy="558.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1726.3438,562.5 L1721.6563,562.5 L1721.6563,561.0781 L1722.9688,561.0781 L1722.9688,555.9219 L1721.6563,555.9219 L1721.6563,554.5 L1726.3438,554.5 L1726.3438,555.9219 L1725.0313,555.9219 L1725.0313,561.0781 L1726.3438,561.0781 L1726.3438,562.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="124" x="1735" y="562.8748">CheckpointRepository</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1713" x2="1861" y1="571.5" y2="571.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1713" x2="1861" y1="579.5" y2="579.5"/><!--MD5=[3f95824cf8b31907cb407005e30c4e6d]
+class VerificationTokenRepository--><rect codeLine="97" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="VerificationTokenRepository" style="stroke:#1B1B1B;stroke-width:1.5;" width="186" x="1280" y="545.5"/><ellipse cx="1292" cy="558.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1294.3438,562.5 L1289.6563,562.5 L1289.6563,561.0781 L1290.9688,561.0781 L1290.9688,555.9219 L1289.6563,555.9219 L1289.6563,554.5 L1294.3438,554.5 L1294.3438,555.9219 L1293.0313,555.9219 L1293.0313,561.0781 L1294.3438,561.0781 L1294.3438,562.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="160" x="1303" y="562.8748">VerificationTokenRepository</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1281" x2="1465" y1="571.5" y2="571.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1281" x2="1465" y1="579.5" y2="579.5"/><!--MD5=[fe939163b4d51672cb677e2e77ac2e2a]
+class PasswordTokenRepository--><rect codeLine="98" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="42" id="PasswordTokenRepository" style="stroke:#1B1B1B;stroke-width:1.5;" width="176" x="1501" y="545.5"/><ellipse cx="1513" cy="558.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1515.3438,562.5 L1510.6563,562.5 L1510.6563,561.0781 L1511.9688,561.0781 L1511.9688,555.9219 L1510.6563,555.9219 L1510.6563,554.5 L1515.3438,554.5 L1515.3438,555.9219 L1514.0313,555.9219 L1514.0313,561.0781 L1515.3438,561.0781 L1515.3438,562.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="150" x="1524" y="562.8748">PasswordTokenRepository</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1502" x2="1676" y1="571.5" y2="571.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1502" x2="1676" y1="579.5" y2="579.5"/><!--MD5=[085457430d2356209d15d1291460c965]
+class Mapper--><rect codeLine="99" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="69.6719" id="Mapper" style="stroke:#1B1B1B;stroke-width:1.5;" width="133" x="2421.5" y="205.5"/><ellipse cx="2433.5" cy="218.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2435.8438,222.5 L2431.1563,222.5 L2431.1563,221.0781 L2432.4688,221.0781 L2432.4688,215.9219 L2431.1563,215.9219 L2431.1563,214.5 L2435.8438,214.5 L2435.8438,215.9219 L2434.5313,215.9219 L2434.5313,221.0781 L2435.8438,221.0781 L2435.8438,222.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="103" x="2444.5" y="222.8748">Mapper &lt;T, DTO&gt;</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2422.5" x2="2553.5" y1="231.5" y2="231.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2422.5" x2="2553.5" y1="239.5" y2="239.5"/><ellipse cx="2432.5" cy="250.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="99" x="2438.5" y="254.9189">DTO toDTO(T model)</text><ellipse cx="2432.5" cy="264.3359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="93" x="2438.5" y="268.7549">T toModel(DTO dto)</text><!--MD5=[32c3266f0d80c094b0daf888271a522e]
+class MapperFactory--><rect codeLine="104" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="55.8359" id="MapperFactory" style="stroke:#1B1B1B;stroke-width:1.5;" width="121" x="2265.5" y="212.5"/><ellipse cx="2282.45" cy="225.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M2284.7938,229.5 L2280.1063,229.5 L2280.1063,228.0781 L2281.4188,228.0781 L2281.4188,222.9219 L2280.1063,222.9219 L2280.1063,221.5 L2284.7938,221.5 L2284.7938,222.9219 L2283.4813,222.9219 L2283.4813,228.0781 L2284.7938,228.0781 L2284.7938,229.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="84" x="2294.55" y="229.8748">MapperFactory</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2266.5" x2="2385.5" y1="238.5" y2="238.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="2266.5" x2="2385.5" y1="246.5" y2="246.5"/><ellipse cx="2276.5" cy="257.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="2282.5" y="261.9189">Mapper getMapper()</text><!--MD5=[811c37526d612e27a8b3840d91ad2fbf]
+class LoggerManager--><rect codeLine="108" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="55.8359" id="LoggerManager" style="stroke:#1B1B1B;stroke-width:1.5;" width="117" x="1232.5" y="34.5"/><ellipse cx="1245.85" cy="47.5" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1248.1938,51.5 L1243.5063,51.5 L1243.5063,50.0781 L1244.8188,50.0781 L1244.8188,44.9219 L1243.5063,44.9219 L1243.5063,43.5 L1248.1938,43.5 L1248.1938,44.9219 L1246.8813,44.9219 L1246.8813,50.0781 L1248.1938,50.0781 L1248.1938,51.5 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="88" x="1257.15" y="51.8748">LoggerManager</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1233.5" x2="1348.5" y1="60.5" y2="60.5"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1233.5" x2="1348.5" y1="68.5" y2="68.5"/><ellipse cx="1243.5" cy="79.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="1249.5" y="83.9189">Logger getLogger()</text><!--MD5=[248f897e4bb16c2722904b15df30346f]
+class Logger--><rect codeLine="112" fill="#2E2E2E" filter="url(#f1pswrdavnkqzn)" height="111.1797" id="Logger" style="stroke:#1B1B1B;stroke-width:1.5;" width="135" x="1384.5" y="7"/><ellipse cx="1429" cy="20" fill="#B4A7E5" rx="8" ry="8" style="stroke:#1B1B1B;stroke-width:1.0;"/><path d="M1431.3438,24 L1426.6563,24 L1426.6563,22.5781 L1427.9688,22.5781 L1427.9688,17.4219 L1426.6563,17.4219 L1426.6563,16 L1431.3438,16 L1431.3438,17.4219 L1430.0313,17.4219 L1430.0313,22.5781 L1431.3438,22.5781 L1431.3438,24 Z " fill="#000000"/><text fill="#FFFFFF" font-family="Verdana" font-size="11" font-style="italic" lengthAdjust="spacing" textLength="39" x="1445" y="24.3748">Logger</text><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1385.5" x2="1518.5" y1="33" y2="33"/><line style="stroke:#1B1B1B;stroke-width:1.5;" x1="1385.5" x2="1518.5" y1="41" y2="41"/><ellipse cx="1395.5" cy="52" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="112" x="1401.5" y="56.4189">void debug(String msg)</text><ellipse cx="1395.5" cy="65.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="106" x="1401.5" y="70.2549">void error(String msg)</text><ellipse cx="1395.5" cy="79.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="107" x="1401.5" y="84.0908">void trace(String msg)</text><ellipse cx="1395.5" cy="93.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="100" x="1401.5" y="97.9268">void info(String msg)</text><ellipse cx="1395.5" cy="107.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#AAAAAA" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="108" x="1401.5" y="111.7627">void warn(String msg)</text><!--MD5=[755f7ae1f2b18fda285350a9c25eb795]
+reverse link UserServiceImpl to UserService--><path codeLine="132" d="M1445.7,293.74 C1438.02,323.89 1428.8,360.09 1423.17,382.19 " fill="none" id="UserServiceImpl-backto-UserService" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1438.98,291.73,1450.7,274.08,1452.55,295.19,1438.98,291.73" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[7f2c36445a247feb174af8ef6b7e259b]
+reverse link CheckpointServiceImpl to CheckpointService--><path codeLine="133" d="M1279.42,294.17 C1276.81,324.23 1273.68,360.2 1271.77,382.19 " fill="none" id="CheckpointServiceImpl-backto-CheckpointService" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1272.46,293.4,1281.17,274.08,1286.41,294.61,1272.46,293.4" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[1bd6e7ccb7751977ad0b3801b48cdb2d]
+reverse link UserServiceImpl to UserRepository--><path codeLine="134" d="M1533.07,241.79 C1628.5,246.22 1793.63,268.27 1891,363 C1942.59,413.19 1952.13,504.82 1953.75,545.33 " fill="none" id="UserServiceImpl-backto-UserRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1519.8,241.26,1525.637,245.4943,1531.7906,241.7349,1525.9536,237.5006,1519.8,241.26" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[daa1a90cc56b9e644b456b34ef1a0a6c]
+reverse link UserServiceImpl to PasswordTokenRepository--><path codeLine="135" d="M1480.18,286.29 C1490.73,309.09 1503.46,337.34 1514,363 C1541.15,429.06 1569.42,508.94 1582.11,545.49 " fill="none" id="UserServiceImpl-backto-PasswordTokenRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1474.57,274.23,1473.4755,281.3576,1479.6338,285.1092,1480.7283,277.9817,1474.57,274.23" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[a495bd7d7aa1bede5606ae0288dcb976]
+reverse link UserServiceImpl to VerificationTokenRepository--><path codeLine="136" d="M1476.44,286.92 C1490.2,329.99 1503.9,395.77 1483,448.5 C1466.72,489.58 1428.43,524.64 1401.63,545.39 " fill="none" id="UserServiceImpl-backto-VerificationTokenRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1472.2,274.32,1470.3196,281.2816,1476.0224,285.6949,1477.9028,278.7333,1472.2,274.32" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[672d42cc1126bf6ce977f72784c268a4]
+reverse link UserServiceImpl to UserMapper--><path codeLine="137" d="M1532.55,248.11 C1672.92,261.75 1988.02,297.41 2246,363 C2251.9,364.5 2257.93,366.19 2263.97,368.01 " fill="none" id="UserServiceImpl-backto-UserMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1519.52,246.85,1525.1102,251.4052,1531.4651,247.997,1525.8749,243.4418,1519.52,246.85" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[b3ffd62b67efecd983e8460e86a52292]
+reverse link UserServiceImpl to PasswordMapper--><path codeLine="138" d="M1532.22,258.57 C1630.27,281.57 1809.54,324.11 1962,363 C1970.83,365.25 1979.96,367.62 1989.13,370.02 " fill="none" id="UserServiceImpl-backto-PasswordMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1519.52,255.59,1524.4526,260.8502,1531.2053,258.3201,1526.2727,253.0599,1519.52,255.59" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[e5a40515d4d8060e9101e267fb4c6ad2]
+link Logger to UserServiceImpl--><path codeLine="139" d="M1454.18,118.22 C1455.14,142.4 1456.26,170.51 1457.17,193.58 " fill="none" id="Logger-to-UserServiceImpl" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1457.7,206.86,1461.4594,200.7064,1457.2251,194.8694,1453.4657,201.023,1457.7,206.86" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[4bafe01995a6aae86c1115df9f8b6a69]
+reverse link CheckpointServiceImpl to CheckpointRepository--><path codeLine="140" d="M1337.81,281.35 C1351.33,289.71 1366.21,297.62 1381,303 C1475.6,337.42 1763.7,287.25 1830,363 C1876.16,415.74 1827.05,505.63 1801.02,545.47 " fill="none" id="CheckpointServiceImpl-backto-CheckpointRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1326.8,274.26,1329.6766,280.8725,1336.8869,280.7604,1334.0102,274.1479,1326.8,274.26" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[0886c2771edd1d49472f577b6ce140ff]
+reverse link CheckpointServiceImpl to CheckpointMapper--><path codeLine="141" d="M1336.32,281.44 C1350.17,290.05 1365.57,298.06 1381,303 C1610.96,376.7 2227.35,326.16 2466,363 C2471.46,363.84 2477,364.79 2482.58,365.83 " fill="none" id="CheckpointServiceImpl-backto-CheckpointMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1325.1,274.1,1327.9342,280.7308,1335.145,280.6649,1332.3108,274.0341,1325.1,274.1" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[205d58732e7c75064c2a2af313322fce]
+link Logger to CheckpointServiceImpl--><path codeLine="142" d="M1399.76,118.22 C1375.38,143.77 1346.81,173.69 1324.16,197.43 " fill="none" id="Logger-to-CheckpointServiceImpl" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1315.16,206.86,1322.1974,205.2869,1323.452,198.1857,1316.4146,199.7589,1315.16,206.86" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[6874f1286066773059d8c410833c1c8b]
+reverse link LoggerManager to UserServiceImpl--><path codeLine="145" d="M1320.47,94.38 C1350.61,125.95 1397.24,174.8 1427.95,206.97 " fill="none" id="LoggerManager-backto-UserServiceImpl" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="1316.88,90.61,1320.2104,99.8787,1320.3361,94.2232,1325.9916,94.3489,1316.88,90.61" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[9cf58f477fc370ab6fb445b0574bd5b6]
+reverse link LoggerManager to CheckpointServiceImpl--><path codeLine="146" d="M1289.71,95.93 C1288.45,127.54 1286.55,175.33 1285.29,206.97 " fill="none" id="LoggerManager-backto-CheckpointServiceImpl" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="1289.92,90.61,1285.5635,99.4429,1289.7202,95.606,1293.5571,99.7627,1289.92,90.61" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[32fb3ee26f77f66a9f4bd818e57a6073]
+reverse link MongoRepository to UserRepository--><path codeLine="148" d="M1777.46,435.23 C1807.77,454.21 1846.78,479.53 1880,504 C1897.75,517.08 1916.87,533.02 1931.23,545.4 " fill="none" id="MongoRepository-backto-UserRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1773.59,441.07,1760.28,424.58,1780.97,429.17,1773.59,441.07" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[75ad6fed810671bdce29919de0cc658a]
+reverse link MongoRepository to CheckpointRepository--><path codeLine="149" d="M1741.58,443.63 C1753.57,475.8 1770.07,520.06 1779.52,545.44 " fill="none" id="MongoRepository-backto-CheckpointRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1734.9,445.75,1734.48,424.57,1748.02,440.86,1734.9,445.75" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[d57daceed1e2dcc5463ec82c06cba4b7]
+reverse link MongoRepository to VerificationTokenRepository--><path codeLine="150" d="M1653.82,431.88 C1605.08,450.74 1539.94,477.17 1484,504 C1457.58,516.67 1428.65,532.78 1406.95,545.33 " fill="none" id="MongoRepository-backto-VerificationTokenRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1651.46,425.29,1672.64,424.65,1656.48,438.36,1651.46,425.29" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[01848894fca4fcd61c2470579aceffa9]
+reverse link MongoRepository to PasswordTokenRepository--><path codeLine="151" d="M1696.56,440.01 C1668.8,472.4 1628.78,519.09 1606.2,545.44 " fill="none" id="MongoRepository-backto-PasswordTokenRepository" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="1691.47,435.19,1709.8,424.57,1702.1,444.31,1691.47,435.19" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[f516197238353a6b5e85fad38177a58e]
+reverse link UserController to UserService--><path codeLine="153" d="M1182.27,305.22 C1252.47,326.37 1320.21,348.25 1353,363 C1365.04,368.42 1377.6,375.63 1388.42,382.41 " fill="none" id="UserController-backto-UserService" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="1169.6,301.42,1174.1935,306.9788,1181.0914,304.8766,1176.4979,299.3179,1169.6,301.42" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[68e78f056bcfb31250078a4bd5fdc67e]
+reverse link CheckpointController to CheckpointService--><path codeLine="154" d="M344.86,299.25 C350.28,300.59 355.67,301.84 361,303 C672.23,370.7 1053.92,393.4 1204.49,400.05 " fill="none" id="CheckpointController-backto-CheckpointService" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="332.16,296,336.9779,301.3654,343.7836,298.9818,338.9657,293.6163,332.16,296" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[73f18dae23c6c83f58dba9f34e7d941e]
+reverse link CheckpointLiveController to CheckpointService--><path codeLine="155" d="M673.69,286.5 C692.77,292.48 712.31,298.19 731,303 C899.42,346.32 1102.06,378.49 1204.23,393.36 " fill="none" id="CheckpointLiveController-backto-CheckpointService" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#777777" points="661.22,282.53,665.7239,288.1616,672.6546,286.1701,668.1507,280.5385,661.22,282.53" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[21e3cbc0c78244f349c69055d48e17c2]
+link LoggerManager to Logger--><path codeLine="157" d="M1349.8,62.5 C1359.55,62.5 1369.29,62.5 1379.04,62.5 " fill="none" id="LoggerManager-to-Logger" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="1384.13,62.5,1375.13,58.5,1379.13,62.5,1375.13,66.5,1384.13,62.5" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[15abb8c262bd12366db60a8b8037f958]
+reverse link MapperFactory to ConcreteMapperFactory--><path codeLine="159" d="M2369.06,281.68 C2379.81,289.88 2391.77,297.63 2404,303 C2556.92,370.19 2614.1,318.17 2775,363 C2787.1,366.37 2799.75,370.77 2811.77,375.4 " fill="none" id="MapperFactory-backto-ConcreteMapperFactory" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="2364.3,286.83,2353.32,268.71,2373.21,276.03,2364.3,286.83" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[c192f3e42ea194298f9c6c63b4384c55]
+link MapperFactory to Mapper--><path codeLine="160" d="M2386.75,240.5 C2396.52,240.5 2406.28,240.5 2416.05,240.5 " fill="none" id="MapperFactory-to-Mapper" style="stroke:#FFFFFF;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFFFFF" points="2421.16,240.5,2412.16,236.5,2416.16,240.5,2412.16,244.5,2421.16,240.5" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[7d636221d10353180096658ad31ebca9]
+reverse link Mapper to UserMapper--><path codeLine="162" d="M2447.27,291.18 C2428.42,314.17 2406.33,341.11 2388.61,362.73 " fill="none" id="Mapper-backto-UserMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="2441.91,286.67,2460.01,275.64,2452.74,295.55,2441.91,286.67" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[0625c0b6b9ac579f3d321f920524d66f]
+reverse link Mapper to PasswordMapper--><path codeLine="163" d="M2429.83,287.54 C2421.42,293.16 2412.67,298.5 2404,303 C2372.58,319.31 2296.06,344.98 2228.84,366.16 " fill="none" id="Mapper-backto-PasswordMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="2426.12,281.59,2446.49,275.77,2434.19,293.03,2426.12,281.59" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[8ee700301dd49bcc6c10194404e5e13a]
+reverse link Mapper to CheckpointMapper--><path codeLine="164" d="M2528.73,291.18 C2547.58,314.17 2569.67,341.11 2587.39,362.73 " fill="none" id="Mapper-backto-CheckpointMapper" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="none" points="2523.26,295.55,2515.99,275.64,2534.09,286.67,2523.26,295.55" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[46a1e6a861f7db49d65fe55c3e32e892]
+link UserMapper to User--><path codeLine="166" d="M2332.02,444.3 C2322.04,460.87 2310.18,480.55 2298.95,499.2 " fill="none" id="UserMapper-to-User" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2296.11,503.91,2304.1843,498.2703,2298.693,499.6288,2297.3344,494.1375,2296.11,503.91" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[2ff689d11ef02fee5bf515471f73835b]
+link UserMapper to UserDTO--><path codeLine="167" d="M2366.38,444.3 C2372.32,467.07 2379.8,495.75 2386,519.49 " fill="none" id="UserMapper-to-UserDTO" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2387.3,524.48,2388.9103,514.7637,2386.0437,519.6404,2381.167,516.7738,2387.3,524.48" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[f9d4f9227532bfbb903723cff4d2dfe8]
+link PasswordMapper to User--><path codeLine="168" d="M2146.08,444.3 C2163.31,462.79 2184.17,485.18 2203.25,505.66 " fill="none" id="PasswordMapper-to-User" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2206.79,509.46,2203.5915,500.145,2203.3856,505.7981,2197.7324,505.5921,2206.79,509.46" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[8f19c1d574885137ee1f0c70b505a199]
+link PasswordMapper to PasswordDTO--><path codeLine="169" d="M2109,444.3 C2109,466.98 2109,495.51 2109,519.19 " fill="none" id="PasswordMapper-to-PasswordDTO" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2109,524.48,2113,515.48,2109,519.48,2105,515.48,2109,524.48" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[b74088f85db116346a11b4de04ad83ac]
+link CheckpointMapper to Checkpoint--><path codeLine="170" d="M2649.66,444.3 C2665.28,465.25 2684.62,491.19 2701.39,513.69 " fill="none" id="CheckpointMapper-to-Checkpoint" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2704.49,517.85,2702.312,508.245,2701.4992,513.8431,2695.901,513.0303,2704.49,517.85" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[92c7b5e50f292e100cebc82e177025b3]
+link CheckpointMapper to CheckpointDTO--><path codeLine="171" d="M2610.85,444.3 C2605.62,467.07 2599.03,495.75 2593.57,519.49 " fill="none" id="CheckpointMapper-to-CheckpointDTO" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="2592.43,524.48,2598.358,516.615,2593.5585,519.609,2590.5645,514.8094,2592.43,524.48" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[d4e0135ca6c141e7142468883d43948d]
+@startuml UsecaseDiag
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class UserController
+{
+    ...
+    +String registerUser(UserDTO userDTO, HttpServletRequest request)
+    +String verifyUser(String token)
+    +String resendVerificationToken(String oldToken, HttpServletRequest request)
+    +String resetPassword(PasswordDTO passwordDTO, HttpServletRequest request)
+    +...()
+}
+class CheckpointController
+{
+    ...
+    +List<CheckpointDTO> fetchAllCheckpoints()
+    +List<CheckpointDTO> fetchCheckpointsByUser(String username)
+    +CheckpointDTO fetchCheckpointById(String id)
+    +...()
+}
+class CheckpointLiveController
+{
+    ...
+    +CheckpointDTO sendCheckpoint(CheckpointDTO checkpointDTO)
+    +...()
+}
+class Checkpoint
+{
+    -String id
+    -String content
+    -String userId
+    -Date checkpointDate
+}
+class CheckpointDTO
+{
+    -String username
+    -String content
+    -Date checkpointDate
+}
+class User
+{
+    -String id
+    -String username
+    -String email
+    -String password
+    -String role
+    -Boolean active
+}
+class UserDTO
+{
+    -String email
+    -String username
+    -String password
+}
+class PasswordDTO
+{
+    -String email
+    -String oldPassword
+    -String newPassword
+}
+class VerificationToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class PasswordToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class UserMapper << (S,#FF7700) Singleton >>
+{
+    +UserDTO toDTO(User user)
+    +User toModel(UserDTO userDTO)
+}
+class PasswordMapper << (S,#FF7700) Singleton >>
+{
+    +PasswordDTO toDTO(User user)
+    +User toModel(PasswordDTO passwordDTO)
+}
+class CheckpointMapper << (S,#FF7700) Singleton >>
+{
+    +CheckpointDTO toDTO(Checkpoint checkpoint)
+    +Checkpoint toModel(CheckpointDTO checkpointDTO)
+}
+class ConcreteMapperFactory
+{
+    +Mapper getMapper()
+}
+interface "MongoRepository <K,V> " as MongoRepository
+interface UserRepository
+interface CheckpointRepository
+interface VerificationTokenRepository
+interface PasswordTokenRepository
+interface "Mapper <T, DTO> " as Mapper
+{
+    +DTO toDTO(T model)
+    +T toModel(DTO dto)
+}
+interface MapperFactory
+{
+    +Mapper getMapper()
+}
+interface LoggerManager
+{
+    +Logger getLogger()
+}
+interface Logger
+{
+    +void debug(String msg)
+    +void error(String msg)
+    +void trace(String msg)
+    +void info(String msg)
+    +void warn(String msg)
+}
+package "Service Inventory" {
+    class UserServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    class CheckpointServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    interface UserService
+    interface CheckpointService
+    
+    UserServiceImpl <|- - UserService
+    CheckpointServiceImpl <|- - CheckpointService
+    UserServiceImpl o-down- - UserRepository
+    UserServiceImpl o-down- - PasswordTokenRepository
+    UserServiceImpl o-down- - VerificationTokenRepository
+    UserServiceImpl o- - UserMapper
+    UserServiceImpl o- - PasswordMapper
+    UserServiceImpl o-up- Logger
+    CheckpointServiceImpl o-down- - CheckpointRepository
+    CheckpointServiceImpl o- - CheckpointMapper
+    CheckpointServiceImpl o-up- Logger
+
+
+    UserServiceImpl .up.> LoggerManager
+    CheckpointServiceImpl .up.> LoggerManager
+}
+MongoRepository <|- - UserRepository
+MongoRepository <|- - CheckpointRepository
+MongoRepository <|- - VerificationTokenRepository
+MongoRepository <|- - PasswordTokenRepository
+
+UserController o- - UserService
+CheckpointController o- - CheckpointService
+CheckpointLiveController o- - CheckpointService
+
+LoggerManager .right.> Logger
+
+MapperFactory <|- - ConcreteMapperFactory
+MapperFactory .right.> Mapper
+
+Mapper <|- - UserMapper
+Mapper <|- - PasswordMapper
+Mapper <|- - CheckpointMapper
+
+UserMapper - -> User
+UserMapper - -> UserDTO
+PasswordMapper - -> User
+PasswordMapper - -> PasswordDTO
+CheckpointMapper - -> Checkpoint
+CheckpointMapper - -> CheckpointDTO
+@enduml
+
+@startuml UsecaseDiag
+
+
+
+skinparam backgroundColor 777
+skinparam stereotypeCBackgroundColor 1a66c2
+
+
+
+
+
+
+
+
+
+skinparam backgroundColor 777
+
+
+
+
+
+
+
+skinparam circledCharacter {
+  radius 8
+  fontSize 11
+  fontName Verdana
+}
+
+skinparam class {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+
+  attributeFontColor aaa
+  attributeFontSize 11
+  attributeIconSize 11
+}
+
+
+skinparam actor {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam participant {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam collections {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam SequenceBox{
+    backgroundColor 575757
+  borderColor 767676
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+
+skinparam interface {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam component {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam node {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam database {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam queue {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+
+skinparam usecase {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+}
+
+skinparam activity {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+}
+
+skinparam sequence {
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+
+  lifeLineBorderColor 1a66c2
+  lifeLineBackgroundColor 575757
+}
+
+skinparam boundary {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam control {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam entity {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+
+skinparam state {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+  startColor 1a66c2
+  endColor 002642
+}
+
+
+skinparam object {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+}
+
+
+skinparam note {
+    backgroundColor 1a66c2
+  borderColor 002642
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam cloud {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+    arrowColor fff
+  arrowFontName Verdana
+  arrowFontColor bbb
+  arrowFontSize 11
+}
+
+skinparam rectangle {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+skinparam storage {
+    backgroundColor 2e2e2e
+  borderColor 1b1b1b
+    fontColor fff
+  fontName Verdana
+  fontSize 11
+  stereotypeFontColor aaa
+  stereotypeFontSize 11
+}
+
+
+class UserController
+{
+    ...
+    +String registerUser(UserDTO userDTO, HttpServletRequest request)
+    +String verifyUser(String token)
+    +String resendVerificationToken(String oldToken, HttpServletRequest request)
+    +String resetPassword(PasswordDTO passwordDTO, HttpServletRequest request)
+    +...()
+}
+class CheckpointController
+{
+    ...
+    +List<CheckpointDTO> fetchAllCheckpoints()
+    +List<CheckpointDTO> fetchCheckpointsByUser(String username)
+    +CheckpointDTO fetchCheckpointById(String id)
+    +...()
+}
+class CheckpointLiveController
+{
+    ...
+    +CheckpointDTO sendCheckpoint(CheckpointDTO checkpointDTO)
+    +...()
+}
+class Checkpoint
+{
+    -String id
+    -String content
+    -String userId
+    -Date checkpointDate
+}
+class CheckpointDTO
+{
+    -String username
+    -String content
+    -Date checkpointDate
+}
+class User
+{
+    -String id
+    -String username
+    -String email
+    -String password
+    -String role
+    -Boolean active
+}
+class UserDTO
+{
+    -String email
+    -String username
+    -String password
+}
+class PasswordDTO
+{
+    -String email
+    -String oldPassword
+    -String newPassword
+}
+class VerificationToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class PasswordToken
+{
+    -String id
+    -String token
+    -Date expirationTime
+    -User user
+}
+class UserMapper << (S,#FF7700) Singleton >>
+{
+    +UserDTO toDTO(User user)
+    +User toModel(UserDTO userDTO)
+}
+class PasswordMapper << (S,#FF7700) Singleton >>
+{
+    +PasswordDTO toDTO(User user)
+    +User toModel(PasswordDTO passwordDTO)
+}
+class CheckpointMapper << (S,#FF7700) Singleton >>
+{
+    +CheckpointDTO toDTO(Checkpoint checkpoint)
+    +Checkpoint toModel(CheckpointDTO checkpointDTO)
+}
+class ConcreteMapperFactory
+{
+    +Mapper getMapper()
+}
+interface "MongoRepository <K,V> " as MongoRepository
+interface UserRepository
+interface CheckpointRepository
+interface VerificationTokenRepository
+interface PasswordTokenRepository
+interface "Mapper <T, DTO> " as Mapper
+{
+    +DTO toDTO(T model)
+    +T toModel(DTO dto)
+}
+interface MapperFactory
+{
+    +Mapper getMapper()
+}
+interface LoggerManager
+{
+    +Logger getLogger()
+}
+interface Logger
+{
+    +void debug(String msg)
+    +void error(String msg)
+    +void trace(String msg)
+    +void info(String msg)
+    +void warn(String msg)
+}
+package "Service Inventory" {
+    class UserServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    class CheckpointServiceImpl << (S,#FF7700) Singleton >>
+    {
+        ...
+    }
+    interface UserService
+    interface CheckpointService
+    
+    UserServiceImpl <|- - UserService
+    CheckpointServiceImpl <|- - CheckpointService
+    UserServiceImpl o-down- - UserRepository
+    UserServiceImpl o-down- - PasswordTokenRepository
+    UserServiceImpl o-down- - VerificationTokenRepository
+    UserServiceImpl o- - UserMapper
+    UserServiceImpl o- - PasswordMapper
+    UserServiceImpl o-up- Logger
+    CheckpointServiceImpl o-down- - CheckpointRepository
+    CheckpointServiceImpl o- - CheckpointMapper
+    CheckpointServiceImpl o-up- Logger
+
+
+    UserServiceImpl .up.> LoggerManager
+    CheckpointServiceImpl .up.> LoggerManager
+}
+MongoRepository <|- - UserRepository
+MongoRepository <|- - CheckpointRepository
+MongoRepository <|- - VerificationTokenRepository
+MongoRepository <|- - PasswordTokenRepository
+
+UserController o- - UserService
+CheckpointController o- - CheckpointService
+CheckpointLiveController o- - CheckpointService
+
+LoggerManager .right.> Logger
+
+MapperFactory <|- - ConcreteMapperFactory
+MapperFactory .right.> Mapper
+
+Mapper <|- - UserMapper
+Mapper <|- - PasswordMapper
+Mapper <|- - CheckpointMapper
+
+UserMapper - -> User
+UserMapper - -> UserDTO
+PasswordMapper - -> User
+PasswordMapper - -> PasswordDTO
+CheckpointMapper - -> Checkpoint
+CheckpointMapper - -> CheckpointDTO
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 17:16:42 WEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>
