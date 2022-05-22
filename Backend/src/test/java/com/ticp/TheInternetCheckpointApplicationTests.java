@@ -1,0 +1,13 @@
+package com.ticp;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class TheInternetCheckpointApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
