@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+# NOTE : <username> and <pwd> must be changed by the developer when working with the db, only authorized accounts can be used
+# NOTE : the database and account must be switched to production when deploying to the production cluster
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://<username>:<pwd>@ticp-cluster0.dk5t9.mongodb.net/development
+      database: development
