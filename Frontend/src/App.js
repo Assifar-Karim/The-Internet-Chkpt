@@ -1,11 +1,13 @@
-import { Route, Routes } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
+import { Route, Routes } from "react-router-dom";
+import { routes } from "./Routes";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        {routes.map((route, index) => (
+          <Route key={index} path={route.segment} element={route.component()} />
+        ))}
       </Routes>
     </div>
   );
