@@ -8,3 +8,15 @@ spring:
     mongodb:
       uri: mongodb+srv://<username>:<pwd>@ticp-cluster0.dk5t9.mongodb.net/development
       database: development
+      auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: the.internet.checkpoint.team@gmail.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
