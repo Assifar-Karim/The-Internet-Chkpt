@@ -1,43 +1,41 @@
-import background from "../../assets/backgrounds/shovel-knight-bg1.gif";
 import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif"
 import './SignUp.css'
 
 const SignUp = () => {
     return (
         <>
-            <div className="background">
-                <img src={background} alt="knight alone in the woods sitting in front of fire"/>
-            </div>
+        <div className="wrapper">
+            
+            <div className="sin-background"></div>
 
-            <div className="side-bar">
-                <div className="slogo">
+            <div className="sin-side-bar">
+                <div className="sin-logo">
                     <img src={logo} alt="TICP Logo" />
                 </div>
-
-                <div className="content">
-                    <div id="heading-1">
-                            REGISTER IN THE MAIN CHARACTER GUILD
-                    </div>
-                    <form className="form">
+                <div className="sin-content">
+                    <div id="sup-heading-1">REGISTER IN THE MAIN CHARACTER GUILD</div>
+                </div>
+                <div className="sin-content">
+                    <form className="sin-form">
                         <div>
-                            <label for="email">EMAIL</label>
-                            <input id="email" type="email" />
+                            <label htmlFor="sup-email">EMAIL</label>
+                            <input id="sup-email" type="email"/>
                         </div>
                         <div>
-                            <label for="username">USERNAME</label>
-                            <input id="username" type="text" />
+                            <label htmlFor="sup-username">USERNAME</label>
+                            <input id="sup-username" type="text"/>
                         </div>
                         <div>
-                            <label for="password">PASSWORD</label>
-                            <input id="password" type="password"/>
+                            <label htmlFor="sup-password">PASSWORD</label>
+                            <input id="sup-password" type="password"/>
                         </div>
-                        <div>
-                            <button type="submit">REGISTER</button>
+                        <div className="">
+                            <button className="btn" type="submit">REGISTER</button>
                         </div>
                     </form>
-                   
                 </div>
             </div>
+        </div>
         </>
     )
 }
