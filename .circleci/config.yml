@@ -7,11 +7,6 @@ jobs: # a collection of steps
       
     steps: # a collection of executable commands
       - checkout
-      - run: 
-           name: "move to the Backend folder"
-           command: "cd Backend"
-      - run: 
-           name: "Add execution permision"
-           command: "chmod +x ./mvnw"
+      - run: cd Backend && chmod +x ./mvnw
       - run: ./mvnw clean install
 
