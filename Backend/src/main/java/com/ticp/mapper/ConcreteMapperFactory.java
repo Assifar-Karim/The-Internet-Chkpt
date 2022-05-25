@@ -10,18 +10,22 @@ import org.springframework.stereotype.Component;
 public class ConcreteMapperFactory implements MapperFactory
 {
     @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private PasswordMapper passwordMapper;
+    @Autowired
     private CheckpointMapper checkpointMapper;
+    
     @Override
     public Mapper<?, ?> getMapper(Class<?> obj)
     {
-
         if(obj == User.class)
         {
-            return UserMapper.getInstance();
+            return userMapper;
         }
         if(obj == PasswordToken.class)
         {
-            return PasswordMapper.getInstance();
+            return passwordMapper;
         }
         if(obj == Checkpoint.class){
             return checkpointMapper;

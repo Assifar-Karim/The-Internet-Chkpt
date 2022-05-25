@@ -1,5 +1,6 @@
 package com.ticp.controller;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.ticp.dto.PasswordDTO;
 import com.ticp.dto.UserDTO;
 import com.ticp.event.RegistrationCompleteEvent;
@@ -8,11 +9,17 @@ import com.ticp.model.User;
 import com.ticp.model.VerificationToken;
 import com.ticp.service.EmailSenderService;
 import com.ticp.service.UserService;
+import com.ticp.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @RestController
 public class UserController
@@ -23,6 +30,9 @@ public class UserController
     private EmailSenderService emailSenderService;
     @Autowired
     private ApplicationEventPublisher publisher;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
     // Registration Endpoints
 
     @PostMapping("/register")
@@ -64,7 +74,6 @@ public class UserController
     @PostMapping("/resetPassword")
     public String resetPassword(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request)
     {
-        // This has to be changed with an exception
         if(passwordDTO.getEmail() == null)
         {
             return "Please Input an email";
@@ -128,6 +137,31 @@ public class UserController
         userService.changePassword(user, passwordDTO);
         return "Password Changed Successfully";
 
+    }
+
+    @GetMapping("jwtTokenRefresh")
+    public void refreshJwtToken(HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
+        String authorizationHeader = request.getHeader(AUTHORIZATION);
+        if(authorizationHeader != null && authorizationHeader.startsWith("Bearer "))
+        {
+            try
+            {
+                DecodedJWT decodedJWT = jwtTokenUtil.verifyToken(authorizationHeader);
+                String username = decodedJWT.getSubject();
+                User user = userService.findUserByUsername(username);
+                String accessToken = jwtTokenUtil.generateJwtToken(user.getUsername(), List.of(user.getRole()),request);
+                jwtTokenUtil.issueTokenResponse(accessToken, authorizationHeader.substring("Bearer ".length()), response);
+            }
+            catch (Exception e)
+            {
+                jwtTokenUtil.issueTokenVerificationErrorResponse(response, e.getMessage());
+            }
+        }
+        else
+        {
+            throw new RuntimeException("Refresh token is missing");
+        }
     }
 
     // Internal class methods

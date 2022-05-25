@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.io.IOException;
+
 @ControllerAdvice
 @ResponseStatus
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler
@@ -18,5 +20,11 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     {
         ErrorMessage errorMessage = new ErrorMessage(HttpStatus.CONFLICT, exception.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
+    }
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<ErrorMessage> IOException(IOException exception, WebRequest request)
+    {
+        ErrorMessage errorMessage = new ErrorMessage(HttpStatus.SERVICE_UNAVAILABLE, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(errorMessage);
     }
 }

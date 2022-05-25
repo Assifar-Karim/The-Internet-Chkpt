@@ -2,23 +2,15 @@ package com.ticp.mapper;
 
 import com.ticp.dto.UserDTO;
 import com.ticp.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper implements Mapper<User, UserDTO>
 {
-    public static UserMapper instance;
-
-    private UserMapper()
-    {}
-
-    public static UserMapper getInstance()
-    {
-        if(instance == null)
-        {
-            instance = new UserMapper();
-        }
-        return instance;
-    }
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Override
     public UserDTO toDTO(User model)
     {
@@ -32,10 +24,9 @@ public class UserMapper implements Mapper<User, UserDTO>
     @Override
     public User toModel(UserDTO userDTO)
     {
-        // NOTE (KARIM) : The password needs to be encrypted using the BCRYPT norm
         return new User(
                 userDTO.getUsername(),
                 userDTO.getEmail(),
-                userDTO.getPassword());
+                passwordEncoder.encode(userDTO.getPassword()));
     }
 }
