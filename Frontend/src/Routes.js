@@ -1,6 +1,7 @@
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Checkpoints from "./pages/Checkpoints/Checkpoints";
 import MainPage from "./pages/MainPage/MainPage";
+import SignIn from "./pages/SignIn/SignIn";
 
 export const routes = [
   { title: "", segment: "/", component: MainPage, readerToNav: false },
@@ -16,4 +17,10 @@ export const routes = [
     component: AboutUs,
     renderToNav: true,
   },
+  {
+    title: "Sign In",
+    segment: "/sign-in",
+    component: SignIn,
+    renderToNav: true,
+  }
 ];
