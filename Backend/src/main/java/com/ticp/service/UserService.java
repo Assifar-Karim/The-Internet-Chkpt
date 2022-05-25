@@ -21,4 +21,5 @@ public interface UserService
     User findUserByEmail(String email);
     Optional<User> findUserByUsername(String username);
     boolean verifyOldPassword(User user, String oldPassword);
+    User findUserByUsername(String username);
 }

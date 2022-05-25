@@ -6,17 +6,20 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://<username>:<pwd>@ticp-cluster0.dk5t9.mongodb.net/development
+      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/${ENVIRONMENT}
       database: development
       auto-index-creation: true
   mail:
     host: smtp.gmail.com
     port: 587
     username: the.internet.checkpoint.team@gmail.com
-    password:
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+
+jwt:
+  secret: ${JWT_SECRET_KEY}

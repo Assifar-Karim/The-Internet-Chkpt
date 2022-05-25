@@ -12,14 +12,20 @@ import com.ticp.repository.PasswordTokenRepository;
 import com.ticp.repository.UserRepository;
 import com.ticp.repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Optional;
+import java.util.Collection;
 import java.util.UUID;
 
 @Service
-public class UserServiceImpl implements UserService
+public class UserServiceImpl implements UserService, UserDetailsService
 {
     @Autowired
     private UserRepository userRepository;
@@ -29,6 +35,8 @@ public class UserServiceImpl implements UserService
     private VerificationTokenRepository verificationTokenRepository;
     @Autowired
     private PasswordTokenRepository passwordTokenRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User registerUser(UserDTO userDTO)
@@ -137,15 +145,36 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public Optional<User> findUserByUsername(String username)
+    public boolean verifyOldPassword(User user, String oldPassword)
     {
-        return userRepository.findByUsername(username);
+        return passwordEncoder.matches(oldPassword, user.getPassword());
     }
 
     @Override
-    public boolean verifyOldPassword(User user, String oldPassword)
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
-        // NOTE (KARIM) : This verification will have to be changed when the encryption mechanism is added
-        return user.getPassword().equals(oldPassword);
+        User user = userRepository.findByUsername(username);
+        if(user == null)
+        {
+            // Pass an error Log in here before throwing the exception
+            throw new UsernameNotFoundException("User not found in the database");
+        }
+        else
+        {
+            // Pass an info Log abt the found user
+        }
+        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+        return new org.springframework.security.core.userdetails.User(
+                user.getUsername(),
+                user.getPassword(),
+                authorities
+        );
+    }
+
+    @Override
+    public User findUserByUsername(String username)
+    {
+        return userRepository.findByUsername(username);
     }
 }

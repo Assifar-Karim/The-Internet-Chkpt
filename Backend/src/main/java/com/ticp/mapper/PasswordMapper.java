@@ -2,28 +2,19 @@ package com.ticp.mapper;
 
 import com.ticp.dto.PasswordDTO;
 import com.ticp.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
-// NOTE (KARIM) : Finish implementing this class when you start the resetting mechanism
+@Component
 public class PasswordMapper implements Mapper<User, PasswordDTO>
 {
-    public static PasswordMapper instance;
-
-    private PasswordMapper()
-    {}
-
-    public static PasswordMapper getInstance()
-    {
-        if(instance == null)
-        {
-            instance = new PasswordMapper();
-        }
-        return instance;
-    }
-    // NOTE (KARIM) : Add BCRYPT Encryption
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Override
     public User toModel(PasswordDTO passwordDTO, User model)
     {
-        model.setPassword(passwordDTO.getNewPassword());
+        model.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));
         return model;
     }
 }
