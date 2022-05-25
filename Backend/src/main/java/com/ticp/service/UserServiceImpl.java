@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService
     @Override
     public User registerUser(UserDTO userDTO)
     {
-        UserMapper userMapper = (UserMapper) mapperFactory.getMapper("user");
+        UserMapper userMapper = (UserMapper) mapperFactory.getMapper(User.class);
         User user = userMapper.toModel(userDTO);
         userRepository.save(user);
         return user;
@@ -125,7 +126,7 @@ public class UserServiceImpl implements UserService
     @Override
     public void changePassword(User user, PasswordDTO passwordDTO)
     {
-        PasswordMapper passwordMapper = (PasswordMapper) mapperFactory.getMapper("password");
+        PasswordMapper passwordMapper = (PasswordMapper) mapperFactory.getMapper(PasswordToken.class);
         userRepository.save(passwordMapper.toModel(passwordDTO, user));
     }
 
@@ -133,6 +134,12 @@ public class UserServiceImpl implements UserService
     public User findUserByEmail(String email)
     {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public Optional<User> findUserByUsername(String username)
+    {
+        return userRepository.findByUsername(username);
     }
 
     @Override
