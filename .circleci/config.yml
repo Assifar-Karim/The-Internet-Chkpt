@@ -10,6 +10,8 @@ jobs: # a collection of steps
       - run:
           name: "Say where is the directory"
           command: "pwd"
+      -run: 
+          name: "Liste"
           command: "ls"
       - run: ./mvnw clean install
 
