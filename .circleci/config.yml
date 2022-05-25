@@ -7,8 +7,5 @@ jobs: # a collection of steps
       
     steps: # a collection of executable commands
       - checkout
-      - run:
-          name: "Say where is the directory"
-          command: "ls"
-      - run: ./mvnw clean install
+      - run: ./Backend/mvnw clean install
 
