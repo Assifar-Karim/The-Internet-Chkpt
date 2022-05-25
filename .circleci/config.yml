@@ -8,5 +8,5 @@ jobs: # a collection of steps
     steps: # a collection of executable commands
       - checkout
       - run: cd Backend && chmod +x ./mvnw
-      - run: ./mvnw clean install
+      - run: cd Backend && ./mvnw clean install
 
