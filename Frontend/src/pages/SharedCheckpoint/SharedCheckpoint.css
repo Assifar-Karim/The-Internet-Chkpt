@@ -1,0 +1,13 @@
+.checkpoint-card {
+  padding-top: 10%;
+  margin: auto;
+  width: 75%;
+}
+
+.share-icon {
+  margin-left: 8px;
+}
+
+.share-icon:active {
+  transform: translateY(4px);
+}
