@@ -1,9 +1,7 @@
 package com.ticp.controller;
 
 import com.ticp.dto.CheckpointDTO;
-import com.ticp.model.Checkpoint;
 import com.ticp.service.CheckpointService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

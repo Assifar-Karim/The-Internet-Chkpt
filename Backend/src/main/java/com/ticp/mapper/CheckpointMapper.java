@@ -6,13 +6,11 @@ import com.ticp.model.User;
 import com.ticp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.text.SimpleDateFormat;
-import java.util.Optional;
 
 @Component()
 public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
@@ -48,10 +46,9 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
 
         SimpleDateFormat sdf = new SimpleDateFormat(this.DATE_FORMAT);
 
-        Optional<User> fetchedUsero = userRepository
-                .findById(model.getUserId());
-
-        User fetchedUser = fetchedUsero.orElseThrow(() -> new ResponseStatusException(
+        User fetchedUser = userRepository
+                .findById(model.getUserId())
+                .orElseThrow(() -> new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
                     String.format("User with id=%s not found", model.getUserId())
                 ));
