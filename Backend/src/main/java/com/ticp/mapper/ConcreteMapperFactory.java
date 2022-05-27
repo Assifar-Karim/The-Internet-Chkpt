@@ -1,6 +1,7 @@
 package com.ticp.mapper;
 
 import com.ticp.model.Checkpoint;
+import com.ticp.dto.UserPrincipalDTO;
 import com.ticp.model.PasswordToken;
 import com.ticp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,8 @@ public class ConcreteMapperFactory implements MapperFactory
     private PasswordMapper passwordMapper;
     @Autowired
     private CheckpointMapper checkpointMapper;
-    
+    @Autowired
+    private UserPrincipalMapper userPrincipalMapper;
     @Override
     public Mapper<?, ?> getMapper(Class<?> obj)
     {
@@ -27,8 +29,13 @@ public class ConcreteMapperFactory implements MapperFactory
         {
             return passwordMapper;
         }
-        if(obj == Checkpoint.class){
+        if(obj == Checkpoint.class)
+        {
             return checkpointMapper;
+        }
+        if(obj == UserPrincipalDTO.class)
+        {
+            return userPrincipalMapper;
         }
         return null;
     }

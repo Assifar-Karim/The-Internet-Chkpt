@@ -15,6 +15,7 @@ public class User
     private String email;
     private String password;
     private String role = "USER";
+    private String provider = "local";
     private boolean active = false;
 
     public User()
@@ -75,6 +76,16 @@ public class User
     public void setRole(String role)
     {
         this.role = role;
+    }
+
+    public String getProvider()
+    {
+        return provider;
+    }
+
+    public void setProvider(String provider)
+    {
+        this.provider = provider;
     }
 
     public boolean isActive()
