@@ -6,6 +6,10 @@ public interface Mapper<T, DTO>
     {
         return null;
     }
+    default DTO toDTO(T model, Object object)
+    {
+        return null;
+    }
     default T toModel(DTO dto)
     {
         return null;
