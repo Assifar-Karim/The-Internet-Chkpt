@@ -19,7 +19,6 @@ public interface UserService
     User getUserByPasswordToken(String token);
     void changePassword(User user, PasswordDTO passwordDTO);
     User findUserByEmail(String email);
-    Optional<User> findUserByUsername(String username);
     boolean verifyOldPassword(User user, String oldPassword);
     User findUserByUsername(String username);
 }

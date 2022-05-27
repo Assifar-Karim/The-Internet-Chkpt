@@ -27,11 +27,14 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
     @Override
     public Checkpoint toModel(CheckpointDTO checkpointDTO) {
 
-        User fetchedUser = userRepository.findByUsername(checkpointDTO.getUsername())
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND,
-                        String.format("User with username=%s not found", checkpointDTO.getUsername())
-                ));
+        User fetchedUser = userRepository.findByUsername(checkpointDTO.getUsername());
+        if(fetchedUser == null)
+        {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    String.format("User with username=%s not found", checkpointDTO.getUsername())
+            );
+        }
 
         return new Checkpoint(
                 checkpointDTO.getId(),
