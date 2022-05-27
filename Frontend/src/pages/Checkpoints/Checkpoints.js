@@ -55,10 +55,11 @@ export default function Checkpoints() {
         ))}
       </div>
 
-      <div className="footer">
-        <img src={darkSools} alt="clock" />
-        <span>THE INTERNET CHECKPOINT | TICP TEAM 2022</span>
-      </div>
+        <div className="footer">
+          <img src={darkSools} alt="dark sools" />
+          <span>THE INTERNET CHECKPOINT | TICP TEAM 2022</span>
+        </div>
+
     </>
   );
 }
