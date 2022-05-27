@@ -1,0 +1,133 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 100vh;
+}
+
+.btn-container{
+    margin: 10px auto;
+}
+
+.btn{
+    font-family: "fixedsys";
+    font-size: 1.5em;
+    background-color: #602CAD;
+    color: white;
+    display: inline-block;
+    padding: 15px 64px;
+    cursor: pointer;
+}
+
+.sin-side-bar{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 100%;
+    background-color: #211039;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.sin-background{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-image: url('../../assets/backgrounds/shovel-knight-bg2.gif');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.sin-background img{
+    width: 100%;
+    height: 100%;
+}
+
+.sin-logo img{
+    position: relative;
+    top: -7%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 165px;
+}
+
+.sin-content{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.sin-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 3rem 0;
+}
+
+.sin-form > div {
+    margin: 1rem 0;
+}
+
+.sin-form label{
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.sin-form input{
+    background-color: transparent;
+    padding:0.8rem 1rem;
+    border-radius: 10px;
+    border: #fff solid 1px;
+    width: 65%;
+    color: #fff;
+    font-family: "fixedsys";
+}
+
+
+.line{
+    margin-top: 20px;
+    width: 75%;
+    height: 1px;
+    background-color: white;
+    margin: 30px auto 0 auto;
+}
+
+.or {
+    margin: -9px auto 10px auto;
+    background-color: #211039;
+    padding: 0 20px;
+    font-size: 1.1rem;
+}
+
+.sin-form button{
+    float: left;
+    border-radius: 10px;
+    margin-top: 0;
+}
+
+
+#sin-heading-1{
+/*    text-align: center; */
+    color: #fff;
+    font-size: 2rem;
+}
+
+#sin-heading-2{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sin-special-text{
+    color: orange;
+    text-decoration: underline;
+    padding-left: 5px;
+}
+
+
+#load-button{
+    border-radius: 10px;
+    font-size: 1.4rem;
+}

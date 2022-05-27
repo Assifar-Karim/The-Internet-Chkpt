@@ -6,5 +6,32 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://<username>:<pwd>@ticp-cluster0.dk5t9.mongodb.net/development
-      database: development
+      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/${ENVIRONMENT}
+      database: ${ENVIRONMENT}
+      auto-index-creation: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_OAUTH2_CLIENT_ID}
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: the.internet.checkpoint.team@gmail.com
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jwt:
+  secret: ${JWT_SECRET_KEY}
+authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/oauth2/callback/google, http://localhost:3000/oauth2/redirect
