@@ -7,7 +7,7 @@ const CheckpointCard = () => {
             <div className="Card-header">
                 <span>Checkpoint</span>
                 <div className="time">
-                    <img src={clock} alt="time" />
+                    <img className="clockImg" src={clock} alt="time" />
                     <span>12/05/2022</span>
                     <span>12:00</span>
                 </div>
