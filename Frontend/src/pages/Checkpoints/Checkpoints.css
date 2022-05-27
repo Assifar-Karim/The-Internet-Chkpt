@@ -4,6 +4,7 @@
     justify-content: space-around;
     width: auto ;
     padding: 0% 20% 0 20% ;
+    padding-bottom: 120px;
 }
 
 .footer{
@@ -40,10 +41,14 @@ body{
 
 .footer{
     margin-top: 50px;
-    position: relative;
+    position: absolute;
     color: white;
     text-align: center;
     padding: 10px;
+    bottom: 10px;
+    
+    left: 50%;
+    transform: translate(-50%,0);
 }
 
 .footer img{
@@ -54,5 +59,10 @@ body{
     transform: translate(-50%,0);
     width: auto;
     height: 110px;
+}
+
+.App{
+    position: relative;
+    min-height: 100vh;
 }
 
