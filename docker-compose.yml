@@ -1,0 +1,16 @@
+version: "3.9"  # optional since v1.27.0
+services:
+ backend:
+    build: Backend/Dockerfile
+    ports:
+      - "8080:8080"
+    environment: 
+      DB_NAME: MONGO_DB_USERNAME
+      DB_PASSWORD: MONGO_DB_PASSWORD
+ frontend:
+    build: Frontend/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    environment: 
