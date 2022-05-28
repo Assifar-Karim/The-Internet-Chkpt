@@ -1,5 +1,7 @@
 package com.ticp.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailSenderService
 {
+    private static Logger logger = LogManager.getLogger(EmailSenderService.class);
     @Autowired
     private JavaMailSender mailSender;
     @Value("${spring.mail.username}")
@@ -22,7 +25,6 @@ public class EmailSenderService
         simpleMailMessage.setText(body);
 
         mailSender.send(simpleMailMessage);
-        System.out.println("Mail Sent ...");
-        // NOTE (KARIM) : After sending the email then the action must be logged
+        logger.info("Mail Sent ...");
     }
 }
