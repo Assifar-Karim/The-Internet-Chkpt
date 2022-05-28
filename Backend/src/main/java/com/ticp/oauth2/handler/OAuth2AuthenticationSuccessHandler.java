@@ -5,6 +5,8 @@ import com.ticp.error.BadRequestException;
 import com.ticp.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.ticp.util.CookieUtil;
 import com.ticp.util.JwtTokenUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -29,6 +31,7 @@ import static com.ticp.repository.HttpCookieOAuth2AuthorizationRequestRepository
 @Component
 public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler
 {
+    private static Logger logger = LogManager.getLogger(OAuth2AuthenticationSuccessHandler.class);
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
@@ -44,6 +47,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         Cookie cookie = CookieUtil.getCookie(request, REDIRECT_URI_PARAM_COOKIE_NAME);
         if(cookie != null && !isAuthorizedRedirectUri(cookie.getValue()))
         {
+            logger.warn("Unauthorized Redirect URI, we can't proceed with the authentication");
             throw new BadRequestException("Unauthorized Redirect URI, we can't proceed with the authentication");
         }
         String targetUrl = cookie != null ? cookie.getValue() : getDefaultTargetUrl();

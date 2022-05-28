@@ -7,6 +7,8 @@ import com.ticp.model.User;
 import com.ticp.oauth2.user.OAuth2UserInfo;
 import com.ticp.oauth2.user.OAuth2UserInfoFactory;
 import com.ticp.repository.UserRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OAuth2UserService extends DefaultOAuth2UserService
 {
+    private static Logger logger = LogManager.getLogger(OAuth2UserService.class);
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -39,6 +42,7 @@ public class OAuth2UserService extends DefaultOAuth2UserService
                     (userRequest.getClientRegistration().getRegistrationId(), oAuth2User.getAttributes());
             if(oAuth2UserInfo.getEmail() == null || oAuth2UserInfo.getEmail().equals(""))
             {
+                logger.error("Email not found from OAuth provider");
                 throw new OAuth2AuthenticationException("Email not found from OAuth provider");
             }
             String email = oAuth2UserInfo.getEmail();
@@ -56,6 +60,8 @@ public class OAuth2UserService extends DefaultOAuth2UserService
             {
                 if(!user.getProvider().equalsIgnoreCase(userRequest.getClientRegistration().getRegistrationId()))
                 {
+                    logger.error("You signed up with your " + user.getProvider() + " account. Please use your " + user.getProvider()
+                            + "instead");
                     throw new OAuth2AuthenticationException(
                             "You signed up with your " + user.getProvider() + " account. Please use your " + user.getProvider()
                                     + "instead");

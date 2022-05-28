@@ -10,6 +10,8 @@ import com.ticp.model.VerificationToken;
 import com.ticp.service.EmailSenderService;
 import com.ticp.service.UserService;
 import com.ticp.util.JwtTokenUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +26,7 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 @RestController
 public class UserController
 {
+    private static Logger logger = LogManager.getLogger(UserController.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -66,8 +69,7 @@ public class UserController
                 "Click the following link to become an official main character : { " + url + "}",
                 "The Internet Checkpoint Account Verification"
         );
-        // NOTE (KARIM) : Replace with a log
-        System.out.println("Click the following link to become an official main character : { " + url + "}");
+        logger.info("Click the following link to become an official main character : { " + url + "}");
         return "Token Regenerated";
     }
 
@@ -89,7 +91,7 @@ public class UserController
                 "Click the following link to reset your TICP password : { " + url + "}",
                 "The Internet Checkpoint Password Reset"
         );
-        System.out.println("Click the following link to become an official main character : { " + url + "}");
+        logger.info("Click the following link to become an official main character : { " + url + "}");
         return "Token Generated";
     }
 
@@ -160,6 +162,7 @@ public class UserController
         }
         else
         {
+            logger.error("Refresh token is missing");
             throw new RuntimeException("Refresh token is missing");
         }
     }

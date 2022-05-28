@@ -5,6 +5,8 @@ import com.ticp.mapper.CheckpointMapper;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.model.Checkpoint;
 import com.ticp.repository.CheckpointRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class CheckpointServiceImpl implements CheckpointService{
-
+    private static Logger logger = LogManager.getLogger(CheckpointServiceImpl.class);
     @Autowired
     private CheckpointRepository checkpointRepository;
     @Autowired
@@ -60,10 +62,12 @@ public class CheckpointServiceImpl implements CheckpointService{
     public CheckpointDTO getCheckpointById(String id) {
         return toDTO(checkpointRepository
                         .findById(id)
-                        .orElseThrow(() ->
-                                new ResponseStatusException(
-                                        HttpStatus.NOT_FOUND,
-                                        String.format("Checkpoint with id = %s not found", id))));
+                        .orElseThrow(() ->{
+                            logger.error("Checkpoint with id = "+id+" not found");
+                            return new ResponseStatusException(
+                                    HttpStatus.NOT_FOUND,
+                                    String.format("Checkpoint with id = %s not found", id));
+                        }));
     }
 
     @Override

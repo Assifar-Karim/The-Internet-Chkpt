@@ -11,6 +11,8 @@ import com.ticp.model.VerificationToken;
 import com.ticp.repository.PasswordTokenRepository;
 import com.ticp.repository.UserRepository;
 import com.ticp.repository.VerificationTokenRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +29,7 @@ import java.util.UUID;
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService
 {
+    private static Logger logger = LogManager.getLogger(UserServiceImpl.class);
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -156,12 +159,13 @@ public class UserServiceImpl implements UserService, UserDetailsService
         User user = userRepository.findByUsername(username);
         if(user == null)
         {
-            // Pass an error Log in here before throwing the exception
+
+            logger.error("User not found in the database");
             throw new UsernameNotFoundException("User not found in the database");
         }
         else
         {
-            // Pass an info Log abt the found user
+            logger.error("User found: "+user.getUsername());
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole()));
