@@ -1,14 +1,19 @@
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
-    context:
-      - TICP
-    docker: # run the steps with Docker
-      - image: openjdk:12 # ...with this image as the primary container; this is where all `steps` will run 
+    docker: # run the steps with Docker 
+      - image: cimg/base:stable
       
-    steps: # a collection of executable commands 
+      
+    steps: # a collection of executable commands
       - checkout
-      - run: cd Backend && chmod +x ./mvnw
-      - run: cd Backend && ./mvnw clean install
+      - setup_remote_docker
+      - run: 
+          name: Build and push Backend Docker image
+          command: cd Backend && docker build . -f Dockerfile 
+      
+      - run:
+          name: Build and push Frontend Docker image
+          command: cd Frontend && docker build . -f Dockerfile
      
 
