@@ -1,32 +1,28 @@
 {
-    "checkpoints":[
-        {
-            "id": "1",
-            "username": "user1",
-            "date": "2018-01-01",
-            "hour": "12:00",
-            "description": "Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1"
-        },
-        {
-            "id": "2",
-            "username": "user2",
-            "date": "2018-01-01",
-            "hour": "12:00",
-            "description": "Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2"
-        },
-        {
-            "id": "3",
-            "username": "user3",
-            "date": "2018-01-01",
-            "hour": "12:00",
-            "description": "Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3"
-        },
-        {
-            "id": "4",
-            "username": "user4",
-            "date": "2018-01-01",
-            "hour": "12:00",
-            "description": "Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4"
-        }
-    ]
+  "checkpoints": [
+    {
+      "id": "1",
+      "username": "user1",
+      "formattedCheckpointDate": "03/15/2022 at 06:00",
+      "content": "Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1Checkpoint 1"
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "formattedCheckpointDate": "03/15/2022 at 06:00",
+      "content": "Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2Checkpoint 2"
+    },
+    {
+      "id": "3",
+      "username": "user3",
+      "formattedCheckpointDate": "03/15/2022 at 06:00",
+      "content": "Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3Checkpoint 3"
+    },
+    {
+      "id": "4",
+      "username": "user4",
+      "formattedCheckpointDate": "03/15/2022 at 06:00",
+      "content": "Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4Checkpoint 4"
+    }
+  ]
 }
