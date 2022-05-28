@@ -8,7 +8,7 @@
     <Console name="Console" target="SYSTEM_OUT" follow="true">
       <PatternLayout pattern="${LOG_PATTERN}" />
     </Console>
- 
+
     <RollingFile name="appLog"
       fileName="${APP_LOG_ROOT}/The-Internet-Chkpt/application.log"
       filePattern="${APP_LOG_ROOT}/The-Internet-Chkpt/application-%d{yyyy-MM-dd}-%i.log">
@@ -18,16 +18,16 @@
       </Policies>
       <DefaultRolloverStrategy max="1" />
     </RollingFile>
- 
+
   </Appenders>
   <Loggers>
- 
+
     <Logger name="com.ticp" additivity="false">
       <AppenderRef ref="appLog" />
       <AppenderRef ref="Console" />
     </Logger>
- 
-    <Root level="debug">
+
+    <Root level="info">
       <AppenderRef ref="Console" />
     </Root>
   </Loggers>

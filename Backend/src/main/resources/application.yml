@@ -6,8 +6,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/${ENVIRONMENT}
-      database: ${ENVIRONMENT}
+      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/development
+      database: development
       auto-index-creation: true
   security:
     oauth2:
@@ -35,3 +35,6 @@ spring:
 jwt:
   secret: ${JWT_SECRET_KEY}
 authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/oauth2/callback/google, http://localhost:3000/oauth2/redirect
+ticp:
+  configs:
+    date_format: "yyyy.MM.dd 'at' HH:mm:ss"
