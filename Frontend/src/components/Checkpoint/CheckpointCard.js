@@ -17,12 +17,12 @@ const CheckpointCard = ({ id, username, date, content, isShared = true }) => {
       <div className="Card-header">
         <span>{username}</span>
         <div className="time">
-          <img src={clock} alt="time" />
+          <img className="clockImg" src={clock} alt="time" />
           <span>{date}</span>
           {!isShared && (
             <img
               onClick={() => copyLinkToClipBoard(id)}
-              className="share-icon"
+              className="share-icon clockImg"
               src={users}
             />
           )}
