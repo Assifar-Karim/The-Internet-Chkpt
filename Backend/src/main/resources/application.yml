@@ -6,8 +6,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/development
-      database: development
+      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/${ENVIRONMENT}
+      database: ${ENVIRONMENT}
       auto-index-creation: true
   security:
     oauth2:
