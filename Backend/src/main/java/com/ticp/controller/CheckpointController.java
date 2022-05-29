@@ -16,7 +16,7 @@ public class CheckpointController {
         this.checkpointService = checkpointService;
     }
 
-    @PostMapping("/checkpoints")
+    @PostMapping("/api/checkpoints")
     public CheckpointDTO createCheckpoint(@RequestBody CheckpointDTO checkpointDTO){
         return checkpointService.createCheckpoint(checkpointDTO);
     }
@@ -31,7 +31,7 @@ public class CheckpointController {
         return checkpointService.getCheckpointById(id);
     }
 
-    @DeleteMapping("/checkpoints/{id}")
+    @DeleteMapping("/api/checkpoints/{id}")
     public ResponseEntity<String> deleteCheckPoint(@PathVariable String id){
         checkpointService.deleteCheckpointById(id);
         return ResponseEntity.ok("Checkpoint deleted !");
