@@ -1,5 +1,6 @@
 package com.ticp.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ticp.dto.CheckpointDTO;
 import com.ticp.model.Checkpoint;
 import com.ticp.service.CheckpointService;
@@ -40,6 +41,54 @@ class CheckpointControllerIntegrationTest
     {
         MockitoAnnotations.initMocks(this);
         this.mockMvc = MockMvcBuilders.standaloneSetup(checkpointController).build();
+    }
+    @Test
+    public void given_existing_username_createCheckpoint_should_return_ok() throws Exception
+    {
+        //GIVEN
+        CheckpointDTO checkpointDTO = new CheckpointDTO();
+        checkpointDTO.setUsername("username");
+        checkpointDTO.setContent("content");
+        //WHEN
+        CheckpointDTO resultCheckpoint = new CheckpointDTO("id",
+                checkpointDTO.getUsername(),
+                checkpointDTO.getContent(),
+                new Date(),
+                "2022-05-29 at 14:40");
+        when(checkpointService.createCheckpoint(any(CheckpointDTO.class))).thenReturn(
+                resultCheckpoint);
+        //THEN
+        ObjectMapper objectMapper = new ObjectMapper();
+        mockMvc.perform(post("/api/checkpoints").contentType("application/json")
+                        .content("{ " +
+                                "\"content\": \"content\"," +
+                                "\"username\": \"username\"" +
+                                " }").accept("*/*"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo(objectMapper.writeValueAsString(resultCheckpoint))));
+        verify(checkpointService).createCheckpoint(any(CheckpointDTO.class));
+    }
+    @Test
+    public void given_non_existing_username_createCheckpoint_should_throw_404() throws Exception
+    {
+        //GIVEN
+        CheckpointDTO checkpointDTO = new CheckpointDTO();
+        checkpointDTO.setUsername("username");
+        checkpointDTO.setContent("content");
+        //WHEN
+        when(checkpointService.createCheckpoint(any(CheckpointDTO.class))).thenThrow(
+                new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        String.format("User with username = %s not found", checkpointDTO.getUsername())));
+        //THEN
+        mockMvc.perform(post("/api/checkpoints").contentType("application/json")
+                        .content("{ " +
+                                "\"username\": \"username\"," +
+                                "\"content\": \"content\"" +
+                                "}").accept("*/*"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+        //verify(checkpointService).createCheckpoint(checkpointDTO);
     }
 
     @Test
@@ -85,7 +134,7 @@ class CheckpointControllerIntegrationTest
         //WHEN
         doNothing().when(checkpointService).deleteCheckpointById(id);
         //THEN
-        mockMvc.perform(delete("/checkpoints/chkpt-id"))
+        mockMvc.perform(delete("/api/checkpoints/chkpt-id"))
                 .andDo(print()).andExpect(status().isOk());
         verify(checkpointService).deleteCheckpointById(id);
     }
