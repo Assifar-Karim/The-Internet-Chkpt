@@ -24,6 +24,7 @@ const CheckpointCard = ({ id, username, date, content, isShared = true }) => {
               onClick={() => copyLinkToClipBoard(id)}
               className="share-icon clockImg"
               src={users}
+              alt="share icon"
             />
           )}
         </div>

@@ -6,20 +6,19 @@ import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./SharedCheckpoint.css";
-import { useLocation } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function SharedCheckpoint() {
   const [checkpoint, setCheckpoints] = useState({});
-  const location = useLocation();
+  const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
-    const id = location.pathname.split("/")[2];
-
-    fetch(`http://localhost:8000/checkpoints/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCheckpoints(data);
-      });
+    axios
+      .get(`/checkpoints/${params.id}`)
+      .then((res) => setCheckpoints(res.data))
+      .catch((err) => history.push("/404"));
   }, []);
 
   return (

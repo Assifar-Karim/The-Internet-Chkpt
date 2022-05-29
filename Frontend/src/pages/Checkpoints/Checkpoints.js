@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import background from "../../assets/backgrounds/main-bg.png";
-import memcard from "../../assets/icons/memcard.png";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
 import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
-import clock from "../../assets/icons/clock.png";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
-import { useCallback } from "react";
 
 export default function Checkpoints() {
   const [checkpoints, setCheckpoints] = useState([]);
@@ -55,11 +52,10 @@ export default function Checkpoints() {
         ))}
       </div>
 
-        <div className="footer">
-          <img src={darkSools} alt="dark sools" />
-          <span>THE INTERNET CHECKPOINT | TICP TEAM 2022</span>
-        </div>
-
+      <div className="footer">
+        <img src={darkSools} alt="dark sools" />
+        <span>THE INTERNET CHECKPOINT | TICP TEAM 2022</span>
+      </div>
     </>
   );
 }

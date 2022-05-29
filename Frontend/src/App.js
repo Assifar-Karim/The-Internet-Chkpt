@@ -1,14 +1,20 @@
-import { Route, Routes } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+
 import { routes } from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      <Switch>
         {routes.map((route, index) => (
-          <Route key={index} path={route.segment} element={route.component()} />
+          <Route
+            exact
+            key={index}
+            path={route.segment}
+            component={route.component}
+          />
         ))}
-      </Routes>
+      </Switch>
     </div>
   );
 }
