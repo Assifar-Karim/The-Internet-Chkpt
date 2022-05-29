@@ -1,10 +1,8 @@
 package com.ticp.service;
 
 import com.ticp.dto.CheckpointDTO;
-import com.ticp.model.Checkpoint;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CheckpointService {
 
