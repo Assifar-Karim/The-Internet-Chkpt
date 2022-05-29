@@ -2,11 +2,22 @@ import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif"
 import './SignIn.css'
 import axios from "axios"
 import { useHistory } from "react-router-dom";
-
+import { useContext, useEffect } from "react"; 
+import { UserContext } from '../../context/UserContext';
 
 const SignIn = () => {
     let history = useHistory();
+    
+    const User = useContext(UserContext)[0];
+    const setUser = useContext(UserContext)[1];
 
+
+    useEffect(() => {
+        if(User){
+            history.push("/")
+        }
+    },[User]);
+    
     const handleNormalSubmit = (e) => {
         e.preventDefault();
         let bodyFormData = new FormData();
@@ -20,11 +31,11 @@ const SignIn = () => {
             data: bodyFormData,
         }).then(res => {
             localStorage.setItem("token",res.data["access_token"])
+            setUser(true)
             history.push("/checkpoints")
         }).catch(err => {
             console.log(err);
         });
-          
     }
 
     return (
@@ -38,7 +49,6 @@ const SignIn = () => {
                     <div className="sin-logo">
                         <img src={logo} alt="TICP Logo" />
                     </div>
-
                     <div className="sin-content">
                         <div id="sin-heading-1">
                                 LOG IN TO YOUR ACCOUNT
