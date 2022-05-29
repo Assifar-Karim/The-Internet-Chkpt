@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class CheckpointController {
@@ -24,6 +25,12 @@ public class CheckpointController {
     @GetMapping("/checkpoints")
     public List<CheckpointDTO> fetchAllCheckpoints(){
         return checkpointService.getAllCheckpoints();
+    }
+
+    //@GetMapping("/checkpoints")
+    public Map<String, Object> fetchAllCheckpoints(@RequestParam(defaultValue = "0") Integer page,
+                                                   @RequestParam(defaultValue = "10") Integer size){
+        return checkpointService.getAllCheckpointsSortedByDateDesc(page, size);
     }
 
     @GetMapping("/checkpoints/{id}")
