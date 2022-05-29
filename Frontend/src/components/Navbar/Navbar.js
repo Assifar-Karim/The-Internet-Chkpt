@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import 'react-h5-audio-player/lib/styles.css';
 import "./Navbar.css";
 import alex from "../../assets/sounds/alex-productions.mp3";
 import aubenwelt from "../../assets/sounds/aubenwelt.mp3";
@@ -12,11 +11,27 @@ import play_icon from "../../assets/icons/play.png";
 import pause_icon from "../../assets/icons/pause.png";
 import next_icon from "../../assets/icons/next.png";
 import back_icon from "../../assets/icons/back.png";
+import { useContext } from "react";
+import { UserContext } from '../../context/UserContext';
+import { useHistory } from "react-router-dom";
 
 
 const Navbar = ({ links }) => {
 
-  
+  const User = useContext(UserContext)[0];
+  const setUser = useContext(UserContext)[1];
+  let history = useHistory();
+
+  const handle = () => {
+    if(User){
+      localStorage.removeItem("token");
+      history.push("/");
+      setUser(false);
+    }else{
+      history.push("/sign-in");
+    }
+  }
+
   const musicTracks=[alex,aubenwelt,bramble_blast,orridors_of_time];
 
   const [trackIndex, setTrackIndex] = useState(0);
@@ -79,7 +94,8 @@ const Navbar = ({ links }) => {
       console.log("effect track",track,isPlaying);
       track.play();
   }, [track]);
-
+   
+  
   return (
     <div className="navbar-container" >
     <div className="navbar">
@@ -98,9 +114,9 @@ const Navbar = ({ links }) => {
               </li>
             );
           })}
-      
-    </div>
-    <hr />
+          <li onClick={handle}><Link>Log{User?"out":"in"}</Link></li>
+        </div>
+      <hr />
     </div>
   );
 };

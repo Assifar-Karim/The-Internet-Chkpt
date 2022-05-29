@@ -1,14 +1,24 @@
-import { Route, Routes } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { routes } from "./Routes";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.segment} element={route.component()} />
-        ))}
-      </Routes>
+      <QueryClientProvider client={queryClient}>
+        <Switch>
+          {routes.map((route, index) => (
+            <Route
+              exact
+              key={index}
+              path={route.segment}
+              component={route.component}
+            />
+          ))}
+        </Switch>
+      </QueryClientProvider>
     </div>
   );
 }

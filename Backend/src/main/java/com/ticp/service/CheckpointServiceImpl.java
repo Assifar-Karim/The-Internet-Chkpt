@@ -5,14 +5,22 @@ import com.ticp.mapper.CheckpointMapper;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.model.Checkpoint;
 import com.ticp.repository.CheckpointRepository;
+import com.ticp.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -21,6 +29,8 @@ public class CheckpointServiceImpl implements CheckpointService{
     private static Logger logger = LogManager.getLogger(CheckpointServiceImpl.class);
     @Autowired
     private CheckpointRepository checkpointRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private ConcreteMapperFactory mapperFactory;
 
@@ -36,6 +46,14 @@ public class CheckpointServiceImpl implements CheckpointService{
 
     @Override
     public CheckpointDTO createCheckpoint(CheckpointDTO checkpointDTO) {
+
+        if ( ! userRepository.existsByUsername(checkpointDTO.getUsername()) ) {
+           throw new ResponseStatusException(
+                   HttpStatus.NOT_FOUND,
+                   String.format("User with username = %s not found", checkpointDTO.getUsername()));
+       }
+
+        checkpointDTO.setCheckpointDate(new Date());
         Checkpoint checkpoint = toModel(checkpointDTO);
         return toDTO(checkpointRepository.save(checkpoint));
     }
@@ -73,5 +91,17 @@ public class CheckpointServiceImpl implements CheckpointService{
     @Override
     public void deleteCheckpointById(String id) {
         checkpointRepository.deleteById(id);
+    }
+
+    @Override
+    public Map<String, Object> getAllCheckpointsSortedByDateDesc(int page, int size) {
+        Map<String, Object> response = new HashMap<>();
+        Page<Checkpoint> checkpoints = checkpointRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "checkpointDate")));
+        response.put("total_elements", checkpoints.getTotalElements());
+        response.put("next_page", checkpoints.getPageable().next().getPageNumber());
+        response.put("total_pages", checkpoints.getTotalPages());
+        List<CheckpointDTO> checkpointDTOs = checkpoints.getContent().stream().map(this::toDTO).collect(Collectors.toList());
+        response.put("checkpoints", checkpointDTOs);
+        return response;
     }
 }

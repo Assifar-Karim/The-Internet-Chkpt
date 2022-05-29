@@ -1,10 +1,9 @@
 package com.ticp.service;
 
 import com.ticp.dto.CheckpointDTO;
-import com.ticp.model.Checkpoint;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 public interface CheckpointService {
 
@@ -13,5 +12,6 @@ public interface CheckpointService {
     List<CheckpointDTO> getCheckpointsByUser(String userId);
     CheckpointDTO getCheckpointById(String id);
     void deleteCheckpointById(String id);
+    Map<String, Object> getAllCheckpointsSortedByDateDesc(int page, int size);
 
 }

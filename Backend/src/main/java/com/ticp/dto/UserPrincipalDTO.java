@@ -73,7 +73,7 @@ public class UserPrincipalDTO implements OAuth2User, UserDetails
 
     @Override
     public String getUsername() {
-        return null;
+        return email.substring(0,email.indexOf("@"));
     }
 
     @Override
@@ -98,6 +98,6 @@ public class UserPrincipalDTO implements OAuth2User, UserDetails
 
     @Override
     public String getName() {
-        return null;
+        return email.substring(0,email.indexOf("@"));
     }
 }

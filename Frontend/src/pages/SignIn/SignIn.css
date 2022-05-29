@@ -131,3 +131,7 @@
     border-radius: 10px;
     font-size: 1.4rem;
 }
+
+#sin-special-text{
+    cursor: pointer;
+}

@@ -30,9 +30,9 @@ jobs:
     docker: 
       - image: cimg/base:stable
     environment:
-      ACR_PASSWORD : QTB2iM2ECkgjAv/VOj9pQys47gMnyY64
-      ACR_USERNAME : tcipregistry
-      ACR_SERVER_LOGIN : tcipregistry.azurecr.io
+      ACR_PASSWORD : iHqsJ1rVf7CCJWOHlgHKlUDwpyEUhb6/
+      ACR_USERNAME : tcipcontainerregistry
+      ACR_SERVER_LOGIN : tcipcontainerregistry.azurecr.io
     steps:
       - checkout
       - setup_remote_docker
@@ -44,15 +44,21 @@ jobs:
          command: cd Backend && chmod +x ./mvnw
       - run:
          name: build backend image
-         command: cd Backend && docker build . -f Dockerfile -t tcipregistry.azurecr.io/ticp_back:latest
+         command: cd Backend && docker build . -f Dockerfile -t tcipcontainerregistry.azurecr.io/ticp_back:latest
       - run:
          name: push image
-         command: docker push tcipregistry.azurecr.io/ticp_back:latest
+         command: docker push tcipcontainerregistry.azurecr.io/ticp_back:latest
 workflows:
   version: 2
   build_and_publish:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main
       - publish:
+          filters:
+            branches:
+              only: main
           requires: 
             - build
