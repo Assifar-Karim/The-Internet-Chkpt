@@ -11,7 +11,7 @@ export default function Checkpoints() {
   const [checkpoints, setCheckpoints] = useState([]);
   // let list=[1,2,3,4,5,6,7]
   useEffect(() => {
-    fetch("http://localhost:8000/checkpoints")
+    fetch("http://localhost:8080/checkpoints")
       .then((res) => res.json())
       .then((data) => {
         setCheckpoints(data);
