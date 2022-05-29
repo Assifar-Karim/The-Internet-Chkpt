@@ -1,7 +1,32 @@
 import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif"
 import './SignIn.css'
+import axios from "axios"
+import { useHistory } from "react-router-dom";
+
 
 const SignIn = () => {
+    let history = useHistory();
+
+    const handleNormalSubmit = (e) => {
+        e.preventDefault();
+        let bodyFormData = new FormData();
+        bodyFormData.append("username",e.target.form[0].value);
+        bodyFormData.append("password",e.target.form[1].value);
+        
+        // make axios post request
+        axios({
+            method: "post",
+            url: "http://localhost:8080/login",
+            data: bodyFormData,
+        }).then(res => {
+            localStorage.setItem("token",res.data["access_token"])
+            history.push("/checkpoints")
+        }).catch(err => {
+            console.log(err);
+        });
+          
+    }
+
     return (
         <>
             <div className="wrapper">
@@ -28,7 +53,7 @@ const SignIn = () => {
                                 <input id="password" type="password"/>
                             </div>
                             <div className="">
-                                <button className="btn" type="submit">LOAD SAVE</button>
+                                <button className="btn" type="submit" onClick={handleNormalSubmit}>LOAD SAVE</button>
                             </div>
                         </form>
                         <div id="sin-heading-2">
