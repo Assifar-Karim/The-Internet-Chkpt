@@ -7,7 +7,7 @@ import { UserContext } from '../../context/UserContext';
 
 const SignIn = () => {
     let history = useHistory();
-    
+
     const User = useContext(UserContext)[0];
     const setUser = useContext(UserContext)[1];
 
@@ -17,6 +17,10 @@ const SignIn = () => {
             history.push("/")
         }
     },[User]);
+
+    const redirectToSignUP = () => {
+        history.push("/sign-up")
+    }
     
     const handleNormalSubmit = (e) => {
         e.preventDefault();
@@ -68,7 +72,7 @@ const SignIn = () => {
                         </form>
                         <div id="sin-heading-2">
                             NOT A MAIN CHARACTER YET ? 
-                            <span id="sin-special-text">SIGNUP</span>
+                            <span id="sin-special-text" onClick={redirectToSignUP}>SIGNUP</span>
                         </div>
                     </div>
                         <div className="line"></div>
