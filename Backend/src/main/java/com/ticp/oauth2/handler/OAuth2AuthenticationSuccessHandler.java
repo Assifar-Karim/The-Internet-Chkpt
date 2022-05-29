@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URI;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,11 +54,12 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             throw new BadRequestException("Unauthorized Redirect URI, we can't proceed with the authentication");
         }
         String targetUrl = cookie != null ? cookie.getValue() : getDefaultTargetUrl();
-        User user = (User) authentication.getPrincipal();
-        String token = jwtTokenUtil.generateJwtToken(user.getUsername(), user.getAuthorities()
-                .stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()),request);
+        Principal principal = authentication;
+        String access_token = jwtTokenUtil.generateJwtToken(principal.getName(), List.of("USER"),request);
+        String refresh_token = jwtTokenUtil.generateRefreshToken(principal.getName(), request);
         targetUrl = UriComponentsBuilder.fromUriString(targetUrl)
-                .queryParam("token",token)
+                .queryParam("access_token", access_token)
+                .queryParam("refresh_token", refresh_token)
                 .build().toUriString();
         clearAuthenticationAttributes(request, response);
         getRedirectStrategy().sendRedirect(request, response, targetUrl);

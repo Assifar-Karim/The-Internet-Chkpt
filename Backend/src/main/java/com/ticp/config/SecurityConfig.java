@@ -8,7 +8,6 @@ import com.ticp.oauth2.handler.OAuth2AuthenticationSuccessHandler;
 import com.ticp.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.ticp.service.OAuth2UserService;
 import com.ticp.util.JwtTokenUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -67,7 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .anyRequest()
                 .permitAll();
         http.oauth2Login()
-                .authorizationEndpoint().baseUri("/oauth2/authorize")
+                .authorizationEndpoint()
+                .baseUri("/oauth2/authorize")
                 .authorizationRequestRepository(cookieAuthorizationRequestRepository())
                 .and()
                 .redirectionEndpoint()

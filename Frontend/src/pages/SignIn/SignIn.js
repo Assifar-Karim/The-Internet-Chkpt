@@ -1,7 +1,47 @@
 import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif"
 import './SignIn.css'
+import axios from "axios"
+import { useHistory } from "react-router-dom";
+import { useContext, useEffect } from "react"; 
+import { UserContext } from '../../context/UserContext';
 
 const SignIn = () => {
+    let history = useHistory();
+
+    const User = useContext(UserContext)[0];
+    const setUser = useContext(UserContext)[1];
+
+
+    useEffect(() => {
+        if(User){
+            history.push("/")
+        }
+    },[User]);
+
+    const redirectToSignUP = () => {
+        history.push("/sign-up")
+    }
+    
+    const handleNormalSubmit = (e) => {
+        e.preventDefault();
+        let bodyFormData = new FormData();
+        bodyFormData.append("username",e.target.form[0].value);
+        bodyFormData.append("password",e.target.form[1].value);
+        
+        // make axios post request
+        axios({
+            method: "post",
+            url: "http://localhost:8080/login",
+            data: bodyFormData,
+        }).then(res => {
+            localStorage.setItem("token",res.data["access_token"])
+            setUser(true)
+            history.push("/checkpoints")
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
     return (
         <>
             <div className="wrapper">
@@ -13,7 +53,6 @@ const SignIn = () => {
                     <div className="sin-logo">
                         <img src={logo} alt="TICP Logo" />
                     </div>
-
                     <div className="sin-content">
                         <div id="sin-heading-1">
                                 LOG IN TO YOUR ACCOUNT
@@ -28,12 +67,12 @@ const SignIn = () => {
                                 <input id="password" type="password"/>
                             </div>
                             <div className="">
-                                <button className="btn" type="submit">LOAD SAVE</button>
+                                <button className="btn" type="submit" onClick={handleNormalSubmit}>LOAD SAVE</button>
                             </div>
                         </form>
                         <div id="sin-heading-2">
                             NOT A MAIN CHARACTER YET ? 
-                            <span id="sin-special-text">SIGNUP</span>
+                            <span id="sin-special-text" onClick={redirectToSignUP}>SIGNUP</span>
                         </div>
                     </div>
                         <div className="line"></div>

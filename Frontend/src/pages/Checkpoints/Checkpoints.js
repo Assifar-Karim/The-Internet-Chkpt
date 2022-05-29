@@ -10,6 +10,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 export default function Checkpoints() {
+
   const { status, data } = useQuery(
     "fetch-checkpoints",
     () => fetchCheckpoints(),

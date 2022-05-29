@@ -2,6 +2,7 @@ package com.ticp.controller;
 
 import com.ticp.dto.CheckpointDTO;
 import com.ticp.service.CheckpointService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,8 @@ import java.util.Map;
 @RestController
 public class CheckpointController {
 
-    private final CheckpointService checkpointService;
+    @Autowired
+    private CheckpointService checkpointService;
 
     public CheckpointController(CheckpointService checkpointService) {
         this.checkpointService = checkpointService;

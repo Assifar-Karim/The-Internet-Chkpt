@@ -6,6 +6,8 @@ import SharedCheckpoint from "./pages/SharedCheckpoint/SharedCheckpoint";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 
+
+
 export const routes = [
   { title: "", segment: "/", component: MainPage, readerToNav: false },
   {
