@@ -1,19 +1,58 @@
-version: 2 # use CircleCI 2.0
-jobs: # a collection of steps
-  build: # runs not using Workflows must have a `build` job as entry point
-    docker: # run the steps with Docker 
+version: 2 
+          
+jobs: 
+  build:
+    docker:  
+      - image: openjdk:11-jdk-slim
+    environment:
+      ENVIRONMENT: development
+      MONGO_DB_USERNAME: Sami
+      MONGO_DB_PASSWORD: ZrGuwAC6xFgRv4Hs
+      MAIL_PASSWORD: nuvacxsxmqqebfla
+      JWT_SECRET_KEY: dkeokzpkfzrpj5fdz8dez87cz8czc59
+      GOOGLE_OAUTH2_CLIENT_ID: 1087440583942-qi9anbbmqlfak8797h0vs09v4nntmqtc.apps.googleusercontent.com
+      GOOGLE_CLIENT_SECRET : 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
+    steps: 
+      - checkout
+      - run: 
+          name: debug env vars
+          command: echo $MONGO_DB_USERNAME
+      - run: 
+          name: add execution permissions to the maven wrapper
+          command: cd ./Backend && chmod +x ./mvnw
+      - run: 
+          name: build the application
+          command: cd ./Backend && ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - run: 
+          name: run tests
+          command: cd ./Backend && ./mvnw test -B
+  publish:
+    docker: 
       - image: cimg/base:stable
-      
-      
-    steps: # a collection of executable commands
+    environment:
+      ACR_PASSWORD : QTB2iM2ECkgjAv/VOj9pQys47gMnyY64
+      ACR_USERNAME : tcipregistry
+      ACR_SERVER_LOGIN : tcipregistry.azurecr.io
+    steps:
       - checkout
       - setup_remote_docker
       - run: 
-          name: Build and push Backend Docker image
-          command: cd Backend && docker build . -f Dockerfile 
-      
+         name: log to azure container registry 
+         command: docker login  $ACR_SERVER_LOGIN -u $ACR_USERNAME -p $ACR_PASSWORD
       - run:
-          name: Build and push Frontend Docker image
-          command: cd Frontend && docker build . -f Dockerfile
-     
-
+         name: add execution permissions to the maven wrapper
+         command: cd Backend && chmod +x ./mvnw
+      - run:
+         name: build backend image
+         command: cd Backend && docker build . -f Dockerfile -t tcipregistry.azurecr.io/ticp_back:latest
+      - run:
+         name: push image
+         command: docker push tcipregistry.azurecr.io/ticp_back:latest
+workflows:
+  version: 2
+  build_and_publish:
+    jobs:
+      - build
+      - publish:
+          requires: 
+            - build
