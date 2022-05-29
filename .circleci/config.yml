@@ -44,10 +44,10 @@ jobs:
          command: cd Backend && chmod +x ./mvnw
       - run:
          name: build backend image
-         command: cd Backend && docker build . -f Dockerfile -t tcipregistry.azurecr.io/ticp_back:latest
+         command: cd Backend && docker build . -f Dockerfile -t tcipcontainerregistry.azurecr.io/ticp_back:latest
       - run:
          name: push image
-         command: docker push tcipregistry.azurecr.io/ticp_back:latest
+         command: docker push tcipcontainerregistry.azurecr.io/ticp_back:latest
 workflows:
   version: 2
   build_and_publish:
