@@ -36,6 +36,16 @@ public class JwtTokenUtil
                 .withClaim("roles", roles)
                 .sign(algorithm);
     }
+    public String generateRefreshToken(String username, HttpServletRequest request)
+    {
+        Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
+        return JWT
+                .create()
+                .withSubject(username)
+                .withExpiresAt(new Date(System.currentTimeMillis() + REFRESH_TOKEN_VALIDITY))
+                .withIssuer(request.getRequestURL().toString())
+                .sign(algorithm);
+    }
     public String generateRefreshToken(User user, HttpServletRequest request)
     {
         Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
