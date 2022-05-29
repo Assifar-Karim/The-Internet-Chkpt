@@ -1,10 +1,10 @@
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Checkpoints from "./pages/Checkpoints/Checkpoints";
 import MainPage from "./pages/MainPage/MainPage";
+import Page404 from "./pages/Page404/Page404";
 import SharedCheckpoint from "./pages/SharedCheckpoint/SharedCheckpoint";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
-
 
 export const routes = [
   { title: "", segment: "/", component: MainPage, readerToNav: false },
@@ -37,5 +37,11 @@ export const routes = [
     segment: "/sign-up",
     component: SignUp,
     renderToNav: false,
-  }
+  },
+  {
+    title: "404",
+    segment: "/404",
+    component: Page404,
+    renderToNav: false,
+  },
 ];
