@@ -5,6 +5,7 @@ import com.ticp.mapper.CheckpointMapper;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.model.Checkpoint;
 import com.ticp.repository.CheckpointRepository;
+import com.ticp.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -25,6 +26,9 @@ class CheckpointServiceImplTest {
 
     @Mock
     private CheckpointRepository checkpointRepository;
+
+    @Mock
+    private UserRepository userRepository;
 
     @Mock
     private ConcreteMapperFactory mapperFactory;
@@ -107,6 +111,7 @@ class CheckpointServiceImplTest {
         doReturn(checkpointMapper).when(mapperFactory).getMapper(Checkpoint.class);
         when(checkpointMapper.toModel(checkpointDTO)).thenReturn(checkpoint);
         when(checkpointMapper.toDTO(persistedCheckpoint)).thenReturn(persistedCheckpointDTO);
+        when(userRepository.existsByUsername(checkpointDTO.getUsername())).thenReturn(true);
 
         // When
         CheckpointDTO createdCheckpointDTO = checkpointServiceImpl.createCheckpoint(checkpointDTO);
