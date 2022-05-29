@@ -30,9 +30,9 @@ jobs:
     docker: 
       - image: cimg/base:stable
     environment:
-      ACR_PASSWORD : QTB2iM2ECkgjAv/VOj9pQys47gMnyY64
-      ACR_USERNAME : tcipregistry
-      ACR_SERVER_LOGIN : tcipregistry.azurecr.io
+      ACR_PASSWORD : iHqsJ1rVf7CCJWOHlgHKlUDwpyEUhb6/
+      ACR_USERNAME : tcipcontainerregistry
+      ACR_SERVER_LOGIN : tcipcontainerregistry.azurecr.io
     steps:
       - checkout
       - setup_remote_docker
