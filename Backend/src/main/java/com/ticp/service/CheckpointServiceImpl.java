@@ -4,6 +4,7 @@ import com.ticp.dto.CheckpointDTO;
 import com.ticp.mapper.CheckpointMapper;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.model.Checkpoint;
+import com.ticp.model.User;
 import com.ticp.repository.CheckpointRepository;
 import com.ticp.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
@@ -11,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -90,6 +90,17 @@ public class CheckpointServiceImpl implements CheckpointService{
 
     @Override
     public void deleteCheckpointById(String id) {
+        checkpointRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteUserCheckpointById(String id, String username) {
+        User fetchedUser = userRepository.findByUsername(username);
+        Checkpoint checkpoint = checkpointRepository.findById(id).get();
+
+        if ( !fetchedUser.getId().equals(checkpoint.getUserId()) )
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+
         checkpointRepository.deleteById(id);
     }
 
