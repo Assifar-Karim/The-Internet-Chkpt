@@ -1,29 +1,42 @@
 import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif"
 import './SignUp.css'
 import axios from 'axios'
-
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 
 const SignUp = () => {
+    const [status, setStatus] = useState({type:''});
+    
 
-    const handleSubmit = async (e) => {
+    let history = useHistory();
+
+    const handleSubmit =  (e) => {
+        setStatus({type:''})
         e.preventDefault();
         const email = e.target.form[0].value;
         const username = e.target.form[1].value;
         const password = e.target.form[2].value;
         const registerFormData = {"email":email,"username":username,"password":password};
         console.log(registerFormData)
-        try {
-            // make axios post request
-           await axios({
-              method: "post",
-              url: "http://localhost:8080/register",
-              data: registerFormData,
-              headers:{"Content-Type": "application/json"}
-            });
-          } catch(error) {
+        
+        // make axios post request
+        axios({
+            method: "post",
+            url: "http://localhost:8080/register",
+            data: registerFormData,
+            headers:{"Content-Type": "application/json"}
+        }).then((res) => {
+            e.target.form[0].value = "";
+            e.target.form[1].value = "";
+            e.target.form[2].value = "";
+            setStatus({ type: 'Success' });
+            console.log(res)
+        }).catch((error) => {
+            setStatus({ type: 'Error'});
             console.log(error)
-          }
+        });;
+          
     }
 
     return (
@@ -33,7 +46,7 @@ const SignUp = () => {
             <div className="sin-background"></div>
 
             <div className="sin-side-bar">
-                <div className="sin-logo">
+                <div className="sin-logo" onClick={() => history.push("/")}>
                     <img src={logo} alt="TICP Logo" />
                 </div>
                 <div className="sin-content">
@@ -57,6 +70,8 @@ const SignUp = () => {
                             <button className="btn" type="submit" onClick={handleSubmit}>REGISTER</button>
                         </div>
                     </form>
+                    {status.type === 'Success' &&  <div className="alert success">Registration Succeed </div>}
+                    {status.type ===  'Error'  &&  <div className="alert error">Registration Failed</div>}
                 </div>
             </div>
         </div>
