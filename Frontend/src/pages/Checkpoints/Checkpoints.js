@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState } from "react";
 import background from "../../assets/backgrounds/main-bg.png";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
@@ -6,16 +6,30 @@ import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
+import { UserContext } from "../../context/UserContext";
+import { useHistory } from "react-router-dom";
+
 
 export default function Checkpoints() {
+  let history = useHistory();
+  const User = useContext(UserContext)[0];
+  const setUser = useContext(UserContext)[1];
   const [checkpoints, setCheckpoints] = useState([]);
   // let list=[1,2,3,4,5,6,7]
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const access_token = params.get("access_token");
+    if(access_token){
+      localStorage.setItem("token",access_token);
+      setUser(true);
+      history.push("/checkpoints");
+    }
     fetch("http://localhost:8080/checkpoints")
       .then((res) => res.json())
       .then((data) => {
         setCheckpoints(data);
-      });
+      }
+    );
   }, []);
   return (
     <>

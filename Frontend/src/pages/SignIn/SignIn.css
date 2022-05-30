@@ -50,6 +50,7 @@
     left: 50%;
     transform: translateX(-50%);
     height: 165px;
+    cursor: pointer;
 }
 
 .sin-content{

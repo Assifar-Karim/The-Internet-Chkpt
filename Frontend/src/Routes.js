@@ -1,3 +1,4 @@
+import LoginCallback from "./components/LoginCallback/LoginCallback";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Checkpoints from "./pages/Checkpoints/Checkpoints";
 import MainPage from "./pages/MainPage/MainPage";
@@ -45,5 +46,5 @@ export const routes = [
     segment: "/404",
     component: Page404,
     renderToNav: false,
-  },
+  }
 ];

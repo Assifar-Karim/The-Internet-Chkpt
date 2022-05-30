@@ -3,3 +3,23 @@
     font-size: 1.8rem;
     color: #fff;
 }
+
+.alert{
+    text-align: center;
+    float: left;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+
+.success{
+    background-color: green;
+}
+
+
+.error{
+    background-color: red;
+}
+
+.hidden{
+    display: hidden;
+}

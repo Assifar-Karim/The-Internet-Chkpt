@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-
+import LoginCallback from './components/LoginCallback/LoginCallback'
 import { routes } from "./Routes";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
             component={route.component}
           />
         ))}
+
       </Switch>
     </div>
   );

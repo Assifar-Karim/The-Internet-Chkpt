@@ -4,8 +4,12 @@ import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
 import "./MainPage.css";
 import { routes } from "../../Routes";
+import { useHistory } from "react-router-dom";
+
 
 const MainPage = () => {
+  let history = useHistory();
+
   return (
     <>
       <div className="background">
@@ -21,7 +25,7 @@ const MainPage = () => {
           <span id="small-title">
             IF YOU FOUND THIS PLACE YOU ARE A MAIN CHARACTER
           </span>
-          <button type="button">
+          <button type="button" onClick={() => history.push("/sign-in")}>
             <img src={memcard} alt="memcard" />
             START
           </button>

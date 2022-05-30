@@ -57,6 +57,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         Principal principal = authentication;
         String access_token = jwtTokenUtil.generateJwtToken(principal.getName(), List.of("USER"),request);
         String refresh_token = jwtTokenUtil.generateRefreshToken(principal.getName(), request);
+        //jwtTokenUtil.issueTokenResponse(access_token,refresh_token,response);
         targetUrl = UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("access_token", access_token)
                 .queryParam("refresh_token", refresh_token)
