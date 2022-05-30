@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import LoginCallback from './components/LoginCallback/LoginCallback'
 import { routes } from "./Routes";
 import { QueryClient, QueryClientProvider } from "react-query";
 

@@ -34,7 +34,7 @@ spring:
 
 jwt:
   secret: ${JWT_SECRET_KEY}
-authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/oauth2/callback/google, http://localhost:3000/oauth2/redirect
+authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/oauth2/callback/google, http://localhost:3000/oauth2/redirect,http://localhost:3000/checkpoints
 ticp:
   configs:
     date_format: "yyyy.MM.dd 'at' HH:mm:ss"

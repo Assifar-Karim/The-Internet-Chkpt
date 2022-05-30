@@ -4,10 +4,13 @@ import axios from "axios"
 import { useHistory } from "react-router-dom";
 import { useContext, useEffect } from "react"; 
 import { UserContext } from '../../context/UserContext';
+import GoogleLogo from '../../assets/icons/google_pa.png'
 
 const SignIn = () => {
-    let history = useHistory();
 
+    let uri = process.env.REACT_APP_BASE_URL+"/oauth2/authorize/google?redirect_uri="+process.env.REACT_APP_BASE_URL.split(":")[0]+":"+process.env.REACT_APP_BASE_URL.split(":")[1]+":3000/checkpoints";
+    
+    let history = useHistory();
     const User = useContext(UserContext)[0];
     const setUser = useContext(UserContext)[1];
 
@@ -42,6 +45,7 @@ const SignIn = () => {
         });
     }
 
+
     return (
         <>
             <div className="wrapper">
@@ -50,7 +54,7 @@ const SignIn = () => {
                 </div>
 
                 <div className="sin-side-bar">
-                    <div className="sin-logo">
+                    <div className="sin-logo" onClick={() => history.push("/")}>
                         <img src={logo} alt="TICP Logo" />
                     </div>
                     <div className="sin-content">
@@ -77,8 +81,9 @@ const SignIn = () => {
                     </div>
                         <div className="line"></div>
                         <p className="or">OR</p>
-                    <div className="btn-container">
-                        <button type="submit" className="btn">LOAD YOUR GOOGLE SAVE</button>
+                    <div className="btn btn-container oauth">
+                        <img src={GoogleLogo} id="google"/>
+                        <a className="" href={uri} style={{textDecoration: 'none' , color: 'white'}}>LOAD YOUR GOOGLE SAVE</a>
                     </div>
                 </div>
             </div>

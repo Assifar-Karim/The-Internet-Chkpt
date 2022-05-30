@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useContext, useEffect, useState } from "react";
 import background from "../../assets/backgrounds/main-bg.png";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
@@ -6,11 +6,15 @@ import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
+import { UserContext } from "../../context/UserContext";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
 
 export default function Checkpoints() {
-
+  let history = useHistory();
+  const User = useContext(UserContext)[0];
+  const setUser = useContext(UserContext)[1];
   const { status, data } = useQuery(
     "fetch-checkpoints",
     () => fetchCheckpoints(),
@@ -24,11 +28,19 @@ export default function Checkpoints() {
       return res.data;
     });
   }
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const access_token = params.get("access_token");
+    if(access_token){
+      localStorage.setItem("token",access_token);
+      setUser(true);
+      history.push("/checkpoints");
+    }
+  }, []);
 
   if (status === "loading") {
     return <p style={{ color: "white" }}>Loading ...</p>;
   }
-
   return (
     <>
       <div className="background">
