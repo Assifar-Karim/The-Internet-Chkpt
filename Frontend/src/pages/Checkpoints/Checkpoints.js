@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import background from "../../assets/backgrounds/main-bg.png";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
@@ -6,12 +6,13 @@ import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
-import { UserContext } from "../../context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { UserContext } from "../../context/UserContext";
 
 export default function Checkpoints() {
+  const [content, setContent] = useState("");
   let history = useHistory();
   const User = useContext(UserContext)[0];
   const setUser = useContext(UserContext)[1];
@@ -31,12 +32,29 @@ export default function Checkpoints() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const access_token = params.get("access_token");
-    if(access_token){
-      localStorage.setItem("token",access_token);
+    if (access_token) {
+      localStorage.setItem("token", access_token);
       setUser(true);
       history.push("/checkpoints");
     }
   }, []);
+
+  function handleChange(e) {
+    setContent(e.target.value);
+  }
+
+  function saveCheckpoint() {
+    if (content && content.length > 0) {
+      axios({
+        method: "post",
+        url: "/api/checkpoints",
+        data: { content },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+        .then((res) => setContent(""))
+        .catch((err) => console.log(err.message));
+    }
+  }
 
   if (status === "loading") {
     return <p style={{ color: "white" }}>Loading ...</p>;
@@ -51,19 +69,27 @@ export default function Checkpoints() {
         <Logo />
         <Navbar links={routes} />
       </div>
-      <div className="Card">
-        <textarea
-          id="w3review"
-          name="w3review"
-          rows="2"
-          cols="50"
-          placeholder="SAVE YOUR PROGRESS"
-        ></textarea>
 
-        <hr></hr>
-        <input type="submit" value="SAVE" />
-      </div>
       <div className="Cards">
+        <h1 style={{ color: "white" }}>Checkpoints</h1>
+        {User && (
+          <div className="Card">
+            <textarea
+              onChange={handleChange}
+              id="content"
+              name="content"
+              rows="2"
+              cols="50"
+              placeholder="SAVE YOUR PROGRESS"
+              value={content}
+            ></textarea>
+
+            <hr></hr>
+            <button className="save-button" onClick={saveCheckpoint}>
+              SAVE
+            </button>
+          </div>
+        )}
         {data.map((checkpoint) => {
           return (
             <CheckpointCard

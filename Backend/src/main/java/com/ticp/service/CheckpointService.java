@@ -12,6 +12,7 @@ public interface CheckpointService {
     List<CheckpointDTO> getCheckpointsByUser(String userId);
     CheckpointDTO getCheckpointById(String id);
     void deleteCheckpointById(String id);
+    void deleteUserCheckpointById(String id, String username);
     Map<String, Object> getAllCheckpointsSortedByDateDesc(int page, int size);
 
 }

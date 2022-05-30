@@ -5,12 +5,11 @@
   grid-column-end: 3;
   align-self: flex-end;
 }
-.navbar{
+.navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
 }
 .navbar ul {
   margin: 0;
@@ -20,10 +19,11 @@
 .navbar li {
   display: inline-block;
   margin-left: 1.5em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   cursor: pointer;
 }
-.navbar a {
+.navbar a,
+.logout {
   color: white;
   font-size: 1.3em;
   text-decoration: none;
@@ -32,27 +32,28 @@
   color: white;
   background-color: white;
 }
-.songPlayer{
+.songPlayer {
   width: 200px;
   height: 50px;
 }
 
-.Player-container{
+.Player-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   padding: 7px 10px;
   border-radius: 5px;
-  width: 25%; 
+  width: 25%;
   opacity: 90%;
 }
-.Player-container img{
+.Player-container img {
   cursor: pointer;
 }
-.prev, .next{
+.prev,
+.next {
   width: 20px;
 }
-.play{
+.play {
   width: 25px;
 }
