@@ -4,6 +4,7 @@ import axios from "axios"
 import { useHistory } from "react-router-dom";
 import { useContext, useEffect } from "react"; 
 import { UserContext } from '../../context/UserContext';
+import GoogleLogo from '../../assets/icons/google_pa.png'
 
 const SignIn = () => {
 
@@ -80,8 +81,9 @@ const SignIn = () => {
                     </div>
                         <div className="line"></div>
                         <p className="or">OR</p>
-                    <div className="btn-container">
-                        <a className="btn" href={uri} style={{textDecoration: 'none' }}>LOAD YOUR GOOGLE SAVE</a>
+                    <div className="btn btn-container oauth">
+                        <img src={GoogleLogo} id="google"/>
+                        <a className="" href={uri} style={{textDecoration: 'none' , color: 'white'}}>LOAD YOUR GOOGLE SAVE</a>
                     </div>
                 </div>
             </div>

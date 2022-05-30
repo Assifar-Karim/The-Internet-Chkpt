@@ -13,7 +13,9 @@
     font-size: 1.5em;
     background-color: #602CAD;
     color: white;
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
     padding: 15px 64px;
     cursor: pointer;
 }
@@ -135,4 +137,15 @@
 
 #sin-special-text{
     cursor: pointer;
+}
+
+
+#google{
+    width: 10%;
+}
+
+
+.oauth{
+    padding: 20px 0;
+    border-radius: 10px;
 }
