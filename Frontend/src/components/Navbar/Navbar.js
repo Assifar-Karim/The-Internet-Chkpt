@@ -29,11 +29,12 @@ const Navbar = ({ links }) => {
   };
 
   useEffect(() => {
-    links.map((link) => {
+    let newLinks = links.map((link) => {
       if (!User && link.segment === "/my-checkpoints") link.renderToNav = false;
+      return link;
     });
 
-    setFiltredRoutes(links);
+    setFiltredRoutes(newLinks);
   }, [links]);
 
   const musicTracks = [alex, aubenwelt, bramble_blast, orridors_of_time];
@@ -61,7 +62,6 @@ const Navbar = ({ links }) => {
     }
   };
   const handleClickNext = () => {
-    console.log("handleClickNext bf", track, isPlaying);
     track.pause();
     setStatePlay(true);
     setTrackIndex((currentTrack) =>
@@ -70,25 +70,21 @@ const Navbar = ({ links }) => {
   };
 
   const handelClickPlay = () => {
-    console.log("handelClickPlay", track, isPlaying);
     track.loop = true;
     track.play();
     setStatePlay(true);
   };
 
   const handelClickPause = () => {
-    console.log("handelClickPause", track, isPlaying);
     track.pause();
     setStatePlay(false);
   };
 
   useEffect(() => {
-    console.log("effect", track, isPlaying);
     setTrack(new Audio(musicTracks[trackIndex + 1]));
   }, [trackIndex]);
 
   useEffect(() => {
-    console.log("effect track", track, isPlaying);
     track.play();
   }, [track]);
 
@@ -104,7 +100,7 @@ const Navbar = ({ links }) => {
           )}
           <img className="next" src={next_icon} onClick={handleClickNext} />
         </div>
-        {links
+        {filtredRoutes
           .filter((link) => link.renderToNav)
           .map((link, idx) => {
             return (

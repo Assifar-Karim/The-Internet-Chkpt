@@ -6,7 +6,6 @@ import CheckpointCard from "../../components/Checkpoint/CheckpointCard";
 import { routes } from "../../Routes";
 import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
-import { UserContext } from "../../context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
