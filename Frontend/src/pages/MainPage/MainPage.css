@@ -16,13 +16,7 @@
     margin-left: 5%;
     margin-top: -10%;
 }
-.navbar {
-    margin-right: 1em;
-    text-align: right;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    align-self: flex-end;
-}
+
 
 .content {
     color: white;
