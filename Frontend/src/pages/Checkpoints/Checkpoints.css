@@ -1,67 +1,66 @@
-.Cards{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: auto ;
-    padding: 0% 20% 0 20% ;
-    padding-bottom: 120px;
+.Cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: auto;
+  padding: 0% 20% 0 20%;
+  padding-bottom: 120px;
+  margin-top: 32px;
 }
-.footer{
-    line-height: 20px;
+.footer {
+  line-height: 20px;
 }
-.footer span{
-    font-size: 1.5rem;
-}
-
-.App> .Card{
-    margin: 30px 50px 30px 50px;
-}
-input,textarea{
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    font-family: "fixedsys";
-    color: white;
-}
-textarea{
-    font-size: 1.2em;
-}
-input{
-    
-    font-size: 1.4em;
-}
-input:hover{
-    cursor: pointer;
-}
-body{
-
-    background-color: #200f38;
+.footer span {
+  font-size: 1.5rem;
 }
 
-.footer{
-    margin-top: 50px;
-    position: absolute;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    bottom: 10px;
-    
-    left: 50%;
-    transform: translate(-50%,0);
+.App > .Card {
+  margin: 30px 50px 30px 50px;
+}
+.save-button,
+textarea {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-family: "fixedsys";
+  color: white;
+}
+textarea {
+  font-size: 1.2em;
+}
+.save-button {
+  font-size: 1.4em;
+}
+.save-button:hover {
+  cursor: pointer;
+}
+body {
+  background-color: #200f38;
 }
 
-.footer img{
-    position: absolute;
-    bottom: -5px;
-    z-index: -100;
-    left: 50%;
-    transform: translate(-50%,0);
-    width: auto;
-    height: 110px;
+.footer {
+  margin-top: 50px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  bottom: 10px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-.App{
-    position: relative;
-    min-height: 100vh;
+.footer img {
+  position: absolute;
+  bottom: -5px;
+  z-index: -100;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: auto;
+  height: 110px;
 }
 
+.App {
+  position: relative;
+  min-height: 100vh;
+}

@@ -1,12 +1,11 @@
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Checkpoints from "./pages/Checkpoints/Checkpoints";
 import MainPage from "./pages/MainPage/MainPage";
+import MyCheckpoints from "./pages/MyCheckpoints/MyCheckpoints";
 import Page404 from "./pages/Page404/Page404";
 import SharedCheckpoint from "./pages/SharedCheckpoint/SharedCheckpoint";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
-
-
 
 export const routes = [
   { title: "", segment: "/", component: MainPage, readerToNav: false },
@@ -20,6 +19,18 @@ export const routes = [
     title: "Shared checkpoint",
     segment: "/checkpoints/:id",
     component: SharedCheckpoint,
+    renderToNav: false,
+  },
+  {
+    title: "My checkpoints",
+    segment: "/my-checkpoints",
+    component: MyCheckpoints,
+    renderToNav: true,
+  },
+  {
+    title: "User' checkpoint",
+    segment: "/user/:username",
+    component: MyCheckpoints,
     renderToNav: false,
   },
   {

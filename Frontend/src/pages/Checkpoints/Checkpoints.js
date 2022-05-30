@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import background from "../../assets/backgrounds/main-bg.png";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
@@ -8,8 +8,11 @@ import darkSools from "../../assets/icons/dark-souls-bonfire.gif";
 import "./Checkpoints.css";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { UserContext } from "../../context/UserContext";
 
 export default function Checkpoints() {
+  const [content, setContent] = useState("");
+  const User = useContext(UserContext)[0];
 
   const { status, data } = useQuery(
     "fetch-checkpoints",
@@ -23,6 +26,23 @@ export default function Checkpoints() {
     return await axios.get(`/checkpoints`).then((res) => {
       return res.data;
     });
+  }
+
+  function handleChange(e) {
+    setContent(e.target.value);
+  }
+
+  function saveCheckpoint() {
+    if (content && content.length > 0) {
+      axios({
+        method: "post",
+        url: "/api/checkpoints",
+        data: { content },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      })
+        .then((res) => setContent(""))
+        .catch((err) => console.log(err.message));
+    }
   }
 
   if (status === "loading") {
@@ -39,19 +59,27 @@ export default function Checkpoints() {
         <Logo />
         <Navbar links={routes} />
       </div>
-      <div className="Card">
-        <textarea
-          id="w3review"
-          name="w3review"
-          rows="2"
-          cols="50"
-          placeholder="SAVE YOUR PROGRESS"
-        ></textarea>
 
-        <hr></hr>
-        <input type="submit" value="SAVE" />
-      </div>
       <div className="Cards">
+        <h1 style={{ color: "white" }}>Checkpoints</h1>
+        {User && (
+          <div className="Card">
+            <textarea
+              onChange={handleChange}
+              id="content"
+              name="content"
+              rows="2"
+              cols="50"
+              placeholder="SAVE YOUR PROGRESS"
+              value={content}
+            ></textarea>
+
+            <hr></hr>
+            <button className="save-button" onClick={saveCheckpoint}>
+              SAVE
+            </button>
+          </div>
+        )}
         {data.map((checkpoint) => {
           return (
             <CheckpointCard
