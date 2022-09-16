@@ -1,13 +1,26 @@
 package com.ticp.dto;
 
+import com.ticp.annotation.ValidEmail;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class UserDTO
 {
+    @NotNull
+    @NotEmpty
     private String username;
+
+    @ValidEmail
+    @NotNull
+    @NotEmpty
     private String email;
+
+    @NotNull
+    @NotEmpty
     private String password;
 
-    public UserDTO()
-    {}
+    public UserDTO() {}
 
     public UserDTO(String username, String email, String password)
     {

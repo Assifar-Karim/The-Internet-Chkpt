@@ -1,6 +1,6 @@
 package com.ticp.config;
 
-import com.ticp.error.RestAuthenticationEntryPoint;
+import com.ticp.error.handler.RestAuthenticationEntryPoint;
 import com.ticp.filter.CustomAuthenticationFilter;
 import com.ticp.filter.CustomAuthorizationFilter;
 import com.ticp.oauth2.handler.OAuth2AuthenticationFailureHandler;

@@ -154,25 +154,5 @@ class UserControllerIntegrationTest
                 .andDo(print())
                 .andExpect(content().string(equalTo("User not found")));
     }
-    @Test
-    void given_existing_email_and_invalid_old_password_changePassword_should_invalid_old_password() throws Exception
-    {
-        //GIVEN
-        PasswordDTO passwordDTO = new PasswordDTO("username@mail-provider.com",
-                "oldPassword,","newPassword");
-        User user = new User("username","username@mail-provider.com","oldPassword");
-        //WHEN
-        when(userService.findUserByEmail(passwordDTO.getEmail())).thenReturn(user);
-        doReturn(false).when(userService).verifyOldPassword(user, passwordDTO.getOldPassword());
-        //THEN
-        mockMvc.perform(post("/changePassword")
-                        .contentType("application/json")
-                        .content("{ " +
-                                "\"email\": \"username@mail-provider.com\"," +
-                                "\"oldPassword\": \"oldPassword\"," +
-                                "\"newPassword\": \"newPassword\" " +
-                                "}").accept("*/*"))
-                .andDo(print())
-                .andExpect(content().string(equalTo("Invalid old password")));
-    }
+
 }

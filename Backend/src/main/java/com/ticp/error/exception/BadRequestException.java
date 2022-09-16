@@ -1,4 +1,4 @@
-package com.ticp.error;
+package com.ticp.error.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -2,6 +2,9 @@ package com.ticp.service;
 
 import com.ticp.dto.PasswordDTO;
 import com.ticp.dto.UserDTO;
+import com.ticp.error.exception.DuplicateUserException;
+import com.ticp.error.exception.EmailNotFoundException;
+import com.ticp.error.exception.TokenNotFoundException;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.mapper.PasswordMapper;
 import com.ticp.mapper.UserMapper;
@@ -14,6 +17,7 @@ import com.ticp.repository.VerificationTokenRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,10 +25,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService
@@ -42,11 +43,18 @@ public class UserServiceImpl implements UserService, UserDetailsService
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User registerUser(UserDTO userDTO)
+    public User registerUser(UserDTO userDTO) throws DuplicateUserException
     {
         UserMapper userMapper = (UserMapper) mapperFactory.getMapper(User.class);
         User user = userMapper.toModel(userDTO);
-        userRepository.save(user);
+        try
+        {
+            userRepository.save(user);
+        }
+        catch (DuplicateKeyException e)
+        {
+            throw new DuplicateUserException("An account for that username / email already exists.");
+        }
         return user;
     }
 
@@ -69,7 +77,6 @@ public class UserServiceImpl implements UserService, UserDetailsService
         Calendar calendar = Calendar.getInstance();
         if(verificationToken.getExpirationTime().getTime() - calendar.getTime().getTime() <= 0)
         {
-            verificationTokenRepository.delete(verificationToken);
             return "Expired token";
         }
         user.setActive(true);
@@ -78,19 +85,20 @@ public class UserServiceImpl implements UserService, UserDetailsService
     }
 
     @Override
-    public VerificationToken regenerateVerificationToken(String oldToken)
+    public VerificationToken regenerateVerificationToken(String oldToken) throws TokenNotFoundException
     {
         VerificationToken verificationToken = verificationTokenRepository.findByToken(oldToken);
-        if(verificationToken != null)
+        if(verificationToken == null)
         {
-            verificationToken.setToken(UUID.randomUUID().toString());
-            verificationTokenRepository.save(verificationToken);
+            throw new TokenNotFoundException("Non existing verification token");
         }
+        verificationToken.setToken(UUID.randomUUID().toString());
+        verificationTokenRepository.save(verificationToken);
         return verificationToken;
     }
 
     @Override
-    public PasswordToken generatePasswordToken(PasswordDTO passwordDTO)
+    public PasswordToken generatePasswordToken(PasswordDTO passwordDTO) throws EmailNotFoundException
     {
         PasswordToken passwordToken = passwordTokenRepository.findByUserEmail(passwordDTO.getEmail());
         if(passwordToken != null)
@@ -108,7 +116,7 @@ public class UserServiceImpl implements UserService, UserDetailsService
             passwordTokenRepository.save(passwordToken);
             return passwordToken;
         }
-        return null;
+        throw new EmailNotFoundException("Email not found");
     }
 
     @Override
@@ -122,21 +130,25 @@ public class UserServiceImpl implements UserService, UserDetailsService
         Calendar calendar = Calendar.getInstance();
         if(passwordToken.getExpirationTime().getTime() - calendar.getTime().getTime() <= 0)
         {
-            passwordTokenRepository.delete(passwordToken);
             return "Expired token";
         }
         return "Valid";
     }
 
     @Override
-    public User getUserByPasswordToken(String token)
+    public void changePassword(PasswordDTO passwordDTO) throws EmailNotFoundException, TokenNotFoundException
     {
-        return passwordTokenRepository.findByToken(token).getUser();
-    }
-
-    @Override
-    public void changePassword(User user, PasswordDTO passwordDTO)
-    {
+        PasswordToken passwordToken = passwordTokenRepository.findByToken(passwordDTO.getToken());
+        Calendar calendar = Calendar.getInstance();
+        if(passwordToken == null || passwordToken.getExpirationTime().getTime() - calendar.getTime().getTime() <= 0)
+        {
+            throw new TokenNotFoundException("Invalid Token");
+        }
+        User user = passwordToken.getUser();
+        if(user == null)
+        {
+            throw new EmailNotFoundException("Email not found");
+        }
         PasswordMapper passwordMapper = (PasswordMapper) mapperFactory.getMapper(PasswordToken.class);
         userRepository.save(passwordMapper.toModel(passwordDTO, user));
     }
@@ -148,30 +160,24 @@ public class UserServiceImpl implements UserService, UserDetailsService
     }
 
     @Override
-    public boolean verifyOldPassword(User user, String oldPassword)
-    {
-        return passwordEncoder.matches(oldPassword, user.getPassword());
-    }
-
-    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
         User user = userRepository.findByUsername(username);
         if(user == null)
         {
 
-            logger.error("User not found in the database");
-            throw new UsernameNotFoundException("User not found in the database");
+            logger.error("User {} was not found in the database", username);
+            throw new UsernameNotFoundException("User not found");
         }
-        else
-        {
-            logger.error("User found: "+user.getUsername());
-        }
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+        logger.info("User {} was found in the users' database", username);
+        Collection<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(user.getRole()));
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
+                user.isActive(),
+                true,
+                true,
+                true,
                 authorities
         );
     }

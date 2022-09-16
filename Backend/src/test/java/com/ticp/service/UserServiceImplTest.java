@@ -1,5 +1,6 @@
 package com.ticp.service;
 
+import com.ticp.error.exception.TokenNotFoundException;
 import com.ticp.model.User;
 import com.ticp.model.VerificationToken;
 import com.ticp.repository.UserRepository;
@@ -68,8 +69,7 @@ class UserServiceImplTest
 
     // regenerateVerificationToken() Tests
     @Test
-    void given_non_existing_old_token_regenerateVerificationToken_should_return_null()
-    {
+    void given_non_existing_old_token_regenerateVerificationToken_should_return_null() throws TokenNotFoundException {
         // GIVEN
         String oldToken = "oldToken";
         // WHEN

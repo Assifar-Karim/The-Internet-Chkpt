@@ -3,6 +3,7 @@ package com.ticp.controller;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.ticp.dto.PasswordDTO;
 import com.ticp.dto.UserDTO;
+import com.ticp.error.exception.*;
 import com.ticp.event.RegistrationCompleteEvent;
 import com.ticp.model.PasswordToken;
 import com.ticp.model.User;
@@ -14,12 +15,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
@@ -38,110 +44,85 @@ public class UserController
 
     // Registration Endpoints
 
-    @PostMapping("/register")
-    public String registerUser(@RequestBody UserDTO userDTO, final HttpServletRequest request)
+    @PostMapping("/users")
+    public String registerUser(@Valid @RequestBody UserDTO userDTO, final HttpServletRequest request) throws DuplicateUserException
     {
         User user = userService.registerUser(userDTO);
         publisher.publishEvent(new RegistrationCompleteEvent(user, applicationUrl(request)));
-        return "Success";
+        return "Registration";
     }
-    @GetMapping("/verify")
-    public String verifyUser(@RequestParam("token") String token)
+    @GetMapping("/verifications")
+    public ResponseEntity<?> verifyUser(@RequestParam("token") String token)
     {
         String result = userService.validateVerificationToken(token);
         if(result.equalsIgnoreCase("valid"))
         {
-            return "Verification Complete";
+            return ResponseEntity.ok("Verification Complete");
         }
-        return result;
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
     }
-    @GetMapping("/regenerateVerification")
-    public String resendVerificationToken(@RequestParam("token") String oldToken, HttpServletRequest request)
+    @GetMapping("/verifications/regen")
+    public ResponseEntity<?> resendVerificationToken(@RequestParam("token") String oldToken, HttpServletRequest request)
+            throws TokenNotFoundException, MessagingException
     {
         VerificationToken verificationToken = userService.regenerateVerificationToken(oldToken);
-        if(verificationToken == null)
-        {
-            return "Non existing verification token";
-        }
-        String url = applicationUrl(request) + "/verify?token=" + verificationToken.getToken();
-        emailSenderService.sendSimpleMail(
+        String url = applicationUrl(request) + "/verifications?token=" + verificationToken.getToken();
+        emailSenderService.sendMessageUsingThymeleafTemplate(
                 verificationToken.getUser().getEmail(),
-                "Click the following link to become an official main character : { " + url + "}",
-                "The Internet Checkpoint Account Verification"
+                "The Internet Checkpoint Account Verification",
+                Map.of("salutation","Welcome " + verificationToken.getUser().getUsername() + ",",
+                        "verificationLink", url),
+                "verification-email.html"
         );
-        logger.info("Click the following link to become an official main character : { " + url + "}");
-        return "Token Regenerated";
+        return ResponseEntity.ok("Verification token regenerated");
     }
 
-    @PostMapping("/resetPassword")
-    public String resetPassword(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request)
+    @PostMapping("/users/passwords/reset")
+    public ResponseEntity<?> resetPassword(@RequestBody PasswordDTO passwordDTO, HttpServletRequest request)
+            throws EmptyOrNullEmailException, EmailNotFoundException, MessagingException
     {
-        if(passwordDTO.getEmail() == null)
+        if(passwordDTO.getEmail() == null || passwordDTO.getEmail().isEmpty())
         {
-            return "Please Input an email";
+            throw new EmptyOrNullEmailException("Please input a valid email");
         }
         PasswordToken passwordToken = userService.generatePasswordToken(passwordDTO);
-        if(passwordToken == null)
-        {
-            return "Incorrect email";
-        }
-        String url = applicationUrl(request) + "/savePassword?token=" + passwordToken.getToken();
-        emailSenderService.sendSimpleMail(
+        String url = applicationUrl(request) + "/users/passwords?token=" + passwordToken.getToken();
+        emailSenderService.sendMessageUsingThymeleafTemplate(
                 passwordToken.getUser().getEmail(),
-                "Click the following link to reset your TICP password : { " + url + "}",
-                "The Internet Checkpoint Password Reset"
+                "The Internet Checkpoint Account Password Reset",
+                Map.of("salutation","Hello " + passwordToken.getUser().getUsername() + ",",
+                        "verificationLink", url),
+                "password-reset-email.html"
         );
-        logger.info("Click the following link to become an official main character : { " + url + "}");
-        return "Token Generated";
+        return ResponseEntity.ok("Password reset token generated");
     }
-
-    @PostMapping("/savePassword")
-    public String savePassword(@RequestParam("token") String token, @RequestBody PasswordDTO passwordDTO)
+    @GetMapping("/users/passwords/verifications")
+    public ResponseEntity<?> verifyPasswordToken(@RequestParam("token") String token)
     {
-        if(passwordDTO.getNewPassword().equalsIgnoreCase("") || passwordDTO.getNewPassword() == null)
-        {
-            return "Please input a new password";
-        }
         String result = userService.validatePasswordToken(token);
-        if(!result.equalsIgnoreCase("valid"))
+        if(result.equalsIgnoreCase("valid"))
         {
-            return result;
+            return ResponseEntity.ok("Verification Complete");
         }
-        User user = userService.getUserByPasswordToken(token);
-        if(user != null)
-        {
-            userService.changePassword(user, passwordDTO);
-            return "Password Reset Successfully";
-        }
-        else
-        {
-            return "Invalid token";
-        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
     }
-
-    @PostMapping("/changePassword")
-    public String changePassword(@RequestBody PasswordDTO passwordDTO)
+    @PostMapping("/users/passwords")
+    public ResponseEntity<?> savePassword(@RequestBody PasswordDTO passwordDTO)
+            throws EmptyOrNullTokenException, EmptyOrNullPasswordException, EmailNotFoundException, TokenNotFoundException
     {
-        if(passwordDTO.getEmail() == null || passwordDTO.getOldPassword() == null || passwordDTO.getNewPassword() == null
-            || passwordDTO.getNewPassword().equals(""))
+        if(passwordDTO.getToken() == null || passwordDTO.getToken().isEmpty())
         {
-            return "Please input all of the necessary information";
+            throw new EmptyOrNullTokenException("Please input a valid token");
         }
-        User user = userService.findUserByEmail(passwordDTO.getEmail());
-        if(user == null)
+        if(passwordDTO.getNewPassword() == null || passwordDTO.getNewPassword().isEmpty())
         {
-            return "User not found";
+            throw new EmptyOrNullPasswordException("Please input a valid password");
         }
-        if(!userService.verifyOldPassword(user, passwordDTO.getOldPassword()))
-        {
-            return "Invalid old password";
-        }
-        userService.changePassword(user, passwordDTO);
-        return "Password Changed Successfully";
-
+        userService.changePassword(passwordDTO);
+        return ResponseEntity.ok("Password Reset Successfully");
     }
 
-    @GetMapping("jwtTokenRefresh")
+    @GetMapping("jwt")
     public void refreshJwtToken(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
