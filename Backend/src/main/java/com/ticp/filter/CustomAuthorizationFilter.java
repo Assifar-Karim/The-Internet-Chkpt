@@ -29,7 +29,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException
     {
-        if(request.getServletPath().equals("/login") || request.getServletPath().equals("/jwtTokenRefresh"))
+        if(request.getServletPath().equals("/login") || request.getServletPath().equals("/jwt"))
         {
             filterChain.doFilter(request, response);
         }
@@ -58,7 +58,6 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter
                 catch (Exception e)
                 {
                     jwtTokenUtil.issueTokenVerificationErrorResponse(response, e.getMessage());
-                    System.out.println(e.getMessage());
                 }
             }
             else

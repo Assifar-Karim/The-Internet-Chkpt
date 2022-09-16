@@ -4,9 +4,12 @@ server:
 # NOTE : <username> and <pwd> must be changed by the developer when working with the db, only authorized accounts can be used
 # NOTE : the database and account must be switched to production when deploying to the production cluster
 spring:
+  redis:
+    host: localhost
+    port: 6379
   data:
     mongodb:
-      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@ticp-cluster0.dk5t9.mongodb.net/${ENVIRONMENT}
+      uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@c0.tec6qnx.mongodb.net/${ENVIRONMENT}
       database: ${ENVIRONMENT}
       auto-index-creation: true
   security:
@@ -21,6 +24,7 @@ spring:
               - email
               - profile
   mail:
+    default-encoding: UTF-8
     host: smtp.gmail.com
     port: 587
     username: the.internet.checkpoint.team@gmail.com

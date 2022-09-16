@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import javax.mail.MessagingException;
+import java.util.Map;
 import java.util.UUID;
 
 @Component
@@ -23,12 +25,21 @@ public class RegistrationCompleteEventListener implements ApplicationListener<Re
         User user = event.getUser();
         String token = UUID.randomUUID().toString();
         userService.saveVerificationTokenForUser(token, user);
-        String url = event.getApplicationUrl() + "/verify?token=" + token;
-        emailSenderService.sendSimpleMail(
-                user.getEmail(),
-                "Click the following link to become an official main character : { " + url + "}",
-                "The Internet Checkpoint Account Verification"
-        );
-        System.out.println("Click the following link to become an official main character : { " + url + "}");
+        String url = event.getApplicationUrl() + "/verifications?token=" + token;
+        Map<String, Object> templateModel = Map.of(
+                "salutation","Welcome " + user.getUsername() + ",",
+                "verificationLink", url);
+        try
+        {
+            emailSenderService.sendMessageUsingThymeleafTemplate(
+                    user.getEmail(),
+                    "The Internet Checkpoint Account Verification",
+                    templateModel,
+                    "verification-email.html");
+        }
+        catch (MessagingException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

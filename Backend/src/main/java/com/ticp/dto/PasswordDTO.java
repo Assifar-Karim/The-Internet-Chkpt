@@ -3,16 +3,16 @@ package com.ticp.dto;
 public class PasswordDTO
 {
     private String email;
-    private String oldPassword;
+    private String token;
     private String newPassword;
 
     public PasswordDTO()
     {}
 
-    public PasswordDTO(String email, String oldPassword, String newPassword)
+    public PasswordDTO(String email, String token, String newPassword)
     {
         this.email = email;
-        this.oldPassword = oldPassword;
+        this.token = token;
         this.newPassword = newPassword;
     }
 
@@ -26,14 +26,14 @@ public class PasswordDTO
         this.email = email;
     }
 
-    public String getOldPassword()
+    public String getToken()
     {
-        return oldPassword;
+        return token;
     }
 
-    public void setOldPassword(String oldPassword)
+    public void setToken(String token)
     {
-        this.oldPassword = oldPassword;
+        this.token = token;
     }
 
     public String getNewPassword()

@@ -20,8 +20,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Component
 public class JwtTokenUtil
 {
-    public static final int TOKEN_VALIDITY = 10 * 60 * 1000;
-    public static final int REFRESH_TOKEN_VALIDITY = 7 * 24 * 60 * 60 * 1000;
+    public static final int TOKEN_VALIDITY = 24 * 60 * 60 * 1000;
+    public static final int REFRESH_TOKEN_VALIDITY = 21 * 24 * 60 * 60 * 1000;
     @Value("${jwt.secret}")
     private String secret;
 

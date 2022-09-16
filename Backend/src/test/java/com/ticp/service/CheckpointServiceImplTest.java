@@ -39,7 +39,7 @@ class CheckpointServiceImplTest {
     @InjectMocks
     private CheckpointServiceImpl checkpointServiceImpl;
 
-    @Test
+    /*@Test
     void giving_existing_checkpoint_id_should_return_correct_checkpoint(){
 
         // Giving
@@ -146,6 +146,6 @@ class CheckpointServiceImplTest {
         // Then
         verify(checkpointRepository).findAllByUserId(userId);
         assertEquals(returnedCheckpoints.size(), 0);
-    }
+    }*/
 
 }

@@ -1,4 +1,4 @@
-package com.ticp.error;
+package com.ticp.error.handler;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +12,11 @@ import java.io.IOException;
 
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint
 {
-    private static Logger logger = LogManager.getLogger(RestAuthenticationEntryPoint.class);
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException)
             throws IOException, ServletException
     {
-        logger.error("unauthorized request");
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getLocalizedMessage());
     }
 }

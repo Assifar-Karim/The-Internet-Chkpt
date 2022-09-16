@@ -9,7 +9,7 @@ import java.util.Date;
 @Document("verification-tokens")
 public class VerificationToken
 {
-    private static final int EXPIRATION_TIME_MIN = 10;
+    private static final int EXPIRATION_TIME_MIN = 60 * 24;
     @Id
     private String id;
     private String token;
