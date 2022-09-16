@@ -52,8 +52,6 @@ public class CheckpointServiceImpl implements CheckpointService{
                    HttpStatus.NOT_FOUND,
                    String.format("User with username = %s not found", checkpointDTO.getUsername()));
        }
-
-        checkpointDTO.setCheckpointDate(new Date());
         Checkpoint checkpoint = toModel(checkpointDTO);
         return toDTO(checkpointRepository.save(checkpoint));
     }

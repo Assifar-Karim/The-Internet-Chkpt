@@ -13,20 +13,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@Component()
+@Component
 public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
 
     private static Logger logger = LogManager.getLogger(CheckpointMapper.class);
 
     @Value("${ticp.configs.date_format:yyyy.MM.dd 'at' HH:mm:ss}")
     private String DATE_FORMAT;
-    public static CheckpointMapper instance;
 
-    // NOTE [Sami] : Autowired field cant be used inside spring non managed class
     @Autowired
     private UserRepository userRepository;
-
 
     @Override
     public Checkpoint toModel(CheckpointDTO checkpointDTO) {
@@ -42,10 +40,9 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
         }
 
         return new Checkpoint(
-                checkpointDTO.getId(),
                 checkpointDTO.getContent(),
                 fetchedUser.getId(),
-                checkpointDTO.getCheckpointDate()
+                new Date()
         );
     }
 
@@ -67,7 +64,6 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
                 model.getId(),
                 fetchedUser.getUsername(),
                 model.getContent(),
-                model.getCheckpointDate(),
                 sdf.format(model.getCheckpointDate())
         );
     }
