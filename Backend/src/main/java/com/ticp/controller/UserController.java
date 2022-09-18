@@ -86,7 +86,7 @@ public class UserController
             throw new EmptyOrNullEmailException("Please input a valid email");
         }
         PasswordToken passwordToken = userService.generatePasswordToken(passwordDTO);
-        String url = applicationUrl(request) + "/users/passwords?token=" + passwordToken.getToken();
+        String url = applicationUrl(request) + "/users/passwords/verifications?token=" + passwordToken.getToken();
         emailSenderService.sendMessageUsingThymeleafTemplate(
                 passwordToken.getUser().getEmail(),
                 "The Internet Checkpoint Account Password Reset",
