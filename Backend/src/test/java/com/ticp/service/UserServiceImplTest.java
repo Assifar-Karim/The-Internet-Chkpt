@@ -1,8 +1,12 @@
 package com.ticp.service;
 
+import com.ticp.dto.PasswordDTO;
+import com.ticp.error.exception.EmailNotFoundException;
 import com.ticp.error.exception.TokenNotFoundException;
+import com.ticp.model.PasswordToken;
 import com.ticp.model.User;
 import com.ticp.model.VerificationToken;
+import com.ticp.repository.PasswordTokenRepository;
 import com.ticp.repository.UserRepository;
 import com.ticp.repository.VerificationTokenRepository;
 import org.junit.jupiter.api.Test;
@@ -12,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -23,119 +28,154 @@ class UserServiceImplTest
     private UserRepository userRepository;
     @Mock
     private VerificationTokenRepository verificationTokenRepository;
+    @Mock
+    private PasswordTokenRepository passwordTokenRepository;
     @InjectMocks
     private UserServiceImpl userService;
 
-    // validateVerificationToken() Tests
     @Test
-    void given_valid_token_validateVerificationToken_should_return_valid()
+    void shouldReturnValid()
     {
         // GIVEN
         String token = "token";
         VerificationToken verificationToken = new VerificationToken("token", new User());
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MINUTE, 10);
-        verificationToken.setExpirationTime(calendar.getTime());
-        // WHEN
+        verificationToken.setExpirationTime(new Date(Calendar.getInstance().getTime().getTime() + 100));
         when(verificationTokenRepository.findByToken(token)).thenReturn(verificationToken);
+
+        // WHEN
+        var actualResult = userService.validateVerificationToken(token);
         // THEN
-        assertTrue(userService.validateVerificationToken(token).equalsIgnoreCase("valid"));
+        assertEquals("Valid", actualResult);
     }
     @Test
-    void given_non_existing_token_validateVerificationToken_should_return_invalid()
+    void shouldReturnInvalid()
     {
         // GIVEN
         String token = "token";
-        // WHEN
         when(verificationTokenRepository.findByToken(token)).thenReturn(null);
-        // THEN
-        assertTrue(userService.validateVerificationToken(token).equalsIgnoreCase("invalid token"));
 
+        // WHEN
+        var actualResult = userService.validateVerificationToken(token);
+        // THEN
+        assertEquals("Invalid token", actualResult);
     }
     @Test
-    void given_expired_token_validateVerificationToken_should_return_expired()
+    void shouldReturnExpired()
     {
         // GIVEN
         String token = "token";
         VerificationToken verificationToken = new VerificationToken("token", new User());
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MINUTE, -10);
-        verificationToken.setExpirationTime(calendar.getTime());
-        // WHEN
+        verificationToken.setExpirationTime(new Date(Calendar.getInstance().getTime().getTime() - 100));
         when(verificationTokenRepository.findByToken(token)).thenReturn(verificationToken);
+
+        // WHEN
+        var actualResult = userService.validateVerificationToken(token);
         // THEN
-        assertTrue(userService.validateVerificationToken(token).equalsIgnoreCase("expired token"));
+        assertEquals("Expired token", actualResult);
     }
 
-    // regenerateVerificationToken() Tests
     @Test
-    void given_non_existing_old_token_regenerateVerificationToken_should_return_null() throws TokenNotFoundException {
+    void shouldThrowTokenNotFoundException1() throws TokenNotFoundException {
         // GIVEN
-        String oldToken = "oldToken";
+        String token = "token";
+        when(verificationTokenRepository.findByToken(token)).thenReturn(null);
+
         // WHEN
-        when(verificationTokenRepository.findByToken(oldToken)).thenReturn(null);
+        var actualException = assertThrows(TokenNotFoundException.class, () -> userService.regenerateVerificationToken(token));
         // THEN
-        assertNull(userService.regenerateVerificationToken(oldToken));
+        assertEquals("Non existing verification token", actualException.getMessage());
     }
 
-    // findUserByEmail() Tests
     @Test
-    void given_existing_email_findUserByEmail_should_return_user()
+    void shouldThrowTokenNotFoundException2()
     {
-        // GIVEN
-        String email = "username@mail-provider.com";
-        // WHEN
-        when(userRepository.findByEmail(email)).thenReturn(new User("username", email, "secret_password"));
-        // THEN
-        User foundUser = userService.findUserByEmail(email);
-        assertTrue(foundUser.getUsername().equalsIgnoreCase("username") &&
-                foundUser.getEmail().equalsIgnoreCase(email));
+        //GIVEN
+        String token = "token";
+        PasswordDTO passwordDTO = new PasswordDTO();
+        passwordDTO.setToken(token);
+        PasswordToken expectedToken = new PasswordToken(token);
+        expectedToken.setExpirationTime(new Date(Calendar.getInstance().getTime().getTime() - 100));
+        when(passwordTokenRepository.findByToken(token)).thenReturn(expectedToken);
+
+        //WHEN
+        TokenNotFoundException actualException = assertThrows(TokenNotFoundException.class,() -> {
+            userService.changePassword(passwordDTO);
+        });
+        //THEN
+        assertEquals("Invalid Token", actualException.getMessage());
     }
+
     @Test
-    void given_non_existing_email_findUserByEmail_should_return_user()
+    void shouldThrowEmailNotFoundException()
+    {
+        //GIVEN
+        String token = "token";
+        PasswordDTO passwordDTO = new PasswordDTO();
+        passwordDTO.setToken(token);
+        PasswordToken expectedToken = new PasswordToken(token);
+        expectedToken.setExpirationTime(new Date(Calendar.getInstance().getTime().getTime() + 100));
+        when(passwordTokenRepository.findByToken(token)).thenReturn(expectedToken);
+
+        //WHEN
+        EmailNotFoundException actualException = assertThrows(EmailNotFoundException.class,() -> {
+            userService.changePassword(passwordDTO);
+        });
+        //THEN
+        assertEquals("Email not found", actualException.getMessage());
+    }
+
+    @Test
+    void shouldReturnExistingUser1()
     {
         // GIVEN
-        String email = "username@mail-provider.com";
+        String email = "mc1@provider.com";
+        User expectedResult = new User("main-character", "mc1@provider.com", "password");
+        expectedResult.setId("id");
+        when(userRepository.findByEmail(email)).thenReturn(expectedResult);
+
         // WHEN
+        var actualResult = userService.findUserByUsername(email);
+        // THEN
+        assertEquals(expectedResult.getId(), actualResult.getId());
+    }
+
+    @Test
+    void shouldReturnNullUser1()
+    {
+        // GIVEN
+        String email = "username@provider.com";
         when(userRepository.findByEmail(email)).thenReturn(null);
+
+        // WHEN
+        var actualResult = userService.findUserByEmail(email);
         // THEN
-        assertNull(userService.findUserByEmail(email));
+        assertNull(actualResult);
     }
 
-    // loadUserByUsername() Tests
     @Test
-    void given_existing_username_loadUserByUsername_should_return_user_details()
+    void shouldReturnExistingUser2()
+    {
+        //GIVEN
+        String username = "main-character";
+        User expectedResult = new User("main-character", "mc1@provider.com", "password");
+        expectedResult.setId("id");
+        when(userRepository.findByUsername(username)).thenReturn(expectedResult);
+
+        // WHEN
+        var actualResult = userService.findUserByUsername(username);
+        // THEN
+        assertEquals(expectedResult.getId(), actualResult.getId());
+    }
+
+    @Test
+    void shouldReturnNullUser2()
     {
         // GIVEN
         String username = "username";
-        // WHEN
-        when(userRepository.findByUsername(username)).thenReturn(new User("username",
-                "username@mail-provider.com", "secret_password"));
-        // THEN
-        assertTrue(userService.loadUserByUsername(username).getUsername().equalsIgnoreCase(username));
-    }
-
-    // findUserByUsername() Tests
-    @Test
-    void given_existing_username_findUserByUsername_should_return_user()
-    {
-        String username = "username";
-        // WHEN
-        when(userRepository.findByUsername(username)).thenReturn(new User("username",
-                "username@mail-provider.com", "secret_password"));
-        // THEN
-        User foundUser = userService.findUserByUsername(username);
-        assertTrue(foundUser.getUsername().equalsIgnoreCase(username) &&
-                foundUser.getEmail().equalsIgnoreCase("username@mail-provider.com"));
-    }
-    @Test
-    void given_non_existing_username_findUserByUsername_should_return_null()
-    {
-        // GIVEN
-        String username = "username";
-        // WHEN
         when(userRepository.findByUsername(username)).thenReturn(null);
+        // WHEN
+        var actualResult = userService.findUserByUsername(username);
         // THEN
-        assertNull(userService.findUserByUsername(username));
+        assertNull(actualResult);
     }
 }
