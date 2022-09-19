@@ -4,6 +4,7 @@ import com.ticp.dto.CheckpointDTO;
 import com.ticp.mapper.CheckpointMapper;
 import com.ticp.mapper.ConcreteMapperFactory;
 import com.ticp.model.Checkpoint;
+import com.ticp.model.User;
 import com.ticp.repository.CheckpointRepository;
 import com.ticp.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CheckpointServiceImplTest {
+class CheckpointServiceImplTest
+{
 
     @Mock
     private CheckpointRepository checkpointRepository;
@@ -39,73 +41,53 @@ class CheckpointServiceImplTest {
     @InjectMocks
     private CheckpointServiceImpl checkpointServiceImpl;
 
-    /*@Test
-    void giving_existing_checkpoint_id_should_return_correct_checkpoint(){
+    @Test
+    void shouldReturnCorrectCheckpoint()
+    {
 
-        // Giving
+        //GIVEN
         String id = "checkpoint-id";
-        Checkpoint checkpoint = new Checkpoint(id, null, null, null);
-        CheckpointDTO checkpointDTO = new CheckpointDTO(id, null, null, null, null);
+        Checkpoint checkpoint = new Checkpoint(id, "user id", new Date());
+        CheckpointDTO expectedCheckpointDTO = new CheckpointDTO(id, "main-character", "content", "now");
 
         when(checkpointRepository.findById(id)).thenReturn(Optional.of(checkpoint));
         doReturn(checkpointMapper).when(mapperFactory).getMapper(Checkpoint.class);
-        when(checkpointMapper.toDTO(checkpoint)).thenReturn(checkpointDTO);
+        when(checkpointMapper.toDTO(checkpoint)).thenReturn(expectedCheckpointDTO);
 
-        // When
-        CheckpointDTO returnedCheckpoint = checkpointServiceImpl.getCheckpointById(id);
-
-        //Then
-        verify(mapperFactory).getMapper(Checkpoint.class);
-        verify(checkpointRepository).findById(id);
-        assertEquals(id, returnedCheckpoint.getId());
-
+        //WHEN
+        CheckpointDTO actualCheckpointDTO = checkpointServiceImpl.getCheckpointById(id);
+        //THEN
+        assertEquals(id, actualCheckpointDTO.getId());
     }
 
     @Test
-    void giving_non_existing_checkpoint_id_should_throw_response_status_exception(){
-        // Giving
+    void shouldThrowResponseStatusException()
+    {
+        //GIVEN
         String id = "checkpoint-id";
         String expectedResponse = String.format("Checkpoint with id = %s not found", id);
         int expectedStatusCode = 404;
         when(checkpointRepository.findById(id)).thenReturn(Optional.empty());
 
-        // When
-
-        // Then
-        ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
+        //WHEN
+        ResponseStatusException actualException = assertThrows(ResponseStatusException.class, () -> {
             checkpointServiceImpl.getCheckpointById(id);
         });
-        assertEquals(exception.getReason(), expectedResponse);
-        assertEquals(exception.getRawStatusCode(), expectedStatusCode);
+        //THEN
+        assertEquals(expectedResponse,actualException.getReason());
+        assertEquals(expectedStatusCode, actualException.getRawStatusCode());
     }
 
     @Test
-    void giving_null_id_should_throw_bad_argument_exception(){
-        // Giving
-        String id = null;
-        String expectedResponse = String.format("Checkpoint with id = %s not found", id);
-        int expectedStatusCode = 404;
-        when(checkpointRepository.findById(id)).thenReturn(Optional.empty());
+    void shouldCreateCheckpoint()
+    {
 
-        // When
-
-        // Then
-        ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            checkpointServiceImpl.getCheckpointById(id);
-        });
-        assertEquals(exception.getReason(), expectedResponse);
-        assertEquals(exception.getRawStatusCode(), expectedStatusCode);
-    }
-
-    @Test
-    void giving_a_valid_checkpoint_dto_object_should_create_a_checkpoint(){
-
-        // Giving
-        Date d = new Date();
-        CheckpointDTO checkpointDTO = new CheckpointDTO(null, "username", "content-checkpoint", d, null);
-        Checkpoint checkpoint = new Checkpoint(null, "content-checkpoint", "username-id", d);
-        Checkpoint persistedCheckpoint = new Checkpoint("checkpoint-id", "content-checkpoint", "username-id", d);
-        CheckpointDTO persistedCheckpointDTO = new CheckpointDTO("checkpoint-id", "username", "content-checkpoint", d, null);
+        //GIVEN
+        CheckpointDTO checkpointDTO = new CheckpointDTO(null, "username", "content-checkpoint", null);
+        Checkpoint checkpoint = new Checkpoint("content-checkpoint", "username-id", new Date());
+        Checkpoint persistedCheckpoint = new Checkpoint("content-checkpoint", "username-id", new Date());
+        persistedCheckpoint.setId("checkpoint-id");
+        CheckpointDTO persistedCheckpointDTO = new CheckpointDTO("checkpoint-id", "username", "content-checkpoint", "now");
 
         when(checkpointRepository.save(checkpoint)).thenReturn(persistedCheckpoint);
         doReturn(checkpointMapper).when(mapperFactory).getMapper(Checkpoint.class);
@@ -113,39 +95,50 @@ class CheckpointServiceImplTest {
         when(checkpointMapper.toDTO(persistedCheckpoint)).thenReturn(persistedCheckpointDTO);
         when(userRepository.existsByUsername(checkpointDTO.getUsername())).thenReturn(true);
 
-        // When
-        CheckpointDTO createdCheckpointDTO = checkpointServiceImpl.createCheckpoint(checkpointDTO);
-
-        // Then
-        verify(checkpointRepository).save(checkpoint);
-        assertEquals(createdCheckpointDTO.getId(), persistedCheckpointDTO.getId());
+        //WHEN
+        CheckpointDTO actualCheckpointDTO = checkpointServiceImpl.createCheckpoint(checkpointDTO);
+        //THEN
+        assertEquals(persistedCheckpointDTO.getId(), actualCheckpointDTO.getId());
     }
 
     @Test
-    void giving_checkpoint_id_should_call_repository_delete(){
-        // Giving
-        String id = "checkpoint-id";
-        // When
-        checkpointRepository.deleteById(id);
-        // Then
-        verify(checkpointRepository).deleteById(id);
+    void shouldThrowNotFoundResponseStatus()
+    {
+        //GIVEN
+        String username = "username";
+        String id = "id";
+        int expectedStatusCode = 404;
+        String expectedErrorReason = String.format("User with username = %s not found", username);
+        when(userRepository.findByUsername(username)).thenReturn(null);
+
+        //WHEN
+        var actualException = assertThrows(ResponseStatusException.class, () -> {
+            checkpointServiceImpl.deleteUserCheckpointById(id, username);
+        });
+        //THEN
+        assertEquals(expectedStatusCode, actualException.getRawStatusCode());
+        assertEquals(expectedErrorReason, actualException.getReason());
     }
 
     @Test
-    void giving_non_existing_user_id_should_return_empty_checkpoints_list(){
+    void shouldThrowForbiddenResponseStatus()
+    {
+        //GIVEN
+        String username = "username";
+        String id = "id";
+        User persistedUser = new User(username, "username@provider.com", "password");
+        persistedUser.setId("user-id-1");
+        Checkpoint persistedCheckpoint = new Checkpoint("content", "user-id-2", new Date());
+        int expectedStatusCode = 403;
 
-        //Giving
-        String userId = "userId";
-        List<Checkpoint> checkpoints = List.of();
+        when(userRepository.findByUsername(username)).thenReturn(persistedUser);
+        when(checkpointRepository.findById(id)).thenReturn(Optional.of(persistedCheckpoint));
 
-        when(checkpointRepository.findAllByUserId(userId)).thenReturn(checkpoints);
-
-        // When
-        List<CheckpointDTO> returnedCheckpoints = checkpointServiceImpl.getCheckpointsByUser(userId);
-
-        // Then
-        verify(checkpointRepository).findAllByUserId(userId);
-        assertEquals(returnedCheckpoints.size(), 0);
-    }*/
-
+        //WHEN
+        var actualException = assertThrows(ResponseStatusException.class, () ->{
+            checkpointServiceImpl.deleteUserCheckpointById(id, username);
+        });
+        //THEN
+        assertEquals(expectedStatusCode, actualException.getRawStatusCode());
+    }
 }

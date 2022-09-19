@@ -134,7 +134,7 @@ class UserServiceImplTest
         when(userRepository.findByEmail(email)).thenReturn(expectedResult);
 
         // WHEN
-        var actualResult = userService.findUserByUsername(email);
+        var actualResult = userService.findUserByEmail(email);
         // THEN
         assertEquals(expectedResult.getId(), actualResult.getId());
     }
