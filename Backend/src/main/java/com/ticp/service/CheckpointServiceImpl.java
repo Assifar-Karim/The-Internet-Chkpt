@@ -94,12 +94,19 @@ public class CheckpointServiceImpl implements CheckpointService{
     @Override
     public void deleteUserCheckpointById(String id, String username) {
         User fetchedUser = userRepository.findByUsername(username);
-        Checkpoint checkpoint = checkpointRepository.findById(id).get();
+        if(fetchedUser == null)
+        {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    String.format("User with username = %s not found", username)
+            );
+        }
+        checkpointRepository.findById(id).ifPresent(checkpoint -> {
+            if ( !fetchedUser.getId().equals(checkpoint.getUserId()) )
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 
-        if ( !fetchedUser.getId().equals(checkpoint.getUserId()) )
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-
-        checkpointRepository.deleteById(id);
+            checkpointRepository.deleteById(id);
+        });
     }
 
     @Override
