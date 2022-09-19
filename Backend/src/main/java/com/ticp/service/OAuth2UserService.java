@@ -60,8 +60,7 @@ public class OAuth2UserService extends DefaultOAuth2UserService
             {
                 if(!user.getProvider().equalsIgnoreCase(userRequest.getClientRegistration().getRegistrationId()))
                 {
-                    logger.error("You signed up with your " + user.getProvider() + " account. Please use your " + user.getProvider()
-                            + "instead");
+                    logger.error("User {} signed up with {} but tried to login using another provider", user.getUsername(), user.getProvider());
                     throw new OAuth2AuthenticationException(
                             "You signed up with your " + user.getProvider() + " account. Please use your " + user.getProvider()
                                     + "instead");

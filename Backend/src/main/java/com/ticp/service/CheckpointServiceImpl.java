@@ -48,6 +48,7 @@ public class CheckpointServiceImpl implements CheckpointService{
     public CheckpointDTO createCheckpoint(CheckpointDTO checkpointDTO) {
 
         if ( ! userRepository.existsByUsername(checkpointDTO.getUsername()) ) {
+           logger.warn("Non existing user tried to create a checkpoint !");
            throw new ResponseStatusException(
                    HttpStatus.NOT_FOUND,
                    String.format("User with username = %s not found", checkpointDTO.getUsername()));
@@ -79,7 +80,7 @@ public class CheckpointServiceImpl implements CheckpointService{
         return toDTO(checkpointRepository
                         .findById(id)
                         .orElseThrow(() ->{
-                            logger.error("Checkpoint with id = "+id+" not found");
+                            logger.error("Checkpoint with id = {} was not found in the db", id);
                             return new ResponseStatusException(
                                     HttpStatus.NOT_FOUND,
                                     String.format("Checkpoint with id = %s not found", id));
@@ -96,15 +97,17 @@ public class CheckpointServiceImpl implements CheckpointService{
         User fetchedUser = userRepository.findByUsername(username);
         if(fetchedUser == null)
         {
+            logger.warn("Non existing user tried to delete a checkpoint !");
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
                     String.format("User with username = %s not found", username)
             );
         }
         checkpointRepository.findById(id).ifPresent(checkpoint -> {
-            if ( !fetchedUser.getId().equals(checkpoint.getUserId()) )
+            if ( !fetchedUser.getId().equals(checkpoint.getUserId()) ) {
+                logger.warn("User {} tried to delete one of User {}'s checkpoints", fetchedUser.getId(), checkpoint.getUserId());
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-
+            }
             checkpointRepository.deleteById(id);
         });
     }
