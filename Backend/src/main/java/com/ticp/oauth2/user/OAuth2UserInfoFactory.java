@@ -18,7 +18,7 @@ public class OAuth2UserInfoFactory
         }
         else
         {
-            logger.warn("Login with " + registrationId + "is not supported yet !");
+            logger.warn("User tried to login with {} which isn't supported yet", registrationId);
             throw new OAuth2AuthenticationException("Login with " + registrationId + "is not supported yet !");
         }
     }

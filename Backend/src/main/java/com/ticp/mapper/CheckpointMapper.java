@@ -32,7 +32,7 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
         User fetchedUser = userRepository.findByUsername(checkpointDTO.getUsername());
         if(fetchedUser == null)
         {
-            logger.error("User with username="+checkpointDTO.getUsername()+" not found");
+            logger.error("User with username = {} was not found in the db", checkpointDTO.getUsername());
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
                     String.format("User with username=%s not found", checkpointDTO.getUsername())
@@ -54,7 +54,7 @@ public class CheckpointMapper implements Mapper<Checkpoint, CheckpointDTO>{
         User fetchedUser = userRepository
                 .findById(model.getUserId())
                 .orElseThrow(() -> {
-                    logger.error("User with id= "+model.getUserId()+" not found");
+                    logger.error("User with id = {} was not found in the db", model.getUserId());
                     return new ResponseStatusException(
                             HttpStatus.NOT_FOUND,
                             String.format("User with id=%s not found", model.getUserId()));
