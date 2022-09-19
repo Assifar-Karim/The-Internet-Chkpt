@@ -7,8 +7,10 @@ import com.ticp.service.CheckpointService;
 import com.ticp.service.UserService;
 import com.ticp.service.PublishingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
@@ -46,6 +48,13 @@ public class CheckpointController {
     public List<CheckpointDTO> fetchLoggedUserCheckpoints(Principal principal)
     {
         User user = userService.findUserByUsername(principal.getName());
+        if(user == null)
+        {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    String.format("User with username = %s not found", principal.getName())
+            );
+        }
         return checkpointService.getCheckpointsByUser(user.getId());
     }
 
@@ -59,6 +68,13 @@ public class CheckpointController {
     @GetMapping("/checkpoints/user/{username}")
     public List<CheckpointDTO> getUserCheckpoints(@PathVariable String username){
         User user = userService.findUserByUsername(username);
+        if(user == null)
+        {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    String.format("User with username = %s not found", username)
+            );
+        }
         return checkpointService.getCheckpointsByUser(user.getId());
     }
 

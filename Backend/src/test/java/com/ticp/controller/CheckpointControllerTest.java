@@ -1,7 +1,5 @@
 package com.ticp.controller;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.ticp.dto.CheckpointDTO;
@@ -22,10 +20,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -38,6 +34,8 @@ class CheckpointControllerTest
     private MockMvc mockMvc;
     @Mock
     private CheckpointService checkpointService;
+    @Mock
+    private UserService userService;
     @Mock
     private PublishingService publishingService;
     @InjectMocks
@@ -105,5 +103,45 @@ class CheckpointControllerTest
         //THEN
                 .andExpect(status().isNotFound())
                 .andExpect(status().reason("Checkpoint with id = id not found"));
+    }
+
+    @Test
+    public void shouldReturnUserCheckpoints() throws Exception
+    {
+        //GIVEN
+        String username = "main-character";
+        User expectedUser = new User(username, "mc1@provider.com", "password");
+        expectedUser.setId("id");
+        List<CheckpointDTO> expectedCheckpoints = List.of(
+                new CheckpointDTO("chkpt-1", "main-character", "content", "now"),
+                new CheckpointDTO("chkpt-2", "main-character", "content 2", "1 hour ago")
+        );
+        ObjectWriter objectWriter = new ObjectMapper().writer();
+        String expectedResponse = objectWriter.writeValueAsString(expectedCheckpoints);
+
+        when(userService.findUserByUsername(username)).thenReturn(expectedUser);
+        when(checkpointService.getCheckpointsByUser(expectedUser.getId())).thenReturn(expectedCheckpoints);
+
+        //WHEN
+        mockMvc.perform(get("/checkpoints/user/".concat(username)).characterEncoding(StandardCharsets.UTF_8))
+                .andDo(print())
+        //THEN
+                .andExpect(status().isOk())
+                .andExpect(content().json(expectedResponse));
+    }
+
+    @Test
+    public void shouldReturnUserNotFound() throws Exception
+    {
+        //GIVEN
+        String username = "main-character";
+        when(userService.findUserByUsername(username)).thenReturn(null);
+
+        //WHEN
+        mockMvc.perform(get("/checkpoints/user/".concat(username)).characterEncoding(StandardCharsets.UTF_8))
+                .andDo(print())
+        //THEN
+                .andExpect(status().isNotFound())
+                .andExpect(status().reason("User with username = main-character not found"));
     }
 }
