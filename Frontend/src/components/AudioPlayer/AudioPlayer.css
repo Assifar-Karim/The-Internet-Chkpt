@@ -1,0 +1,21 @@
+.Player-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b2b2b2;
+    padding: 7px 10px;
+    border-radius: 9px;
+    width: 25%;
+    opacity: 75%;
+  }
+  .Player-container img {
+    cursor: pointer;
+  }
+  .prev,
+  .next {
+    width: 35px;
+  }
+  .play {
+    width: 35px;
+  }
+  

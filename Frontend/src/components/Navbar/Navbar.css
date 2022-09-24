@@ -36,24 +36,3 @@
   width: 200px;
   height: 50px;
 }
-
-.Player-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 7px 10px;
-  border-radius: 5px;
-  width: 25%;
-  opacity: 90%;
-}
-.Player-container img {
-  cursor: pointer;
-}
-.prev,
-.next {
-  width: 20px;
-}
-.play {
-  width: 25px;
-}

@@ -39,11 +39,7 @@
     background-image: url('../../assets/backgrounds/shovel-knight-bg2.gif');
     background-position: center bottom;
     background-repeat: no-repeat;
-}
-
-.sin-background img{
-    width: 100%;
-    height: 100%;
+    background-size: cover;
 }
 
 .sin-logo img{
@@ -106,19 +102,20 @@
 
 .sin-form button{
     float: left;
-    border-radius: 10px;
+    border-radius: 9px;
+    border: none;
     margin-top: 0;
 }
 
 
 #sin-heading-1{
-/*    text-align: center; */
+    text-align: center;
     color: #fff;
     font-size: 2rem;
 }
 
 #sin-heading-2{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -146,6 +143,6 @@
 
 
 .oauth{
-    padding: 20px 0;
-    border-radius: 10px;
+    padding: 10px 0;
+    border-radius: 9px;
 }

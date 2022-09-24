@@ -15,7 +15,7 @@ const CheckpointCard = ({
 }) => {
   function copyLinkToClipBoard() {
     navigator.clipboard
-      .writeText(`${window.location}/${id}`)
+      .writeText(`${window.location.origin}/checkpoints/${id}`)
       .then(null, function (err) {
         alert("Async: Could not copy text: ", err);
       });

@@ -6,6 +6,12 @@
   padding: 0% 20% 0 20%;
   padding-bottom: 120px;
   margin-top: 32px;
+  flex-direction: column-reverse;
+}
+.background-chkpt img {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
 .footer {
   line-height: 20px;
@@ -19,6 +25,7 @@
 }
 .save-button,
 textarea {
+  resize: vertical;
   width: 100%;
   border: none;
   background-color: transparent;

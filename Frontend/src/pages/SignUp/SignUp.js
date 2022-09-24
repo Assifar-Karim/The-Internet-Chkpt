@@ -7,36 +7,48 @@ import { useState } from "react";
 
 const SignUp = () => {
     const [status, setStatus] = useState({type:''});
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errMsg, setErrMsg] = useState("");
+
     
 
     let history = useHistory();
 
-    const handleSubmit =  (e) => {
+    const handleSubmit =  async e => {
         setStatus({type:''})
         e.preventDefault();
         const email = e.target.form[0].value;
         const username = e.target.form[1].value;
         const password = e.target.form[2].value;
         const registerFormData = {"email":email,"username":username,"password":password};
-        console.log(registerFormData)
         
         // make axios post request
-        axios({
-            method: "post",
-            url: "http://localhost:8080/register",
-            data: registerFormData,
-            headers:{"Content-Type": "application/json"}
-        }).then((res) => {
-            e.target.form[0].value = "";
-            e.target.form[1].value = "";
-            e.target.form[2].value = "";
-            setStatus({ type: 'Success' });
-            console.log(res)
-        }).catch((error) => {
-            setStatus({ type: 'Error'});
-            console.log(error)
-        });;
-          
+        try
+        {
+            const response = await axios.post("/users", registerFormData, {
+                headers: {"Content-Type": "application/json"}
+            });
+            setPassword("");    
+            setStatus({ type: "Success" });
+        }
+        catch(err)
+        {
+            if(!err?.response)
+            {
+                setErrMsg("No server response");
+            }
+            else if(err.response?.status === 409)
+            {
+                setErrMsg(err.response?.data?.message);
+            }
+            else
+            {
+                setErrMsg("Login failed");
+            }
+            setStatus({ type: "Error" });
+        } 
     }
 
     return (
@@ -56,22 +68,22 @@ const SignUp = () => {
                     <form className="sin-form">
                         <div>
                             <label htmlFor="sup-email">EMAIL</label>
-                            <input id="sup-email" type="email"/>
+                            <input id="sup-email" type="email" onChange={e => setEmail(e.target.value)} value={email} required/>
                         </div>
                         <div>
                             <label htmlFor="sup-username">USERNAME</label>
-                            <input id="sup-username" type="text"/>
+                            <input id="sup-username" type="text" onChange={e => setUsername(e.target.value)} value={username} required/>
                         </div>
                         <div>
                             <label htmlFor="sup-password">PASSWORD</label>
-                            <input id="sup-password" type="password"/>
+                            <input id="sup-password" type="password" onChange={e => setPassword(e.target.value)} value={password} required/>
                         </div>
                         <div className="">
                             <button className="btn" type="submit" onClick={handleSubmit}>REGISTER</button>
                         </div>
                     </form>
-                    {status.type === 'Success' &&  <div className="alert success">Registration Succeed </div>}
-                    {status.type ===  'Error'  &&  <div className="alert error">Registration Failed</div>}
+                    {status.type === 'Success' &&  <div className="alert success">Registration Succeeded. Please verify your account !</div>}
+                    {status.type ===  'Error'  &&  <div className="alert error">{errMsg}</div>}
                 </div>
             </div>
         </div>

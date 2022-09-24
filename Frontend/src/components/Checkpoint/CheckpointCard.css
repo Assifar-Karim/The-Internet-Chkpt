@@ -38,3 +38,7 @@
   grid-template-columns: 20% 50% 20% 20%;
   align-items: center;
 }
+
+.share-icon {
+  cursor: pointer;
+}
