@@ -5,10 +5,20 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./MainPage.css";
 import { routes } from "../../Routes";
 import { useHistory } from "react-router-dom";
+import useUser from "../../hooks/useUser";
+import { useEffect } from "react";
 
 
 const MainPage = () => {
   let history = useHistory();
+  const user = useUser()[0];
+
+  useEffect(() => {
+    if(user)
+    {
+      history.push("/checkpoints")
+    }
+  },[user]);
 
   return (
     <>

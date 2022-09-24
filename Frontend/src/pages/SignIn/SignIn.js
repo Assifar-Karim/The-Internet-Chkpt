@@ -2,9 +2,9 @@ import logo from "../../assets/icons/Internet-Checkpoint-logo-cropped.gif";
 import "./SignIn.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../context/UserContext";
+import { useEffect, useState } from "react";
 import GoogleLogo from "../../assets/icons/google_pa.png";
+import useUser from "../../hooks/useUser";
 
 const SignIn = () => {
   let uri =
@@ -16,62 +16,74 @@ const SignIn = () => {
     ":3000/checkpoints";
 
   let history = useHistory();
-  const User = useContext(UserContext)[0];
-  const setUser = useContext(UserContext)[1];
+  const user = useUser()[0];
+  const setUser = useUser()[1];
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
-    if (User) {
-      history.push("/");
+    if (user) {
+      history.push("/checkpoints");
     }
-  }, [User]);
+  }, [user]);
 
   const redirectToSignUP = () => {
     history.push("/sign-up");
   };
 
-  const handleNormalSubmit = (e) => {
+  const handleNormalSubmit = async (e) => {
     e.preventDefault();
     let bodyFormData = new FormData();
-    bodyFormData.append("username", e.target.form[0].value);
-    bodyFormData.append("password", e.target.form[1].value);
-
-    // make axios post request
-    axios({
-      method: "post",
-      url: "/login",
-      data: bodyFormData,
-    })
-      .then((res) => {
-        localStorage.setItem("token", res.data["access_token"]);
-        setUser(true);
-        history.push("/checkpoints");
-      })
-      .catch((err) => {
-        console.log(err);
+    bodyFormData.append("username", username);
+    bodyFormData.append("password", password);
+    try
+    {
+      const response = await axios.post("/login", bodyFormData, {
+        headers: {"Content-Type": "application/json"},
+        withCredentials: true
       });
+      const accessToken = response?.data["access_token"];
+      const refreshToken = response?.data["refresh_token"];
+      setUser({accessToken});
+      localStorage.setItem("token", refreshToken);
+      history.push("/checkpoints");
+    }
+    catch(err)
+    {
+      if(!err?.response)
+      {
+        setErrMsg("NO SERVER RESPONSE");
+      }
+      else if(err.response?.status === 401)
+      {
+        setErrMsg("INVALID USERNAME OR PASSWORD");
+      }
+      else
+      {
+        setErrMsg("LOGIN FAILED");
+      }
+    }
   };
 
   return (
     <>
       <div className="wrapper">
-        <div className="sin-background">
-          {/* <img src={background} alt="knight alone in the woods sitting in front of fire"/> */}
-        </div>
-
+        <div className="sin-background"></div>
         <div className="sin-side-bar">
           <div className="sin-logo" onClick={() => history.push("/")}>
             <img src={logo} alt="TICP Logo" />
           </div>
           <div className="sin-content">
-            <div id="sin-heading-1">LOG IN TO YOUR ACCOUNT</div>
+            <div id="sin-heading-1">{errMsg === "" ? "LOG IN TO YOUR ACCOUNT" : errMsg}</div>
             <form className="sin-form">
               <div>
                 <label htmlFor="username">USERNAME</label>
-                <input id="username" type="text" />
+                <input id="username" type="text" onChange={e => setUsername(e.target.value)} value={username} required />
               </div>
               <div>
                 <label htmlFor="password">PASSWORD</label>
-                <input id="password" type="password" />
+                <input id="password" type="password" onChange={e => setPassword(e.target.value)} value={password} required/>
               </div>
               <div className="">
                 <button

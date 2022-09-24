@@ -26,7 +26,7 @@ export const routes = [
     title: "My checkpoints",
     segment: "/my-checkpoints",
     component: MyCheckpoints,
-    renderToNav: true,
+    renderToNav: false,
   },
   {
     title: "User' checkpoint",

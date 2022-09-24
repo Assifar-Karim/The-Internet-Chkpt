@@ -8,6 +8,7 @@ import com.ticp.oauth2.handler.OAuth2AuthenticationSuccessHandler;
 import com.ticp.repository.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.ticp.service.OAuth2UserService;
 import com.ticp.util.JwtTokenUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     private OAuth2UserService oAuth2UserService;
     private OAuth2AuthenticationSuccessHandler successHandler;
     private OAuth2AuthenticationFailureHandler failureHandler;
+    @Value("${ticp.configs.allowed-origin}")
+    private String allowedOrigin;
 
     public SecurityConfig(UserDetailsService userDetailsService, BCryptPasswordEncoder passwordEncoder,
                           JwtTokenUtil jwtTokenUtil, OAuth2UserService oAuth2UserService,
@@ -98,9 +101,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Bean
     protected CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("*"));
+        configuration.setAllowedOrigins(Collections.singletonList(allowedOrigin));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT", "PATCH"));
-        configuration.setAllowedHeaders(Collections.singletonList("*"));
+        configuration.setAllowedHeaders(Collections.singletonList(allowedOrigin));
+        configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

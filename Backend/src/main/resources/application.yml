@@ -42,3 +42,4 @@ authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/
 ticp:
   configs:
     date_format: "yyyy.MM.dd 'at' HH:mm:ss"
+    allowed-origin: http://localhost:3000

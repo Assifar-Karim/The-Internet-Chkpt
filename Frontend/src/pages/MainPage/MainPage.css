@@ -36,6 +36,8 @@
     margin-top: 1em;
     margin-right: 1.5em;
     cursor: pointer;
+    border: none;
+    border-radius: 9px;
 
 }
 .content button:active {
