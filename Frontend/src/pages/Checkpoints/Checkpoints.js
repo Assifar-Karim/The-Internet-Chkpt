@@ -30,7 +30,7 @@ export default function Checkpoints() {
   
   
   async function fetchCheckpoints() {
-    return await axios.get(`/checkpoints`).then((res) => {
+    return await axios.get(`/back/checkpoints`).then((res) => {
       return res.data;
     });
   }
@@ -49,7 +49,7 @@ export default function Checkpoints() {
   useEffect(() => {
     if(user && wsData)
     {
-      const ws = new SockJS("http://localhost:8080/ws-checkpoints");
+      const ws = new SockJS(process.env.NODE_ENV === "production" ? "/ws-checkpoints" : "http://localhost:8080/ws-checkpoints");
       const stompClient = Stomp.over(ws);
       stompClient.debug = null;
       stompClient.connect({"token": user.accessToken}, frame => {
@@ -77,7 +77,7 @@ export default function Checkpoints() {
     {
       try
       {
-        const response = await axiosPrivate.post("/api/checkpoints", {"content": content});
+        const response = await axiosPrivate.post("/back/api/checkpoints", {"content": content});
         setContent("");
 
       }

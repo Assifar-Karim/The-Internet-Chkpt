@@ -16,7 +16,7 @@ export default function SharedCheckpoint() {
 
   useEffect(() => {
     axios
-      .get(`/checkpoints/${params.id}`)
+      .get(`/back/checkpoints/${params.id}`)
       .then((res) => setCheckpoints(res.data))
       .catch((err) => history.push("/404"));
   }, []);
