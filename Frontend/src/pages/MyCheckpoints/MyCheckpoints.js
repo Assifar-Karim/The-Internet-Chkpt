@@ -21,7 +21,7 @@ export default function MyCheckpoints() {
       {
         try
         {
-          const response = await axios.get(`/checkpoints/user/${params.username}`);
+          const response = await axios.get(`/back/checkpoints/user/${params.username}`);
           setData(response?.data);  
         }
         catch(err)
@@ -34,7 +34,7 @@ export default function MyCheckpoints() {
       {
         try
         {
-          const response = await privateAxios.get("/api/checkpoints/my-checkpoints");
+          const response = await privateAxios.get("/back/api/checkpoints/my-checkpoints");
           setData(response?.data);
         }
         catch(err)

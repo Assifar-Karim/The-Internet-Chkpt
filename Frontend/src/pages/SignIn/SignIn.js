@@ -7,13 +7,7 @@ import GoogleLogo from "../../assets/icons/google_pa.png";
 import useUser from "../../hooks/useUser";
 
 const SignIn = () => {
-  let uri =
-    process.env.REACT_APP_BASE_URL +
-    "/oauth2/authorize/google?redirect_uri=" +
-    process.env.REACT_APP_BASE_URL.split(":")[0] +
-    ":" +
-    process.env.REACT_APP_BASE_URL.split(":")[1] +
-    ":3000/checkpoints";
+  let uri = `/oauth2/authorize/google?redirect_uri=${window.location.origin}/checkpoints`;
 
   let history = useHistory();
   const user = useUser()[0];
@@ -39,7 +33,7 @@ const SignIn = () => {
     bodyFormData.append("password", password);
     try
     {
-      const response = await axios.post("/login", bodyFormData, {
+      const response = await axios.post("/back/login", bodyFormData, {
         headers: {"Content-Type": "application/json"},
         withCredentials: true
       });

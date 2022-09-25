@@ -27,7 +27,7 @@ const SignUp = () => {
         // make axios post request
         try
         {
-            const response = await axios.post("/users", registerFormData, {
+            const response = await axios.post("/back/users", registerFormData, {
                 headers: {"Content-Type": "application/json"}
             });
             setPassword("");    
