@@ -5,8 +5,8 @@ server:
 # NOTE : the database and account must be switched to production when deploying to the production cluster
 spring:
   redis:
-    host: localhost
-    port: 6379
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
   data:
     mongodb:
       uri: mongodb+srv://${MONGO_DB_USERNAME}:${MONGO_DB_PASSWORD}@c0.tec6qnx.mongodb.net/${ENVIRONMENT}
@@ -42,4 +42,4 @@ authorizedRedirectUrls: http://localhost/oauth2/redirect, http://localhost:8080/
 ticp:
   configs:
     date_format: "yyyy.MM.dd 'at' HH:mm:ss"
-    allowed-origin: http://localhost:3000
+    allowed-origin: ${CORS_ALLOWED_ORIGIN}

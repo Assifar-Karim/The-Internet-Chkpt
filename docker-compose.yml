@@ -1,11 +1,15 @@
-version: "3.9" # optional since v1.27.0
+# This is a docker compose local test environment for a no replication environment setup
+version: "3.9"
 services:
-  ticp_back:
-    build:
-      context: ./Backend/
-      dockerfile: Dockerfile
+  redis:
+    image: redis:7.0.5
+  
+  backend:
+    build: ./Backend
+    depends_on:
+      - redis
     ports:
-      - "8081:8080"
+      - "8080:8080"
     environment:
       MONGO_DB_USERNAME: $MONGO_DB_USERNAME
       MONGO_DB_PASSWORD: $MONGO_DB_PASSWORD
@@ -14,19 +18,19 @@ services:
       GOOGLE_CLIENT_SECRET: $GOOGLE_CLIENT_SECRET
       GOOGLE_OAUTH2_CLIENT_ID: $GOOGLE_OAUTH2_CLIENT_ID
       ENVIRONMENT: development
-    networks:
-      - back-network
-  ticp_front:
-    build:
-      context: ./Frontend/
-      dockerfile: Dockerfile
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CORS_ALLOWED_ORIGIN: http://localhost # NOTE (KARIM) : Use the public domain name of the site
+    volumes:
+      - backend_logs:/ticp/The-Internet-Chkpt
+  
+  frontend:
+    build: ./Frontend
     depends_on:
       - backend
     ports:
       - "80:80"
-    networks:
-      - front-network
-      - back-network
-networks:
-  front-network: {}
-  back-network: {}
+    environment:
+      SERVER_LOCATION: http://backend:8080
+volumes:
+  backend_logs:
