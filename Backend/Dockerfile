@@ -7,16 +7,15 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 
-RUN ./mvnw compile
-RUN ./mvnw package -Dmaven.test.skip
+RUN ./mvnw install -DskipTests
 
 # Execution Stage
 FROM openjdk:11-jre
 
-VOLUME /tmp
-
 RUN mkdir ticp
 WORKDIR /ticp
+
+VOLUME /ticp/The-Internet-Chkpt
 
 COPY --from=build /workspace/app/target/the-internet-checkpoint-1.0.0.jar ./target/the-internet-checkpoint-1.0.0.jar
 
