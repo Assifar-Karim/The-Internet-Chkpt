@@ -1,0 +1,85 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ticp-backend
+  name: backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ticp-backend
+  template:
+    metadata:
+      labels:
+        app: ticp-backend
+    spec:
+      containers:
+      - env:
+        - name: MONGO_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: mongo-user
+              name: ticp-secret
+        - name: MONGO_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password-1
+              name: ticp-secret
+        - name: JWT_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              key: secret-1
+              name: ticp-secret
+        - name: MAIL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password-2
+              name: ticp-secret
+        - name: GOOGLE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: secret-2
+              name: ticp-secret
+        - name: GOOGLE_OAUTH2_CLIENT_ID
+          valueFrom:
+            configMapKeyRef:
+              key: id
+              name: ticp-config
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              key: env
+              name: ticp-config
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: redis-host
+              name: ticp-config
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: redis-port
+              name: ticp-config
+        - name: CORS_ALLOWED_ORIGIN
+          valueFrom:
+            configMapKeyRef:
+              key: allowed-origin
+              name: ticp-config
+        image: registry.cloud.okteto.net/assifar-karim/ticp-back:1.0.0
+        name: ticp-back
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  ports:
+  - nodePort: 30200
+    port: 8080
+  selector:
+    app: ticp-backend
+  type: NodePort

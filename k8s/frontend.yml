@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: ticp-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ticp-frontend
+  template:
+    metadata:
+      labels:
+        app: ticp-frontend
+    spec:
+      containers:
+      - name: ticp-front
+        image: registry.cloud.okteto.net/assifar-karim/ticp-front:1.0.0
+        ports:
+        - containerPort: 80
+        env:
+        - name: SERVER_LOCATION
+          valueFrom:
+            configMapKeyRef:
+              name: ticp-config
+              key: backend-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: ticp-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30100
