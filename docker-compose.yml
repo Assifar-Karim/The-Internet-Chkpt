@@ -32,5 +32,6 @@ services:
       - "80:80"
     environment:
       SERVER_LOCATION: http://backend:8080
+      OAUTH2_PROXY : http://localhost:8080
 volumes:
   backend_logs:
